@@ -1,5 +1,12 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import styled from 'styled-components'
+
+import { Button } from '../components'
+
+const HelloWorld = styled.div`
+  color: red;
+`
 
 const Home: NextPage = () => {
   return (
@@ -11,7 +18,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <div>Hello Kukkubukku!</div>
+        <HelloWorld>Hello Kukkubukku!</HelloWorld>
+        <Button type={Button.TYPE.PRIMARY}>Button</Button>
       </main>
     </div>
   )
