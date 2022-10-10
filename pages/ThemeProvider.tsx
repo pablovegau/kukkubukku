@@ -3,7 +3,7 @@
 import { createContext } from "react";
 import { useTheme } from "../utils/hooks/useTheme";
 
-export const ThemeContext = createContext();
+export const ThemeContext = createContext("light");
 
 export function ThemeProvider(props: any) {
   const { themes, defaultTheme } = props;
