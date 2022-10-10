@@ -8,14 +8,21 @@ export const TYPES = {
   DESTRUCTIVE: "destructive"
 };
 
+interface Props {
+  disabled?: boolean;
+  type?: string;
+  children: React.ReactNode;
+  onClick: () => void;
+}
+
 function Button({
   type = TYPES.SECONDARY,
   children,
   onClick,
   disabled = false
-}) {
+}: Props) {
   return (
-    <Container onClick={onClick} type={type} aria-disabled={disabled}>
+    <Container onClick={onClick} buttonType={type} aria-disabled={disabled}>
       {children}
     </Container>
   );

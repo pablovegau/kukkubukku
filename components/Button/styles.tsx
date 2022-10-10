@@ -2,7 +2,11 @@ import { Button } from "ariakit/button";
 import styled from "styled-components";
 import { rem } from "polished";
 
-const TYPE = {
+interface Types {
+  [key: string]: string;
+}
+
+const TYPE: Types = {
   primary_accent: `
     background-color: var(--kkbk--component--color--background--button--primary-accent--enabled);
     color: var(--kkbk--component--color--text--button--primary-accent--enabled);
@@ -96,7 +100,11 @@ const TYPE = {
   `
 };
 
-export const Container = styled(Button)`
+interface ContainerProps {
+  buttonType: string;
+}
+
+export const Container = styled(Button)<ContainerProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,7 +116,7 @@ export const Container = styled(Button)`
   font-size: 1rem;
   transition: background-color 300ms, color 300ms, border-color 300ms;
 
-  ${(props) => TYPE[props.type]}
+  ${({ buttonType }) => TYPE[buttonType]}
 
   &[aria-disabled="true"],
   &[aria-disabled="true"]:hover {
