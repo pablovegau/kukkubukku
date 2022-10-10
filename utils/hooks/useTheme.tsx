@@ -1,6 +1,8 @@
+// TODO: Fix typescript errors
+
 import { useEffect, useState } from "react";
 
-export const useTheme = (defaultTheme) => {
+export const useTheme = (defaultTheme: any) => {
   const [theme, setTheme] = useState(defaultTheme);
 
   useEffect(() => {

@@ -1,3 +1,5 @@
+// TODO: Fix typescript errors
+
 import { css } from "styled-components";
 
 const SEPARATOR = "--";
@@ -6,17 +8,26 @@ const TOKENS_TYPES = {
   THEME: "theme"
 };
 
-function isObject(obj) {
+// interface Themes {
+//   [key: string]: string;
+// }
+
+// interface Tokens {
+//   [key: string]: Tokens;
+// }
+
+
+function isObject(obj: any) {
   return !!(typeof obj === "object");
 }
 
-function transformTokensToString(tokensObject) {
+function transformTokensToString(tokensObject: any) {
   return Object.entries(tokensObject)
     .map(([key, value]) => `${key}: ${value}`)
     .join("; ");
 }
 
-function processThemeTokens(prefix, tokens, tokensAcc, themesTokens) {
+function processThemeTokens(prefix: any, tokens: any, tokensAcc: any, themesTokens: any) {
   for (const key in tokens) {
     if (isObject(tokens[key])) {
       processThemeTokens(
@@ -31,7 +42,7 @@ function processThemeTokens(prefix, tokens, tokensAcc, themesTokens) {
   }
 }
 
-function processBaseTokens(prefix, tokens, tokensAcc) {
+function processBaseTokens(prefix: any, tokens: any, tokensAcc: any) {
   for (const key in tokens) {
     const newPrefix = prefix + SEPARATOR + key.replace("_", "-").toLowerCase();
     if (isObject(tokens[key])) {
@@ -42,9 +53,13 @@ function processBaseTokens(prefix, tokens, tokensAcc) {
   }
 }
 
-function getThemeTokens(tokens, themes) {
+interface ThemesTokens {
+  [key: string]: string | ThemesTokens;
+};
+
+function getThemeTokens(tokens: any, themes: any) {
   const tokensAcc = {};
-  let themesTokens = {};
+  let themesTokens: ThemesTokens = {};
 
   for (const theme in themes) {
     themesTokens[`${themes[theme]}`] = {};
@@ -67,7 +82,7 @@ function getThemeTokens(tokens, themes) {
   `;
 }
 
-function getBaseTokens(tokens) {
+function getBaseTokens(tokens: any) {
   let tokensAcc = {};
   processBaseTokens("--kkbk", tokens, tokensAcc);
 
@@ -78,8 +93,8 @@ function getBaseTokens(tokens) {
   `;
 }
 
-export function getTokens(tokens, type, themes) {
-  return type === TOKENS_TYPES.THEME
+export function getTokens(tokens: any, type?: any, themes?: any) {
+  return type === TOKENS_TYPES.THEME && themes
     ? getThemeTokens(tokens, themes)
     : getBaseTokens(tokens);
 }

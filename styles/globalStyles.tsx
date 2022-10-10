@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { typography } from "./mixins";
 import { theme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
@@ -62,9 +63,15 @@ export const GlobalStyles = createGlobalStyle`
     --kkbk--font--base: "Roboto", sans-serif;
   }
 
-  body {
-    font-family: var(--kkbk--font--base);
-  }
-
   ${theme}
+
+  body {
+    background: linear-gradient(limegreen, transparent),
+      linear-gradient(90deg, skyblue, transparent),
+      linear-gradient(-90deg, coral, transparent);
+    background-blend-mode: screen;
+    overflow: hidden;
+    font-family: var(--kkbk--font--base);
+    ${typography.text.base};
+  }
 `;
