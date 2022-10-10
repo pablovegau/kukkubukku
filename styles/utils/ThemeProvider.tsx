@@ -1,7 +1,7 @@
 // TODO: Fix typescript errors
 
 import { createContext } from "react";
-import { useTheme } from "../utils/hooks/useTheme";
+import { useTheme } from "../../utils/hooks/useTheme";
 
 export const ThemeContext = createContext("light");
 

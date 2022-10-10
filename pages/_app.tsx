@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import { GlobalStyles } from '../styles/globalStyles'
-import { ThemeProvider } from "./ThemeProvider";
+import { ThemeProvider } from "../styles/utils/ThemeProvider";
 
 export const THEMES = {
   LIGHT: "light",
