@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app'
+import { AppLayout } from 'components/AppLayout'
 import { GlobalStyles } from '../styles/globalStyles'
 import { ThemeProvider } from "../styles/utils/ThemeProvider";
 
@@ -12,7 +13,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <GlobalStyles />
       <ThemeProvider themes={THEMES} defaultTheme={THEMES.LIGHT}>
-        <Component {...pageProps} />
+        <AppLayout>
+          <Component {...pageProps} />
+        </AppLayout>
       </ThemeProvider>
     </>
   )

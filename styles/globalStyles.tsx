@@ -74,4 +74,12 @@ export const GlobalStyles = createGlobalStyle`
     font-family: var(--kkbk--font--base);
     ${typography.text.base};
   }
+
+  html,
+  body,
+  body > div:first-child,
+  div #__next,
+  div #__next > div {
+    height: 100%;
+  }
 `;
