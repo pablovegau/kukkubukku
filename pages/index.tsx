@@ -52,10 +52,6 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const HelloWorld = styled.div`
-  color: red;
-`
-
 const Home: NextPage = () => {
   return (
     <div>
@@ -66,7 +62,6 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <HelloWorld>Hello Kukkubukku!</HelloWorld>
         <Container>
           <CardsCarousel
             cardsData={cardsMockData}
