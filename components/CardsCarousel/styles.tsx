@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { typography } from "../../styles/mixins";
 
-export const Container = styled.div``;
-
 export const SectionHeader = styled.h3`
   margin-bottom: var(--kkbk--spacing--16);
   margin-left: var(--kkbk--spacing--24);
@@ -25,6 +23,7 @@ export const Carousel = styled.div`
 
 export const CardWrapper = styled.div`
   margin-left: var(--kkbk--spacing--24);
+
 
   &:last-child {
     margin-right: var(--kkbk--spacing--24);

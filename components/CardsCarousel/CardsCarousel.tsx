@@ -1,7 +1,7 @@
 import { CardVertical } from "components/CardVertical";
 
 import { Card } from '../CardVertical/CardVertical';
-import { Carousel, Container, CardWrapper, SectionHeader } from "./styles";
+import { Carousel, CardWrapper, SectionHeader } from "./styles";
 
 interface Props {
   cardsData: Card[];
@@ -11,7 +11,7 @@ interface Props {
 
 function CardsCarousel({ cardsData, size = 'small', title }: Props) {
   return (
-    <Container>
+    <>
       <SectionHeader>{title}</SectionHeader>
       <Carousel>
         {cardsData.map((card) => (
@@ -26,7 +26,7 @@ function CardsCarousel({ cardsData, size = 'small', title }: Props) {
           </CardWrapper>
         ))}
       </Carousel>
-    </Container>
+    </>
   );
 }
 

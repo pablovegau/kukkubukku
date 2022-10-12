@@ -66,11 +66,7 @@ export const GlobalStyles = createGlobalStyle`
   ${theme}
 
   body {
-    background: linear-gradient(limegreen, transparent),
-      linear-gradient(90deg, skyblue, transparent),
-      linear-gradient(-90deg, coral, transparent);
-    background-blend-mode: screen;
-    overflow: hidden;
+
     font-family: var(--kkbk--font--base);
     ${typography.text.base};
   }

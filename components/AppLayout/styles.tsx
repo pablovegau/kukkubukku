@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import { getThemeTransition } from 'styles/utils'
-import { breakpoints } from 'styles/constants'
 
 export const Layout = styled.section`
   display: flex;
