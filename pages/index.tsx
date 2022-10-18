@@ -50,6 +50,10 @@ const cardsMockData = [
 
 const Container = styled.div`
   width: 100%;
+
+  > div {
+    margin-bottom: var(--kkbk--spacing--24);
+  }
 `;
 
 const Home: NextPage = () => {
@@ -63,6 +67,31 @@ const Home: NextPage = () => {
 
       <main>
         <Container>
+          <CardsCarousel
+            cardsData={cardsMockData}
+            size={CardsCarousel.CARD_SIZES.SMALL}
+            title="Postres"
+          />
+          <CardsCarousel
+            cardsData={cardsMockData}
+            size={CardsCarousel.CARD_SIZES.SMALL}
+            title="Postres"
+          />
+          <CardsCarousel
+            cardsData={cardsMockData}
+            size={CardsCarousel.CARD_SIZES.SMALL}
+            title="Postres"
+          />
+          <CardsCarousel
+            cardsData={cardsMockData}
+            size={CardsCarousel.CARD_SIZES.SMALL}
+            title="Postres"
+          />
+          <CardsCarousel
+            cardsData={cardsMockData}
+            size={CardsCarousel.CARD_SIZES.SMALL}
+            title="Postres"
+          />
           <CardsCarousel
             cardsData={cardsMockData}
             size={CardsCarousel.CARD_SIZES.SMALL}

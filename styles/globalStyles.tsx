@@ -66,7 +66,6 @@ export const GlobalStyles = createGlobalStyle`
   ${theme}
 
   body {
-
     font-family: var(--kkbk--font--base);
     ${typography.text.base};
   }

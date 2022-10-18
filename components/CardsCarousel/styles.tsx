@@ -4,6 +4,7 @@ import { typography } from "../../styles/mixins";
 export const SectionHeader = styled.h3`
   margin-bottom: var(--kkbk--spacing--16);
   margin-left: var(--kkbk--spacing--24);
+  color: var(--kkbk--color--text--primary);
   font-family: var(--kkbk--font--title);
   ${typography.heading.five}
 `;

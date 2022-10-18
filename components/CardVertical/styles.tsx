@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { typography } from "../../styles/mixins";
-import { getThemeTransition } from "../../styles/utils";
 
 interface Props {
   size: string;
@@ -45,7 +44,6 @@ export const RecipeName = styled.div`
   color: var(--kkbk--color--text--primary);
   ${typography.text.small}
   line-height: 16.8px;
-  transition: ${getThemeTransition({ properties: "color" })};
 
   /* two lines ellipsis */
   text-overflow: ellipsis;

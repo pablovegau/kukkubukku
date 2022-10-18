@@ -3,6 +3,7 @@ import { AppLayout } from 'components/AppLayout'
 import { GlobalStyles } from '../styles/globalStyles'
 import { ThemeProvider } from "../styles/utils/ThemeProvider";
 
+// TODO: Move this to a separate file
 export const THEMES = {
   LIGHT: "light",
   DARK: "dark"

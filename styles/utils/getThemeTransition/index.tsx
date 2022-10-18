@@ -1,6 +1,6 @@
 // TODO: Fix typescript errors
 
-const values = "0.5s ease-in-out";
+const values = "0.3s ease-in-out";
 
 export function getThemeTransition({ properties }: any) {
   if (Array.isArray(properties)) {
