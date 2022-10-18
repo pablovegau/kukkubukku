@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 import { AppLayout } from 'components/AppLayout'
 import { GlobalStyles } from '../styles/globalStyles'
-import { ThemeProvider } from "../styles/utils/ThemeProvider";
+import { useTheme } from 'utils/hooks/useTheme';
 
 // TODO: Move this to a separate file
 export const THEMES = {
@@ -10,14 +10,14 @@ export const THEMES = {
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useTheme()
+
   return (
     <>
       <GlobalStyles />
-      <ThemeProvider themes={THEMES} defaultTheme={THEMES.LIGHT}>
-        <AppLayout>
-          <Component {...pageProps} />
-        </AppLayout>
-      </ThemeProvider>
+      <AppLayout>
+        <Component {...pageProps} />
+      </AppLayout>
     </>
   )
 }

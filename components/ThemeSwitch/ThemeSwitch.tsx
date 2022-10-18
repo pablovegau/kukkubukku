@@ -1,15 +1,15 @@
 import { SwitchContainer, Switch, SunWrapper, MoonWrapper } from "./styles";
 import { Icon } from "../Icon";
-import { useContext } from "react";
-import { ThemeContext } from "styles/utils/ThemeProvider";
+import { THEMES } from "pages/_app";
+import { useTheme } from "utils/hooks/useTheme";
 
 const ICON_SIZE = 16;
 
 export default function ThemeSwitch() {
-  const [theme, setTheme, themes] = useContext(ThemeContext);
+  const { theme, setTheme } = useTheme();
 
   const handleSwitchTheme = () => {
-    setTheme(theme === themes.LIGHT ? themes.DARK : themes.LIGHT);
+    setTheme(theme === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT);
   };
 
   return (
