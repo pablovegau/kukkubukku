@@ -5,6 +5,10 @@ import { THEMES } from "pages/_app";
 
 // TODO: onFocus outline
 
+interface Props {
+  theme: string;
+}
+
 const switchContainerHeight = rem("24px");
 const switchContainerWidth = rem("44px");
 const switchContainerBorderRadius = rem("12px");
@@ -22,7 +26,7 @@ export const SwitchContainer = styled.button`
   transition: ${getThemeTransition({ properties: "background-color" })};
 `;
 
-const getComputedSwitchStyles = ({ theme }) => `
+const getComputedSwitchStyles = ({ theme }: Props) => `
   transform: translate(${theme === THEMES.LIGHT ? "0px" : rem("20px")})
 `;
 
@@ -53,7 +57,7 @@ const IconWrapper = styled.div`
 
 const iconDistanceFromSides = rem("3px");
 
-const getComputedSunWrapperStyles = ({ theme }) => `
+const getComputedSunWrapperStyles = ({ theme }: Props) => `
   opacity: ${theme === THEMES.LIGHT ? 0 : 1}
 `;
 
@@ -64,7 +68,7 @@ export const SunWrapper = styled(IconWrapper)`
   ${(props) => getComputedSunWrapperStyles(props)}
 `;
 
-const getComputedMoonWrapperStyles = ({ theme }) => `
+const getComputedMoonWrapperStyles = ({ theme }: Props) => `
   opacity: ${theme === THEMES.DARK ? 0 : 1}
 `;
 
