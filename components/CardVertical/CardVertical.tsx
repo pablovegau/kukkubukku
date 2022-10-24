@@ -9,9 +9,9 @@ import {
 
 export interface Card {
   image: string;
-  recipeName: string;
+  name: string;
   navigateTo: string;
-  ratingValue: number;
+  rating: number;
   size?: string;
 }
 
@@ -19,19 +19,19 @@ export interface Card {
 
 function CardVertical({
   image,
-  recipeName,
+  name,
   navigateTo,
-  ratingValue,
+  rating,
   size = CARD_SIZES.SMALL
 }: Card) {
   return (
     <Container href={navigateTo} size={size}>
       <ImgWrapper size={size}>
-        <img src={image} alt={`${recipeName} card`} />
+        <img src={image} alt={`${name} card`} />
       </ImgWrapper>
       <CardBottom>
-        <RecipeName>{recipeName}</RecipeName>
-        <Rating value={ratingValue.toString()} />
+        <RecipeName>{name}</RecipeName>
+        <Rating value={rating.toString()} />
       </CardBottom>
     </Container>
   );

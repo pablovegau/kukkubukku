@@ -12,13 +12,15 @@ import { spacing } from "./base/spacing";
 
 // tokens values imports
 import {
-  spacingValues,
+  application,
   baseColorsValues,
   colorsValues,
-  componentColorsValues
+  componentColorsValues,
+  spacingValues,
 } from "./values";
 
 export {
+  application,
   breakpoints,
   colors,
   transparentColors,

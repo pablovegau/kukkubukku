@@ -28,7 +28,9 @@ function Icon({
           xmlns="http://www.w3.org/2000/svg"
           fillColor={fillColor}
         >
-          <path fillRule="evenodd" clipRule="evenodd" d={icons[type]} />
+          {icons[type].map((path, index) => (
+            <path key={index} fillRule="evenodd" clipRule="evenodd" d={path} />
+          ))}
         </Svg>
       </AccessibleIcon.Root>
     </Container>

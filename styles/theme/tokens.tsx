@@ -1,4 +1,5 @@
 import {
+  application,
   spacingValues,
   baseColorsValues,
   colorsValues,
@@ -11,9 +12,10 @@ const THEMES = {
   DARK: "dark"
 };
 
+const applicationTokens = getTokens(application);
 const baseColorsTokens = getTokens(baseColorsValues);
 const colorsTokens = getTokens(colorsValues, "theme", THEMES);
 const componentColorsTokens = getTokens(componentColorsValues, "theme", THEMES);
 const spacingTokens = getTokens(spacingValues);
 
-export { baseColorsTokens, colorsTokens, componentColorsTokens, spacingTokens };
+export { applicationTokens, baseColorsTokens, colorsTokens, componentColorsTokens, spacingTokens };

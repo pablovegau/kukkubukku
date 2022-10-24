@@ -1,6 +1,7 @@
 import { Icon } from 'components/Icon';
 import { Header } from '../Header'
-import { Main, Layout, Footer } from './styles'
+import { Footer } from '../Footer'
+import { Main, Layout } from './styles'
 
 export function AppLayout({ children }: { children: JSX.Element }) {
   return (
@@ -19,7 +20,7 @@ export function AppLayout({ children }: { children: JSX.Element }) {
           />
         </Header>
         <Main>{children}</Main>
-        <Footer>Footer</Footer>
+        <Footer />
       </Layout>
     </>
   )

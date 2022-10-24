@@ -22,6 +22,13 @@ export const spacingValues = {
   }
 };
 
+export const application = {
+  HEIGHT: {
+    HEADER: '72px',
+    FOOTER: '48px',
+  }
+}
+
 export const baseColorsValues = {
   BASE_COLOR: {
     PRIMARY: {
@@ -319,8 +326,9 @@ export const componentColorsValues = {
 
 // AllValues is exported to be used in useColorToken hook
 export const allValues = {
-  ...spacingValues,
+  ...application,
   ...baseColorsValues,
   ...colorsValues,
-  ...componentColorsValues
+  ...componentColorsValues,
+  ...spacingValues,
 };

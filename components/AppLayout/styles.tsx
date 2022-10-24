@@ -9,14 +9,6 @@ export const Layout = styled.section`
 
 export const Main = styled.main`
   /* flex: 1; */
-  padding-bottom: var(--genericSizes-footer);
-  padding-top: calc(72px + 24px);
-`
-
-export const Footer = styled.footer`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 48px;
-  background-color: var(--kkbk--color--text--dim);
+  padding-bottom: calc(var(--kkbk--height--footer) + var(--kkbk--spacing--24));
+  padding-top: calc(var(--kkbk--height--header) + var(--kkbk--spacing--24));
 `
