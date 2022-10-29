@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { rem } from "polished";
 import { getThemeTransition } from "../../styles/utils";
-import { THEMES } from "pages/_app";
+import { THEMES } from "styles/theme/tokens";
 
 // TODO: onFocus outline
 

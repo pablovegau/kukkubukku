@@ -7,7 +7,7 @@ import {
 } from "../constants";
 import { getTokens } from "./utils";
 
-const THEMES = {
+export const THEMES = {
   LIGHT: "light",
   DARK: "dark"
 };

@@ -1,7 +1,7 @@
 import { SwitchContainer, Switch, SunWrapper, MoonWrapper } from "./styles";
 import { Icon } from "../Icon";
-import { THEMES } from "pages/_app";
 import { useTheme } from "utils/hooks/useTheme";
+import { THEMES } from "styles/theme/tokens";
 
 const ICON_SIZE = 16;
 
