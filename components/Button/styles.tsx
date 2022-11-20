@@ -1,13 +1,16 @@
 import { Button } from "ariakit/button";
-import styled from "styled-components";
+import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { rem } from "polished";
 
 interface Types {
-  [key: string]: string;
+  [key: string]: FlattenSimpleInterpolation;
 }
 
-const TYPE: Types = {
-  primary_accent: `
+export interface Props {
+  buttonType: string;
+}
+
+const primaryAccent: FlattenSimpleInterpolation = css`
     background-color: var(--kkbk--component--color--background--button--primary-accent--enabled);
     color: var(--kkbk--component--color--text--button--primary-accent--enabled);
 
@@ -22,8 +25,9 @@ const TYPE: Types = {
       background-color: var(--kkbk--component--color--background--button--primary-accent--hover);
       color: var(--kkbk--component--color--text--button--primary-accent--hover);
     }
-  `,
-  primary: `
+`
+
+const primary: FlattenSimpleInterpolation = css`
     background-color: var(--kkbk--component--color--background--button--primary--enabled);
     color: var(--kkbk--component--color--text--button--primary--enabled);
 
@@ -38,8 +42,9 @@ const TYPE: Types = {
       background-color: var(--kkbk--component--color--background--button--primary--hover);
       color: var(--kkbk--component--color--text--button--primary--hover);
     }
-  `,
-  secondary: `
+`
+
+const secondary: FlattenSimpleInterpolation = css`
     padding-left: ${rem("23px")};
     padding-right: ${rem("23px")};
     background-color: var(--kkbk--component--color--background--button--secondary--enabled);
@@ -65,8 +70,9 @@ const TYPE: Types = {
       padding-right: var(--kkbk--spacing--24);
       border: none;
     }
-  `,
-  terciary: `
+`
+
+const terciary: FlattenSimpleInterpolation = css`
     background-color: var(--kkbk--component--color--background--button--terciary--enabled);
     color: var(--kkbk--component--color--text--button--terciary--enabled);
 
@@ -81,8 +87,9 @@ const TYPE: Types = {
       background-color: var(--kkbk--component--color--background--button--terciary--hover);
       color: var(--kkbk--component--color--text--button--terciary--hover);
     }
-  `,
-  destructive: `
+`
+
+const destructive: FlattenSimpleInterpolation = css`
     background-color: var(--kkbk--component--color--background--button--destructive--enabled);
     color: var(--kkbk--component--color--text--button--destructive--enabled);
 
@@ -97,22 +104,26 @@ const TYPE: Types = {
       background-color: var(--kkbk--component--color--background--button--destructive--hover);
       color: var(--kkbk--component--color--text--button--destructive--hover);
     }
-  `
+`
+
+const TYPE: Types = {
+  primary_accent: primaryAccent,
+  primary,
+  secondary,
+  terciary,
+  destructive,
 };
 
-interface ContainerProps {
-  buttonType: string;
-}
-
-export const Container = styled(Button)<ContainerProps>`
+export const buttonStyles = css<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
   height: ${rem("38px")};
+  width: fit-content;
   padding-left: var(--kkbk--spacing--24);
   padding-right: var(--kkbk--spacing--24);
   border: none;
-  border-radius: ${rem("4px")};
+  border-radius: var(--kkbk--spacing--4);
   font-size: 1rem;
   transition: background-color 300ms, color 300ms, border-color 300ms;
 
@@ -126,4 +137,8 @@ export const Container = styled(Button)<ContainerProps>`
     color: var(--kkbk--component--color--text--button--disabled);
     cursor: not-allowed;
   }
+`
+
+export const Container = styled(Button)<Props>`
+  ${buttonStyles}
 `;

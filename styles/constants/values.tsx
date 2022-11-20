@@ -109,7 +109,7 @@ export const colorsValues = {
     BACKGROUND: {
       APP: {
         LIGHT: grayColors.white,
-        DARK: grayColors.black90,
+        DARK: grayColors.black80,
         ALPHA: {}
       }
     },
@@ -129,6 +129,12 @@ export const colorsValues = {
       DIM_SOFT: {
         LIGHT: baseColorsValues.BASE_COLOR.GRAY["20"],
         DARK: baseColorsValues.BASE_COLOR.GRAY["80"]
+      }
+    },
+    TITLE: {
+      MAIN: {
+        LIGHT: baseColorsValues.BASE_COLOR.SECONDARY.DARK,
+        DARK: baseColorsValues.BASE_COLOR.SECONDARY.LIGHT
       }
     },
     BORDER: {},
@@ -218,6 +224,10 @@ export const componentColorsValues = {
               DARK: grayColors.black80
             }
           }
+        },
+        INPUT: {
+          LIGHT: "#EDECF1",
+          DARK: baseColorsValues.BASE_COLOR.GRAY["90"]
         },
         CALENDAR: {
           SELECTED: {

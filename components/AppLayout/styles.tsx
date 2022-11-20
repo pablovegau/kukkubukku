@@ -9,6 +9,6 @@ export const Layout = styled.section`
 
 export const Main = styled.main`
   /* flex: 1; */
-  padding-bottom: calc(var(--kkbk--height--footer) + var(--kkbk--spacing--24));
+  padding-bottom: calc(var(--kkbk--height--footer) + var(--kkbk--spacing--32));
   padding-top: calc(var(--kkbk--height--header) + var(--kkbk--spacing--24));
 `

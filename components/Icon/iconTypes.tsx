@@ -1,5 +1,7 @@
 export const iconTypes = {
+  ALERT: 'alert',
   CALENDAR: 'calendar',
+  CROSS: 'cross',
   HOME: 'home',
   LEFT_ARROW: 'left_arrow',
   MAGNIFIER: 'magnifier',

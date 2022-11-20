@@ -12,13 +12,17 @@ export const Container = styled.header`
   padding-left: var(--kkbk--spacing--16);
   padding-right: var(--kkbk--spacing--16);
   background-color: var(--kkbk--color--background--app);
+
+  & > a {
+    text-align: left;
+  }
 `;
 
 export const Tools = styled.div`
   display: flex;
   align-items: center;
 
-  > div:not(:last-child) {
+  > a:not(:last-child) {
     margin-right: var(--kkbk--spacing--24);
   }
 `;
@@ -26,4 +30,5 @@ export const Tools = styled.div`
 export const TemporalSwitchWrapper = styled.div`
   display: flex;
   align-items: center;
+  margin-right: var(--kkbk--spacing--24);
 `

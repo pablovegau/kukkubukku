@@ -1,10 +1,14 @@
-import { Icon } from 'components/Icon';
-import { Header } from '../Header'
+// @ts-nocheck
+
+import { Icon } from 'components/Icon'
+import { Header } from '../Form/Header'
 import { Footer } from '../Footer'
 import { Main, Layout } from './styles'
 import Head from 'next/head';
-import { GlobalStyles } from 'styles/globalStyles';
-import { useTheme } from 'utils/hooks/useTheme';
+import { GlobalStyles } from 'styles/globalStyles'
+import { useTheme } from 'utils/hooks/useTheme'
+import Link from 'next/link'
+import { MyLink } from 'components/MyLink'
 
 interface Props {
   children: JSX.Element,
@@ -25,16 +29,25 @@ export function AppLayout({ children, title }: Props) {
       </Head>
 
       <Header>
-        <Icon
-          type={Icon.TYPE.PLUS}
-          size={24}
-          fillColor='--kkbk--color--text--primary'
-        />
-        <Icon
-          type={Icon.TYPE.MAGNIFIER}
-          size={24}
-          fillColor='--kkbk--color--text--primary'
-        />
+        <Link href="/create/recipe"  passHref legacyBehavior>
+          <MyLink>
+            <Icon
+              type={Icon.TYPE.PLUS}
+              size={24}
+              fillColor='--kkbk--color--text--primary'
+            />
+          </MyLink>
+        </Link>
+
+        <Link href="/"  passHref legacyBehavior>
+          <MyLink>
+            <Icon
+              type={Icon.TYPE.MAGNIFIER}
+              size={24}
+              fillColor='--kkbk--color--text--primary'
+            />
+          </MyLink>
+        </Link>
       </Header>
       <Main>{children}</Main>
       <Footer />

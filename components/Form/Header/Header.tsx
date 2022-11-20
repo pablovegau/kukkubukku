@@ -1,8 +1,12 @@
+// @ts-nocheck
+
 import { Avatar, AvatarImage } from 'components/Avatar';
 import { ThemeSwitch } from 'components/ThemeSwitch';
-import { Logo } from '../Logo'
+import Link from 'next/link';
+import { Logo } from '../../Logo'
 
 import { Container, Tools, TemporalSwitchWrapper } from "./styles";
+import { MyLink } from 'components/MyLink';
 
 interface Props {
   children: JSX.Element | JSX.Element[];
@@ -11,7 +15,11 @@ interface Props {
 function Header({ children }: Props) {
   return (
     <Container>
-      <Logo width={75} />
+      <Link href="/" passHref legacyBehavior>
+        <MyLink>
+          <Logo />
+        </MyLink>
+      </Link>
       <Tools>
         <TemporalSwitchWrapper>
           <ThemeSwitch />
