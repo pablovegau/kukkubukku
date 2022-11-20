@@ -59,41 +59,39 @@ const Container = styled.div`
 
 const Home: NextPage = () => {
   return (
-    <AppLayout title=" - Recipes">
-      <main>
-        <Container>
-          <CardsCarousel
-            cardsData={cardsMockData}
-            size={CardsCarousel.CARD_SIZES.SMALL}
-            title="Postres"
-          />
-          <CardsCarousel
-            cardsData={cardsMockData}
-            size={CardsCarousel.CARD_SIZES.SMALL}
-            title="Postres"
-          />
-          <CardsCarousel
-            cardsData={cardsMockData}
-            size={CardsCarousel.CARD_SIZES.SMALL}
-            title="Postres"
-          />
-          <CardsCarousel
-            cardsData={cardsMockData}
-            size={CardsCarousel.CARD_SIZES.SMALL}
-            title="Postres"
-          />
-          <CardsCarousel
-            cardsData={cardsMockData}
-            size={CardsCarousel.CARD_SIZES.SMALL}
-            title="Postres"
-          />
-          <CardsCarousel
-            cardsData={cardsMockData}
-            size={CardsCarousel.CARD_SIZES.SMALL}
-            title="Postres"
-          />
-        </Container>
-      </main>
+    <AppLayout title=" - Recetas">
+      <Container>
+        <CardsCarousel
+          cardsData={cardsMockData}
+          size={CardsCarousel.CARD_SIZES.SMALL}
+          title="Postres"
+        />
+        <CardsCarousel
+          cardsData={cardsMockData}
+          size={CardsCarousel.CARD_SIZES.SMALL}
+          title="Postres"
+        />
+        <CardsCarousel
+          cardsData={cardsMockData}
+          size={CardsCarousel.CARD_SIZES.SMALL}
+          title="Postres"
+        />
+        <CardsCarousel
+          cardsData={cardsMockData}
+          size={CardsCarousel.CARD_SIZES.SMALL}
+          title="Postres"
+        />
+        <CardsCarousel
+          cardsData={cardsMockData}
+          size={CardsCarousel.CARD_SIZES.SMALL}
+          title="Postres"
+        />
+        <CardsCarousel
+          cardsData={cardsMockData}
+          size={CardsCarousel.CARD_SIZES.SMALL}
+          title="Postres"
+        />
+      </Container>
     </AppLayout>
   )
 }

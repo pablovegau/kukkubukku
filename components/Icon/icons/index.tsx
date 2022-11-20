@@ -1,4 +1,6 @@
+import { alert } from './alert'
 import { calendar } from './calendar'
+import { cross } from './cross'
 import { home } from "./home"
 import { left_arrow } from "./leftArrow"
 import { magnifier } from "./magnifier"
@@ -15,7 +17,9 @@ interface Icons {
 }
 
 export const icons: Icons = {
+  alert,
   calendar,
+  cross,
   home,
   left_arrow,
   magnifier,

@@ -23,7 +23,7 @@ export const NavigationMenuItem = styled(NavigationMenuPrimitive.Item)`
   background-color: var(--kkbk--color--background--app);
 `
 
-export const NavigationMenuLink = styled(NavigationMenuPrimitive.Link)`
+export const NavigationMenuMyLink = styled.div`
   display: flex;
   flex: 1;
   align-items: center;
