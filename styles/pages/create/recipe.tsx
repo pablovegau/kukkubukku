@@ -1,5 +1,4 @@
-import styled, { css } from 'styled-components'
-import { typography } from 'styles/mixins'
+import styled from 'styled-components'
 
 export const Container = styled.main`
   margin-left: var(--kkbk--spacing--32);

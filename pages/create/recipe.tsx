@@ -2,7 +2,7 @@
 import { useRouter } from 'next/router'
 
 import { useEffect, useState } from "react"
-import { useFieldArray, useForm, useWatch } from "react-hook-form"
+import { useFieldArray, useForm } from "react-hook-form"
 
 import { AppLayout } from "components/AppLayout"
 import { MainTitle } from "components/MainTitle"
@@ -13,7 +13,7 @@ import {
   Form,
   InputRadioWrapper,
   SubmitButtonWrapper,
-} from "./recipeStyles"
+} from "styles/pages/create/recipe"
 import { addRecipe } from "services/recipes"
 
 import { formatRecipe } from "services/utils"
