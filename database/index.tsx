@@ -13,15 +13,15 @@ export async function insertTag(tags: any) {
   }
 
   const existingTagsInDatabase = currentTags?.filter((currentTag: any) =>
-    tags.includes(currentTag.name)
+    tags.includes(currentTag.name),
   )
 
   const existingTagsInDatabaseNames = existingTagsInDatabase?.map(
-    (existingTag: any) => existingTag.name
+    (existingTag: any) => existingTag.name,
   )
 
   const newTagsNames = tags.filter(
-    (tag: any) => existingTagsInDatabaseNames?.indexOf(tag) === -1
+    (tag: any) => existingTagsInDatabaseNames?.indexOf(tag) === -1,
   )
 
   const formattedNewTags = newTagsNames.map((tag: any) => ({ name: tag }))
@@ -73,7 +73,7 @@ export async function insertRecipeDatabase(recipe: any) {
    * Insert tags and get their ids
    */
   const { data: tagsIds, error: getTagsIdsError } = await getTagsIds(
-    recipe.tags
+    recipe.tags,
   )
 
   if (getTagsIdsError) {
@@ -101,7 +101,7 @@ export async function insertRecipeDatabase(recipe: any) {
 
   const { data: recipeFromDatabase, error: recipeInsertError } = await insert(
     'Recipe',
-    finalRecipe
+    finalRecipe,
   )
 
   if (recipeInsertError) {
@@ -115,7 +115,7 @@ export async function insertRecipeDatabase(recipe: any) {
 
   const { error: uploadRecipeImagesError } = await uploadRecipeImages(
     images,
-    recipeId
+    recipeId,
   )
 
   if (uploadRecipeImagesError) {
