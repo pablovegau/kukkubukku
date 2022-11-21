@@ -1,6 +1,6 @@
 {
   "name": "kukkubukku",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -42,7 +42,7 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,json,css,md,mdx,html}": [
-      "prettier --write"
+      "prettier"
     ]
   }
 }
