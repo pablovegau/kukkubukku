@@ -41,11 +41,9 @@
     "typescript": "4.8.4"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,json,css,md,mdx,html}": [
-      "prettier"
-    ],
     "**/*.{js,jsx,ts,tsx}": [
-      "lint"
+      "lint",
+      "prettier"
     ]
   }
 }
