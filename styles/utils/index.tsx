@@ -1,3 +1,3 @@
-import { getThemeTransition } from "./getThemeTransition";
+import { getThemeTransition } from './getThemeTransition'
 
-export { getThemeTransition };
+export { getThemeTransition }

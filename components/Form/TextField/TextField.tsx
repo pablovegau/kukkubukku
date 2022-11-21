@@ -8,20 +8,20 @@ import { UseFormRegister } from 'react-hook-form'
 import { FormError } from 'pages/create/recipe'
 
 interface Props {
-  errors: any,
-  fieldName: string,
-  formErrors: FormError,
-  label: string,
-  register: UseFormRegister<FormData>,
-  inputType?: string,
-  placeholder?: string,
-  registerElement?: any,
-  typeOfMandatory?: string,
+  errors: any
+  fieldName: string
+  formErrors: FormError
+  label: string
+  register: UseFormRegister<FormData>
+  inputType?: string
+  placeholder?: string
+  registerElement?: any
+  typeOfMandatory?: string
 }
 
 // TODO: The inputs type 'number', check the ⬆️ and ⬇️ buttons
 
-function TextField ({
+function TextField({
   errors,
   fieldName,
   formErrors,
@@ -30,13 +30,15 @@ function TextField ({
   placeholder,
   register,
   registerElement,
-  typeOfMandatory
+  typeOfMandatory,
 }: Props) {
   const registerInput = registerElement || fieldName
 
   return (
     <InputWrapper>
-      <Label htmlFor={fieldName} additionalText={typeOfMandatory}>{label}</Label>
+      <Label htmlFor={fieldName} additionalText={typeOfMandatory}>
+        {label}
+      </Label>
       <Input
         {...register(registerInput, { ...formErrors[fieldName] })}
         aria-invalid={!!errors[fieldName]}
@@ -44,13 +46,13 @@ function TextField ({
         type={inputType}
         id={fieldName}
       />
-      {errors[fieldName] &&
+      {errors[fieldName] && (
         <InputError
           type={errors[fieldName].type}
           message={errors[fieldName].message}
           types={Object.keys(formErrors[fieldName])}
         />
-      }
+      )}
     </InputWrapper>
   )
 }

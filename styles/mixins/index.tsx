@@ -1,3 +1,3 @@
-import { typography } from "./typography";
+import { typography } from './typography'
 
-export { typography };
+export { typography }

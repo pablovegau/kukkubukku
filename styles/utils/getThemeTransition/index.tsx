@@ -1,15 +1,15 @@
 // TODO: Fix typescript errors
 
-const values = "0.3s ease-in-out";
+const values = '0.3s ease-in-out'
 
 export function getThemeTransition({ properties }: any) {
   if (Array.isArray(properties)) {
     return properties
       .map((property, index) => {
-        return `${property} ${values}`;
+        return `${property} ${values}`
       })
-      .toString();
+      .toString()
   }
 
-  return `${properties} ${values}`;
+  return `${properties} ${values}`
 }

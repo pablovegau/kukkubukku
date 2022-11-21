@@ -7,22 +7,22 @@ import { FormError } from 'pages/create/recipe'
 import { UseFormRegister } from 'react-hook-form'
 
 interface Option {
-  value: string,
-  label: string,
+  value: string
+  label: string
 }
 
 interface Props {
   errors: any
-  fieldName: string,
-  formErrors: FormError,
-  label: string,
-  options: Option[],
-  register: UseFormRegister<FormData>,
-  registerElement?: any,
-  typeOfMandatory?: string,
+  fieldName: string
+  formErrors: FormError
+  label: string
+  options: Option[]
+  register: UseFormRegister<FormData>
+  registerElement?: any
+  typeOfMandatory?: string
 }
 
-function SelectField ({
+function SelectField({
   errors,
   fieldName,
   formErrors,
@@ -30,25 +30,29 @@ function SelectField ({
   options,
   register,
   registerElement,
-  typeOfMandatory
+  typeOfMandatory,
 }: Props) {
   const registerInput = registerElement || fieldName
 
   return (
     <InputWrapper>
-      <Label htmlFor={fieldName} additionalText={typeOfMandatory}>{label}</Label>
+      <Label htmlFor={fieldName} additionalText={typeOfMandatory}>
+        {label}
+      </Label>
       <Select {...register(registerInput, { ...formErrors[fieldName] })}>
         {options.map(({ value, label }) => (
-          <option key={`${value}${label}`} value={value}>{label}</option>
+          <option key={`${value}${label}`} value={value}>
+            {label}
+          </option>
         ))}
       </Select>
-      {errors[fieldName] &&
+      {errors[fieldName] && (
         <InputError
           type={errors[fieldName].type}
           message={errors[fieldName].message}
           types={Object.keys(formErrors[fieldName])}
         />
-      }
+      )}
     </InputWrapper>
   )
 }

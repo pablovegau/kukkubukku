@@ -2,12 +2,12 @@ import styled from 'styled-components'
 import { typography } from '../../styles/mixins'
 
 interface Props {
-  size: string;
+  size: string
 }
 
 export const CARD_SIZES = {
   SMALL: 'small',
-  MEDIUM: 'medium'
+  MEDIUM: 'medium',
 }
 
 export const Container = styled.a<Props>`

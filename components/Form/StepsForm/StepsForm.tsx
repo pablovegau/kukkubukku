@@ -6,29 +6,35 @@ import { Button } from 'components/Button'
 import { IconButton } from 'components/IconButton'
 import { Icon } from 'components/Icon'
 import { Textarea } from '../TextArea'
-import { StepsWrapper, StepWrapper, StepTitle, Description, Step } from './styles'
+import {
+  StepsWrapper,
+  StepWrapper,
+  StepTitle,
+  Description,
+  Step,
+} from './styles'
 import { InputWrapperGroup } from 'components/Form/formStyles'
 import { FormError } from 'pages/create/recipe'
 
 interface stepField {
-  id: string,
-  description: string,
+  id: string
+  description: string
 }
 
 interface Props {
   errors: any
-  formErrors: FormError,
-  register: UseFormRegister<FormData>,
-  control: Control<FormData>,
-  stepAppend: any,
-  stepRemove: any,
-  stepFields: stepField[],
+  formErrors: FormError
+  register: UseFormRegister<FormData>
+  control: Control<FormData>
+  stepAppend: any
+  stepRemove: any
+  stepFields: stepField[]
 }
 
-function StepsList ({ control, stepRemove }: { control: any, stepRemove: any }) {
+function StepsList({ control, stepRemove }: { control: any; stepRemove: any }) {
   const steps = useWatch({
     control,
-    name: 'steps'
+    name: 'steps',
   })
 
   if (steps.length === 1) {
@@ -49,10 +55,13 @@ function StepsList ({ control, stepRemove }: { control: any, stepRemove: any }) 
               <Step>{item.description}</Step>
 
               <IconButton onClick={() => stepRemove(index)}>
-                <Icon type={Icon.TYPE.CROSS} size={12} fillColor="--kkbk--color--text--dim"/>
+                <Icon
+                  type={Icon.TYPE.CROSS}
+                  size={12}
+                  fillColor="--kkbk--color--text--dim"
+                />
               </IconButton>
             </Description>
-
           </StepWrapper>
         )
       })}
@@ -60,18 +69,20 @@ function StepsList ({ control, stepRemove }: { control: any, stepRemove: any }) 
   )
 }
 
-function StepsForm ({
+function StepsForm({
   errors,
   formErrors,
   register,
   control,
   stepAppend,
   stepRemove,
-  stepFields
+  stepFields,
 }: Props) {
   return (
     <>
-      <Label htmlFor="steps" additionalText='Obligatorio'>Pasos</Label>
+      <Label htmlFor="steps" additionalText="Obligatorio">
+        Pasos
+      </Label>
 
       <StepsList control={control} stepRemove={stepRemove} />
 
@@ -89,7 +100,9 @@ function StepsForm ({
               label="Descripción"
               register={register}
             />
-            <Button type={Button.TYPE.PRIMARY} onClick={() => stepAppend()}>Añadir</Button>
+            <Button type={Button.TYPE.PRIMARY} onClick={() => stepAppend()}>
+              Añadir
+            </Button>
           </InputWrapperGroup>
         )
       })}

@@ -13,11 +13,11 @@ const SIZE = {
   large: `
     height: var(--kkbk--avatar--size--large);
     width: var(--kkbk--avatar--size--large);
-  `
+  `,
 }
 
 interface AvatarProps {
-  size: 'small' | 'medium' | 'large';
+  size: 'small' | 'medium' | 'large'
 }
 
 // export type when this will be a functional component

@@ -1,11 +1,11 @@
-import { css } from "styled-components";
+import { css } from 'styled-components'
 import {
   applicationTokens,
   baseColorsTokens,
   colorsTokens,
   componentColorsTokens,
   spacingTokens,
-} from "./tokens";
+} from './tokens'
 
 export const theme = css`
   ${applicationTokens}
@@ -13,4 +13,4 @@ export const theme = css`
   ${colorsTokens}
   ${componentColorsTokens}
   ${spacingTokens}
-`;
+`

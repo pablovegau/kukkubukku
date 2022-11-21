@@ -1,5 +1,5 @@
-import { rem } from "polished";
+import { rem } from 'polished'
 
 export const breakpoints = {
-  mobile: rem("360px")
-};
+  mobile: rem('360px'),
+}

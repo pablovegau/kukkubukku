@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
-import { typography } from "./mixins";
-import { theme } from "./theme";
+import { createGlobalStyle } from 'styled-components'
+import { typography } from './mixins'
+import { theme } from './theme'
 
 export const GlobalStyles = createGlobalStyle`
   /*
@@ -75,4 +75,4 @@ export const GlobalStyles = createGlobalStyle`
   div #__next > div {
     height: 100%;
   }
-`;
+`

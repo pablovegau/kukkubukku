@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 interface ContainerProps {
-  size: number;
+  size: number
 }
 
 interface SvgProps {
-  fillColor: string;
+  fillColor: string
 }
 
 export const Container = styled.div<ContainerProps>`

@@ -3,107 +3,134 @@ import styled, { css, FlattenSimpleInterpolation } from 'styled-components'
 import { rem } from 'polished'
 
 interface Types {
-  [key: string]: FlattenSimpleInterpolation;
+  [key: string]: FlattenSimpleInterpolation
 }
 
 export interface Props {
-  buttonType: string;
+  buttonType: string
 }
 
 const primaryAccent: FlattenSimpleInterpolation = css`
-    background-color: var(--kkbk--component--color--background--button--primary-accent--enabled);
-    color: var(--kkbk--component--color--text--button--primary-accent--enabled);
+  background-color: var(
+    --kkbk--component--color--background--button--primary-accent--enabled
+  );
+  color: var(--kkbk--component--color--text--button--primary-accent--enabled);
 
-    &:focus-visible,
-    &[data-focus-visible] {
-      outline: 2px solid var(--kkbk--component--color--background--button--primary-accent--hover);
-      outline-offset: 2px;
-    }
+  &:focus-visible,
+  &[data-focus-visible] {
+    outline: 2px solid
+      var(--kkbk--component--color--background--button--primary-accent--hover);
+    outline-offset: 2px;
+  }
 
-    &:hover,
-    &:focus {
-      background-color: var(--kkbk--component--color--background--button--primary-accent--hover);
-      color: var(--kkbk--component--color--text--button--primary-accent--hover);
-    }
+  &:hover,
+  &:focus {
+    background-color: var(
+      --kkbk--component--color--background--button--primary-accent--hover
+    );
+    color: var(--kkbk--component--color--text--button--primary-accent--hover);
+  }
 `
 
 const primary: FlattenSimpleInterpolation = css`
-    background-color: var(--kkbk--component--color--background--button--primary--enabled);
-    color: var(--kkbk--component--color--text--button--primary--enabled);
+  background-color: var(
+    --kkbk--component--color--background--button--primary--enabled
+  );
+  color: var(--kkbk--component--color--text--button--primary--enabled);
 
-    &:focus-visible,
-    &[data-focus-visible] {
-      outline: 2px solid var(--kkbk--component--color--background--button--primary--hover);
-      outline-offset: 2px;
-    }
+  &:focus-visible,
+  &[data-focus-visible] {
+    outline: 2px solid
+      var(--kkbk--component--color--background--button--primary--hover);
+    outline-offset: 2px;
+  }
 
-    &:hover,
-    &:focus {
-      background-color: var(--kkbk--component--color--background--button--primary--hover);
-      color: var(--kkbk--component--color--text--button--primary--hover);
-    }
+  &:hover,
+  &:focus {
+    background-color: var(
+      --kkbk--component--color--background--button--primary--hover
+    );
+    color: var(--kkbk--component--color--text--button--primary--hover);
+  }
 `
 
 const secondary: FlattenSimpleInterpolation = css`
-    padding-left: ${rem('23px')};
-    padding-right: ${rem('23px')};
-    background-color: var(--kkbk--component--color--background--button--secondary--enabled);
-    color: var(--kkbk--component--color--text--button--secondary--enabled);
-    border: 1px solid var(--kkbk--component--color--border--button--secondary--enabled);
+  padding-left: ${rem('23px')};
+  padding-right: ${rem('23px')};
+  background-color: var(
+    --kkbk--component--color--background--button--secondary--enabled
+  );
+  color: var(--kkbk--component--color--text--button--secondary--enabled);
+  border: 1px solid
+    var(--kkbk--component--color--border--button--secondary--enabled);
 
-    &:focus-visible,
-    &[data-focus-visible] {
-      outline: 2px solid var(--kkbk--component--color--border--button--secondary--hover);
-      outline-offset: 2px;
-    }
+  &:focus-visible,
+  &[data-focus-visible] {
+    outline: 2px solid
+      var(--kkbk--component--color--border--button--secondary--hover);
+    outline-offset: 2px;
+  }
 
-    &:hover,
-    &:focus {
-      background-color: var(--kkbk--component--color--background--button--secondary--hover);
-      color: var(--kkbk--component--color--text--button--secondary--hover);
-      border: 1px solid var(--kkbk--component--color--border--button--secondary--hover);
-    }
+  &:hover,
+  &:focus {
+    background-color: var(
+      --kkbk--component--color--background--button--secondary--hover
+    );
+    color: var(--kkbk--component--color--text--button--secondary--hover);
+    border: 1px solid
+      var(--kkbk--component--color--border--button--secondary--hover);
+  }
 
-    &[aria-disabled="true"],
-    &[aria-disabled="true"]:hover {
-      padding-left: var(--kkbk--spacing--24);
-      padding-right: var(--kkbk--spacing--24);
-      border: none;
-    }
+  &[aria-disabled='true'],
+  &[aria-disabled='true']:hover {
+    padding-left: var(--kkbk--spacing--24);
+    padding-right: var(--kkbk--spacing--24);
+    border: none;
+  }
 `
 
 const terciary: FlattenSimpleInterpolation = css`
-    background-color: var(--kkbk--component--color--background--button--terciary--enabled);
-    color: var(--kkbk--component--color--text--button--terciary--enabled);
+  background-color: var(
+    --kkbk--component--color--background--button--terciary--enabled
+  );
+  color: var(--kkbk--component--color--text--button--terciary--enabled);
 
-    &:focus-visible,
-    &[data-focus-visible] {
-      outline: 2px solid var(--kkbk--component--color--background--button--terciary--hover);
-      outline-offset: 2px;
-    }
+  &:focus-visible,
+  &[data-focus-visible] {
+    outline: 2px solid
+      var(--kkbk--component--color--background--button--terciary--hover);
+    outline-offset: 2px;
+  }
 
-    &:hover,
-    &:focus {
-      background-color: var(--kkbk--component--color--background--button--terciary--hover);
-      color: var(--kkbk--component--color--text--button--terciary--hover);
-    }
+  &:hover,
+  &:focus {
+    background-color: var(
+      --kkbk--component--color--background--button--terciary--hover
+    );
+    color: var(--kkbk--component--color--text--button--terciary--hover);
+  }
 `
 
 const destructive: FlattenSimpleInterpolation = css`
-    background-color: var(--kkbk--component--color--background--button--destructive--enabled);
-    color: var(--kkbk--component--color--text--button--destructive--enabled);
+  background-color: var(
+    --kkbk--component--color--background--button--destructive--enabled
+  );
+  color: var(--kkbk--component--color--text--button--destructive--enabled);
 
-    &:focus-visible,
-    &[data-focus-visible] {
-      outline: 2px solid var(--kkbk--component--color--background--button--destructive--hover);
-      outline-offset: 2px;
-    }
+  &:focus-visible,
+  &[data-focus-visible] {
+    outline: 2px solid
+      var(--kkbk--component--color--background--button--destructive--hover);
+    outline-offset: 2px;
+  }
 
-    &:hover,
-    &:focus {
-      background-color: var(--kkbk--component--color--background--button--destructive--hover);
-      color: var(--kkbk--component--color--text--button--destructive--hover);
-    }
+  &:hover,
+  &:focus {
+    background-color: var(
+      --kkbk--component--color--background--button--destructive--hover
+    );
+    color: var(--kkbk--component--color--text--button--destructive--hover);
+  }
 `
 
 const TYPE: Types = {
@@ -111,7 +138,7 @@ const TYPE: Types = {
   primary,
   secondary,
   terciary,
-  destructive
+  destructive,
 }
 
 export const buttonStyles = css<Props>`

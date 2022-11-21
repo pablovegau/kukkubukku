@@ -10,10 +10,10 @@ import { Container, Tools, TemporalSwitchWrapper } from './styles'
 import { MyLink } from 'components/MyLink'
 
 interface Props {
-  children: JSX.Element | JSX.Element[];
+  children: JSX.Element | JSX.Element[]
 }
 
-function Header ({ children }: Props) {
+function Header({ children }: Props) {
   return (
     <Container>
       <Link href="/" passHref legacyBehavior>

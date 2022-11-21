@@ -7,23 +7,23 @@ import {
   CardBottom,
   ImgWrapper,
   RecipeName,
-  CARD_SIZES
+  CARD_SIZES,
 } from './styles'
 
 export interface Card {
-  image: string;
-  name: string;
-  navigateTo: string;
-  rating: number;
-  size?: string;
+  image: string
+  name: string
+  navigateTo: string
+  rating: number
+  size?: string
 }
 
-function CardVertical ({
+function CardVertical({
   image,
   name,
   navigateTo,
   rating,
-  size = CARD_SIZES.SMALL
+  size = CARD_SIZES.SMALL,
 }: Card) {
   return (
     <Container href={navigateTo} size={size}>

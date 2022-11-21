@@ -12,12 +12,17 @@ export async function insertTag(tags: any) {
     return { data: [], error: currentTagsReadError }
   }
 
-  const existingTagsInDatabase = currentTags?.filter((currentTag: any) => tags.includes(currentTag.name))
+  const existingTagsInDatabase = currentTags?.filter((currentTag: any) =>
+    tags.includes(currentTag.name)
+  )
 
-  const existingTagsInDatabaseNames = existingTagsInDatabase?.map((existingTag: any) => existingTag.name)
+  const existingTagsInDatabaseNames = existingTagsInDatabase?.map(
+    (existingTag: any) => existingTag.name
+  )
 
-  const newTagsNames = tags
-    .filter((tag: any) => existingTagsInDatabaseNames?.indexOf(tag) === -1)
+  const newTagsNames = tags.filter(
+    (tag: any) => existingTagsInDatabaseNames?.indexOf(tag) === -1
+  )
 
   const formattedNewTags = newTagsNames.map((tag: any) => ({ name: tag }))
 
@@ -27,10 +32,7 @@ export async function insertTag(tags: any) {
     .select()
 
   return {
-    data: [
-      ...existingTagsInDatabase,
-      ...recipeTags,
-    ],
+    data: [...existingTagsInDatabase, ...recipeTags],
     error: recipeTagsInsertError,
   }
 }
@@ -53,16 +55,15 @@ export async function uploadRecipeImages(images: any, recipeId: string) {
   const fileName = `${recipeId}_0.${fileExt}`
   const filePath = `${recipeId}/${fileName}`
 
-  const { error } = await supabase.storage.from('recipes').upload(filePath, file)
+  const { error } = await supabase.storage
+    .from('recipes')
+    .upload(filePath, file)
 
   return { error }
 }
 
 async function insert(tableName, items) {
-  const { data, error } = await supabase
-    .from(tableName)
-    .insert(items)
-    .select()
+  const { data, error } = await supabase.from(tableName).insert(items).select()
 
   return { data, error }
 }
@@ -71,7 +72,9 @@ export async function insertRecipeDatabase(recipe: any) {
   /**
    * Insert tags and get their ids
    */
-  const { data: tagsIds, error: getTagsIdsError } = await getTagsIds(recipe.tags)
+  const { data: tagsIds, error: getTagsIdsError } = await getTagsIds(
+    recipe.tags
+  )
 
   if (getTagsIdsError) {
     return { data: [], error: getTagsIdsError }
@@ -80,7 +83,8 @@ export async function insertRecipeDatabase(recipe: any) {
   /**
    * Insert recipe
    */
-  const { description, difficulty, diners, duration, isPublic, name, images } = recipe
+  const { description, difficulty, diners, duration, isPublic, name, images } =
+    recipe
 
   const finalRecipe = {
     description,
@@ -95,7 +99,10 @@ export async function insertRecipeDatabase(recipe: any) {
     language: 'es',
   }
 
-  const { data: recipeFromDatabase, error: recipeInsertError } = await insert('Recipe', finalRecipe)
+  const { data: recipeFromDatabase, error: recipeInsertError } = await insert(
+    'Recipe',
+    finalRecipe
+  )
 
   if (recipeInsertError) {
     return { data: [], error: recipeInsertError }
@@ -106,7 +113,10 @@ export async function insertRecipeDatabase(recipe: any) {
    */
   const { id: recipeId } = recipeFromDatabase[0]
 
-  const { error: uploadRecipeImagesError } = await uploadRecipeImages(images, recipeId)
+  const { error: uploadRecipeImagesError } = await uploadRecipeImages(
+    images,
+    recipeId
+  )
 
   if (uploadRecipeImagesError) {
     return { data: [], error: uploadRecipeImagesError }
@@ -130,25 +140,36 @@ export async function insertRecipeDatabase(recipe: any) {
       .insert([{ measurement: ingredient.measurement }])
       .select()
 
-    const samanama = { recipeId, ingredientId: recipeIngredient[0].id, measurementId: recipeMeasurement[0].id, amount: parseInt(ingredient.amount), moreInfo: ingredient.moreInfo };
+    const samanama = {
+      recipeId,
+      ingredientId: recipeIngredient[0].id,
+      measurementId: recipeMeasurement[0].id,
+      amount: parseInt(ingredient.amount),
+      moreInfo: ingredient.moreInfo,
+    }
 
     const { data, error } = await supabase
       .from('RecipeIngredient')
       .insert([samanama])
       .select()
-    });
+  })
 
   /**
    * Insert recipeSteps
    */
   const { steps } = recipe
 
-  const formattedSteps = steps.map((step: any, index: number) => ({ recipeId, position: index + 1, instruction: step.description, duration: 0 }))
+  const formattedSteps = steps.map((step: any, index: number) => ({
+    recipeId,
+    position: index + 1,
+    instruction: step.description,
+    duration: 0,
+  }))
 
   const { data, error } = await supabase
-  .from('RecipeStep')
-  .insert(formattedSteps)
-  .select()
+    .from('RecipeStep')
+    .insert(formattedSteps)
+    .select()
 
   // TODO: Gestion de errores
 }

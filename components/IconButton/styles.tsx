@@ -5,18 +5,23 @@ export const Container = styled.div`
   padding: var(--kkbk--spacing--4);
   transition: background-color 300ms, color 300ms;
 
-  background-color: var(--kkbk--component--color--background--button--terciary--enabled);
+  background-color: var(
+    --kkbk--component--color--background--button--terciary--enabled
+  );
   color: var(--kkbk--component--color--text--button--terciary--enabled);
 
   &:focus-visible,
-    &[data-focus-visible] {
-      outline: 2px solid var(--kkbk--component--color--background--button--terciary--hover);
-      outline-offset: 2px;
-    }
+  &[data-focus-visible] {
+    outline: 2px solid
+      var(--kkbk--component--color--background--button--terciary--hover);
+    outline-offset: 2px;
+  }
 
-    &:hover,
-    &:focus {
-      background-color: var(--kkbk--component--color--background--button--terciary--hover);
-      color: var(--kkbk--component--color--text--button--terciary--hover);
-    }
+  &:hover,
+  &:focus {
+    background-color: var(
+      --kkbk--component--color--background--button--terciary--hover
+    );
+    color: var(--kkbk--component--color--text--button--terciary--hover);
+  }
 `

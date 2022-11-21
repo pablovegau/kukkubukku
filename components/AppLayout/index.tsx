@@ -12,11 +12,11 @@ import Link from 'next/link'
 import { MyLink } from 'components/MyLink'
 
 interface Props {
-  children: JSX.Element,
-  title?: string,
+  children: JSX.Element
+  title?: string
 }
 
-export function AppLayout ({ children, title }: Props) {
+export function AppLayout({ children, title }: Props) {
   useTheme()
 
   return (
@@ -35,7 +35,7 @@ export function AppLayout ({ children, title }: Props) {
             <Icon
               type={Icon.TYPE.PLUS}
               size={24}
-              fillColor='--kkbk--color--text--primary'
+              fillColor="--kkbk--color--text--primary"
             />
           </MyLink>
         </Link>
@@ -45,7 +45,7 @@ export function AppLayout ({ children, title }: Props) {
             <Icon
               type={Icon.TYPE.MAGNIFIER}
               size={24}
-              fillColor='--kkbk--color--text--primary'
+              fillColor="--kkbk--color--text--primary"
             />
           </MyLink>
         </Link>

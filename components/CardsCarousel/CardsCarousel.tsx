@@ -4,12 +4,12 @@ import { Card } from '../CardVertical/CardVertical'
 import { Carousel, CardWrapper, SectionHeader } from './styles'
 
 interface Props {
-  cardsData: Card[];
-  size: string;
-  title: string;
+  cardsData: Card[]
+  size: string
+  title: string
 }
 
-function CardsCarousel ({ cardsData, size = 'small', title }: Props) {
+function CardsCarousel({ cardsData, size = 'small', title }: Props) {
   return (
     <>
       <SectionHeader>{title}</SectionHeader>

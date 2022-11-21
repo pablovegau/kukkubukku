@@ -9,16 +9,16 @@ import { UseFormRegister } from 'react-hook-form'
 
 interface Props {
   errors: any
-  fieldName: string,
-  formErrors: FormError,
-  label: string,
-  register: UseFormRegister<FormData>,
-  placeholder?: string,
-  registerElement?: any,
-  typeOfMandatory?: string,
+  fieldName: string
+  formErrors: FormError
+  label: string
+  register: UseFormRegister<FormData>
+  placeholder?: string
+  registerElement?: any
+  typeOfMandatory?: string
 }
 
-function TextField ({
+function TextField({
   errors,
   fieldName,
   formErrors,
@@ -26,26 +26,28 @@ function TextField ({
   placeholder,
   register,
   registerElement,
-  typeOfMandatory
+  typeOfMandatory,
 }: Props) {
   const registerInput = registerElement || fieldName
 
   return (
     <InputWrapper>
-      <Label htmlFor={fieldName} additionalText={typeOfMandatory}>{label}</Label>
+      <Label htmlFor={fieldName} additionalText={typeOfMandatory}>
+        {label}
+      </Label>
       <TextArea
         {...register(registerInput, { ...formErrors[fieldName] })}
         aria-invalid={!!errors[fieldName]}
         placeholder={placeholder}
         id={fieldName}
       />
-      {errors[fieldName] &&
+      {errors[fieldName] && (
         <InputError
           type={errors[fieldName].type}
           message={errors[fieldName].message}
           types={Object.keys(formErrors[fieldName])}
         />
-      }
+      )}
     </InputWrapper>
   )
 }

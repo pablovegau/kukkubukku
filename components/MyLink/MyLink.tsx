@@ -17,12 +17,14 @@ const Samanama = styled.a<ContainerProps>`
   height: 100%;
 `
 
-const MyLink = forwardRef<HTMLAnchorElement>(({ onClick, href, children, position }, ref) => {
-  return (
-    <Samanama href={href} onClick={onClick} ref={ref} position={position}>
-      {children}
-    </Samanama>
-  )
-})
+const MyLink = forwardRef<HTMLAnchorElement>(
+  ({ onClick, href, children, position }, ref) => {
+    return (
+      <Samanama href={href} onClick={onClick} ref={ref} position={position}>
+        {children}
+      </Samanama>
+    )
+  }
+)
 
 export default MyLink

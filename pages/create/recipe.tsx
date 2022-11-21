@@ -9,7 +9,12 @@ import { AppLayout } from 'components/AppLayout'
 import { MainTitle } from 'components/MainTitle'
 import { Label } from 'components/Label'
 
-import { Container, Form, InputRadioWrapper, SubmitButtonWrapper } from 'styles/pages/create/recipe'
+import {
+  Container,
+  Form,
+  InputRadioWrapper,
+  SubmitButtonWrapper,
+} from 'styles/pages/create/recipe'
 import { addRecipe } from 'services/recipes'
 
 import { formatRecipe } from 'services/utils'
@@ -74,50 +79,50 @@ const formErrors: FormError = {
   name: {
     required: {
       value: true,
-      message: 'Este campo es requerido'
+      message: 'Este campo es requerido',
     },
     minLength: {
       value: 3,
-      message: 'Este campo debe contener almenos tres caracteres'
-    }
+      message: 'Este campo debe contener almenos tres caracteres',
+    },
   },
   diners: {
     required: {
       value: true,
-      message: 'Este campo es requerido'
+      message: 'Este campo es requerido',
     },
     min: {
       value: 1,
-      message: 'Este campo debe contener almenos un comensal'
+      message: 'Este campo debe contener almenos un comensal',
     },
     max: {
       value: 12,
-      message: 'Este campo debe contener como máximo diez comensales'
-    }
+      message: 'Este campo debe contener como máximo diez comensales',
+    },
   },
   duration: {
     min: {
       value: 1,
-      message: 'La duración debe ser mayor o igual a 1 minuto'
-    }
-  }
+      message: 'La duración debe ser mayor o igual a 1 minuto',
+    },
+  },
 }
 
 const difficultyOptions = [
   { value: '', label: 'Selecciona una opción' },
   { value: 'easy', label: 'Facil' },
   { value: 'medium', label: 'Media' },
-  { value: 'high', label: 'Alta' }
+  { value: 'high', label: 'Alta' },
 ]
 
-export default function CreateRecipe () {
+export default function CreateRecipe() {
   const router = useRouter()
 
   const {
     register,
     formState: { errors },
     handleSubmit,
-    control
+    control,
   } = useForm<FormData>({
     defaultValues: {
       ingredients: [
@@ -125,33 +130,33 @@ export default function CreateRecipe () {
           name: '',
           amount: '',
           measurement: '',
-          moreInfo: ''
-        }
+          moreInfo: '',
+        },
       ],
       steps: [
         {
-          description: ''
-        }
-      ]
-    }
+          description: '',
+        },
+      ],
+    },
   })
 
   const {
     fields: ingredientFields,
     append: ingredientAppend,
-    remove: ingredientRemove
+    remove: ingredientRemove,
   } = useFieldArray({
     name: 'ingredients',
-    control
+    control,
   })
 
   const {
     fields: stepFields,
     append: stepAppend,
-    remove: stepRemove
+    remove: stepRemove,
   } = useFieldArray({
     name: 'steps',
-    control
+    control,
   })
 
   const [selectedFile, setSelectedFile] = useState()
@@ -313,12 +318,25 @@ export default function CreateRecipe () {
           <Label htmlFor="">Quieres que tu receta sea pública?</Label>
           <InputRadioWrapper>
             <div>
-              <input {...register('isPublic')} type="radio" id="publicTrue" name="isPublic" value="true" checked />
+              <input
+                {...register('isPublic')}
+                type="radio"
+                id="publicTrue"
+                name="isPublic"
+                value="true"
+                checked
+              />
               <label htmlFor="publicTrue"> Si</label>
             </div>
 
             <div>
-              <input {...register('isPublic')} type="radio" id="publicFalse" name="isPublic" value="false" />
+              <input
+                {...register('isPublic')}
+                type="radio"
+                id="publicFalse"
+                name="isPublic"
+                value="false"
+              />
               <label htmlFor="publicFalse"> No</label>
             </div>
           </InputRadioWrapper>

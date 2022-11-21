@@ -1,15 +1,11 @@
 import { Container } from './styles'
 
 interface Props {
-  children: string;
+  children: string
 }
 
-function MainTitle ({ children }: Props) {
-  return (
-    <Container>
-      {children}
-    </Container>
-  )
+function MainTitle({ children }: Props) {
+  return <Container>{children}</Container>
 }
 
 export default MainTitle

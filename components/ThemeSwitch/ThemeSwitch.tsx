@@ -5,7 +5,7 @@ import { THEMES } from 'styles/theme/tokens'
 
 const ICON_SIZE = 16
 
-export default function ThemeSwitch () {
+export default function ThemeSwitch() {
   const { theme, setTheme } = useTheme()
 
   const handleSwitchTheme = () => {

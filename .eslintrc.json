@@ -3,13 +3,12 @@
     "React": true,
     "JSX": true
   },
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "plugins": ["@typescript-eslint"],
   "extends": [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
-    "standard"
+    "standard",
+    "prettier"
   ],
   "rules": {
     // I suggest you add those two rules:

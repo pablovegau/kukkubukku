@@ -25,7 +25,6 @@ export const Carousel = styled.div`
 export const CardWrapper = styled.div`
   margin-left: var(--kkbk--spacing--24);
 
-
   &:last-child {
     margin-right: var(--kkbk--spacing--24);
   }

@@ -11,5 +11,5 @@ export const iconTypes = {
   RIGHT_ARROW: 'right_arrow',
   SHOPPING_LIST: 'shoppingList',
   STAR: 'star',
-  SUN: 'sun'
+  SUN: 'sun',
 }

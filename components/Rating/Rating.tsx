@@ -1,7 +1,7 @@
 import { Container, Value } from './styles'
 import { Icon } from '../Icon'
 
-function Rating ({ value = '0.0' }) {
+function Rating({ value = '0.0' }) {
   return (
     <Container>
       <Icon

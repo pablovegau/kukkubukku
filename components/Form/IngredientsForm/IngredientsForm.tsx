@@ -7,31 +7,40 @@ import { Button } from 'components/Button'
 import { IconButton } from 'components/IconButton'
 import { Icon } from 'components/Icon'
 import { IngredientWrapper, Ingredient } from './styles'
-import { InputWrapperGroup, IngredientsWrapper } from 'components/Form/formStyles'
+import {
+  InputWrapperGroup,
+  IngredientsWrapper,
+} from 'components/Form/formStyles'
 import { FormError } from 'pages/create/recipe'
 
 interface IngredientField {
-  id: string,
-  name: string,
-  amount: string,
-  measurement: string,
-  moreInfo: string,
+  id: string
+  name: string
+  amount: string
+  measurement: string
+  moreInfo: string
 }
 
 interface Props {
   errors: any
-  formErrors: FormError,
-  register: UseFormRegister<FormData>,
-  control: Control<FormData>,
-  ingredientAppend: any,
-  ingredientRemove: any,
-  ingredientFields: IngredientField[],
+  formErrors: FormError
+  register: UseFormRegister<FormData>
+  control: Control<FormData>
+  ingredientAppend: any
+  ingredientRemove: any
+  ingredientFields: IngredientField[]
 }
 
-function IngredientList ({ control, ingredientRemove }: { control: any, ingredientRemove: any }) {
+function IngredientList({
+  control,
+  ingredientRemove,
+}: {
+  control: any
+  ingredientRemove: any
+}) {
   const ingredients = useWatch({
     control,
-    name: 'ingredients'
+    name: 'ingredients',
   })
 
   if (ingredients.length === 1) {
@@ -55,7 +64,11 @@ function IngredientList ({ control, ingredientRemove }: { control: any, ingredie
             </Ingredient>
 
             <IconButton onClick={() => ingredientRemove(index)}>
-              <Icon type={Icon.TYPE.CROSS} size={12} fillColor="--kkbk--color--text--dim"/>
+              <Icon
+                type={Icon.TYPE.CROSS}
+                size={12}
+                fillColor="--kkbk--color--text--dim"
+              />
             </IconButton>
           </IngredientWrapper>
         )
@@ -64,18 +77,20 @@ function IngredientList ({ control, ingredientRemove }: { control: any, ingredie
   )
 }
 
-function IngredientsForm ({
+function IngredientsForm({
   errors,
   formErrors,
   register,
   control,
   ingredientAppend,
   ingredientRemove,
-  ingredientFields
+  ingredientFields,
 }: Props) {
   return (
     <>
-      <Label htmlFor="ingredients" additionalText='Obligatorio'>Ingredientes</Label>
+      <Label htmlFor="ingredients" additionalText="Obligatorio">
+        Ingredientes
+      </Label>
 
       <IngredientList control={control} ingredientRemove={ingredientRemove} />
 
@@ -124,7 +139,12 @@ function IngredientsForm ({
               registerElement={`ingredients.${index}.moreInfo`}
             />
 
-            <Button type={Button.TYPE.PRIMARY} onClick={() => ingredientAppend()}>Añadir</Button>
+            <Button
+              type={Button.TYPE.PRIMARY}
+              onClick={() => ingredientAppend()}
+            >
+              Añadir
+            </Button>
           </InputWrapperGroup>
         )
       })}

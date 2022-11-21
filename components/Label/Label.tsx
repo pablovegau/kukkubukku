@@ -1,17 +1,17 @@
 import { Container, AdditionalText } from './styles'
 
 interface Props {
-  htmlFor: string,
-  children: string,
-  additionalText?: string,
+  htmlFor: string
+  children: string
+  additionalText?: string
 }
 
 const TYPE_OF_MANDATORY = {
   MANDATORY: 'Obligatorio',
-  RECOMMENDABLE: 'Recomendable'
+  RECOMMENDABLE: 'Recomendable',
 }
 
-function Label ({ htmlFor, children, additionalText }: Props) {
+function Label({ htmlFor, children, additionalText }: Props) {
   return (
     <Container htmlFor={htmlFor}>
       {children}

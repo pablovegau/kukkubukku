@@ -14,7 +14,7 @@ import { star } from './star'
 import { sun } from './sun'
 
 interface Icons {
-  [key: string]: string[];
+  [key: string]: string[]
 }
 
 export const icons: Icons = {
@@ -30,5 +30,5 @@ export const icons: Icons = {
   right_arrow,
   shoppingList,
   star,
-  sun
+  sun,
 }

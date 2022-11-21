@@ -12,11 +12,11 @@ interface Props {
   type: string
 }
 
-function Icon ({
+function Icon({
   fillColor = '--kkbk--color--emphasis--primary',
   size = 32,
   label = 'icon',
-  type
+  type,
 }: Props) {
   return (
     <Container size={size}>

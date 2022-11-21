@@ -6,7 +6,7 @@ import { THEMES } from 'styles/theme/tokens'
 // TODO: onFocus outline
 
 interface Props {
-  theme: string;
+  theme: string
 }
 
 const switchContainerHeight = rem('24px')

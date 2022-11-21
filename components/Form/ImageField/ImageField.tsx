@@ -9,39 +9,51 @@ import { UseFormRegister } from 'react-hook-form'
 
 interface Props {
   errors: any
-  fieldName: string,
-  formErrors: FormError,
-  label: string,
-  onChangeImage: (e: React.ChangeEvent<HTMLInputElement>) => void,
-  preview: string,
-  register: UseFormRegister<FormData>,
-  registerElement?: any,
-  typeOfMandatory?: string,
+  fieldName: string
+  formErrors: FormError
+  label: string
+  onChangeImage: (e: React.ChangeEvent<HTMLInputElement>) => void
+  preview: string
+  register: UseFormRegister<FormData>
+  registerElement?: any
+  typeOfMandatory?: string
 }
 
-function ImageField ({ errors, fieldName, formErrors, label, onChangeImage, preview, register, registerElement, typeOfMandatory }: Props) {
+function ImageField({
+  errors,
+  fieldName,
+  formErrors,
+  label,
+  onChangeImage,
+  preview,
+  register,
+  registerElement,
+  typeOfMandatory,
+}: Props) {
   const registerInput = registerElement || 'images'
 
   return (
     <InputWrapper>
-      <Label htmlFor={fieldName} additionalText={typeOfMandatory}>{label}</Label>
+      <Label htmlFor={fieldName} additionalText={typeOfMandatory}>
+        {label}
+      </Label>
       <InputFile
         {...register(registerInput)}
         onChange={onChangeImage}
         type="file"
       />
-      {errors[fieldName] &&
+      {errors[fieldName] && (
         <InputError
           type={errors[fieldName].type}
           message={errors[fieldName].message}
           types={Object.keys(formErrors[fieldName])}
         />
-      }
+      )}
       {preview && (
         <ImageWrapper>
           <img src={preview} alt="Preview" />
-        </ImageWrapper>)
-      }
+        </ImageWrapper>
+      )}
     </InputWrapper>
   )
 }

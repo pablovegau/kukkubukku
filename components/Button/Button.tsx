@@ -5,21 +5,21 @@ export const TYPES = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
   TERCIARY: 'terciary',
-  DESTRUCTIVE: 'destructive'
+  DESTRUCTIVE: 'destructive',
 }
 
 interface Props {
-  disabled?: boolean;
-  type?: string;
-  children: React.ReactNode;
-  onClick: () => void;
+  disabled?: boolean
+  type?: string
+  children: React.ReactNode
+  onClick: () => void
 }
 
-function Button ({
+function Button({
   type = TYPES.SECONDARY,
   children,
   onClick,
-  disabled = false
+  disabled = false,
 }: Props) {
   return (
     <Container onClick={onClick} buttonType={type} aria-disabled={disabled}>

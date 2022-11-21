@@ -1,6 +1,6 @@
-import { lighten, rgba } from "polished";
+import { lighten, rgba } from 'polished'
 
-const black = "#000000";
+const black = '#000000'
 
 export const grayColors = {
   black: black,
@@ -15,13 +15,13 @@ export const grayColors = {
   black10: lighten(0.9, black),
   black5: lighten(0.95, black),
   black2: lighten(0.98, black),
-  white: lighten(1, black)
-};
+  white: lighten(1, black),
+}
 
 export const transparentGrayColors = {
   five: `${rgba(grayColors.black, 0.05)}`,
   twenty: `${rgba(grayColors.black, 0.2)}`,
   thirty: `${rgba(grayColors.black, 0.3)}`,
   fifty: `${rgba(grayColors.black, 0.5)}`,
-  eighty: `${rgba(grayColors.black, 0.8)}`
-};
+  eighty: `${rgba(grayColors.black, 0.8)}`,
+}

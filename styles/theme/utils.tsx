@@ -1,12 +1,12 @@
 // TODO: Fix typescript errors
 
-import { css } from "styled-components";
+import { css } from 'styled-components'
 
-const SEPARATOR = "--";
+const SEPARATOR = '--'
 
 const TOKENS_TYPES = {
-  THEME: "theme"
-};
+  THEME: 'theme',
+}
 
 // interface Themes {
 //   [key: string]: string;
@@ -16,85 +16,89 @@ const TOKENS_TYPES = {
 //   [key: string]: Tokens;
 // }
 
-
 function isObject(obj: any) {
-  return !!(typeof obj === "object");
+  return !!(typeof obj === 'object')
 }
 
 function transformTokensToString(tokensObject: any) {
   return Object.entries(tokensObject)
     .map(([key, value]) => `${key}: ${value}`)
-    .join("; ");
+    .join('; ')
 }
 
-function processThemeTokens(prefix: any, tokens: any, tokensAcc: any, themesTokens: any) {
+function processThemeTokens(
+  prefix: any,
+  tokens: any,
+  tokensAcc: any,
+  themesTokens: any
+) {
   for (const key in tokens) {
     if (isObject(tokens[key])) {
       processThemeTokens(
-        prefix + SEPARATOR + key.replace("_", "-").toLowerCase(),
+        prefix + SEPARATOR + key.replace('_', '-').toLowerCase(),
         tokens[key],
         tokensAcc,
         themesTokens
-      );
+      )
     } else {
-      themesTokens[`${key.toLowerCase()}`][prefix] = tokens[key];
+      themesTokens[`${key.toLowerCase()}`][prefix] = tokens[key]
     }
   }
 }
 
 function processBaseTokens(prefix: any, tokens: any, tokensAcc: any) {
   for (const key in tokens) {
-    const newPrefix = prefix + SEPARATOR + key.replace("_", "-").toLowerCase();
+    const newPrefix = prefix + SEPARATOR + key.replace('_', '-').toLowerCase()
     if (isObject(tokens[key])) {
-      processBaseTokens(newPrefix, tokens[key], tokensAcc);
+      processBaseTokens(newPrefix, tokens[key], tokensAcc)
     } else {
-      tokensAcc[newPrefix] = tokens[key];
+      tokensAcc[newPrefix] = tokens[key]
     }
   }
 }
 
 interface ThemesTokens {
-  [key: string]: string | ThemesTokens;
-};
+  [key: string]: string | ThemesTokens
+}
 
 function getThemeTokens(tokens: any, themes: any) {
-  const tokensAcc = {};
-  let themesTokens: ThemesTokens = {};
+  const tokensAcc = {}
+  let themesTokens: ThemesTokens = {}
 
   for (const theme in themes) {
-    themesTokens[`${themes[theme]}`] = {};
+    themesTokens[`${themes[theme]}`] = {}
   }
 
-  processThemeTokens("--kkbk", tokens, tokensAcc, themesTokens);
+  processThemeTokens('--kkbk', tokens, tokensAcc, themesTokens)
 
-  let allThemesTokens = "";
+  let allThemesTokens = ''
 
   for (const themeKey in themesTokens) {
     allThemesTokens += `
         body[data-theme="${themeKey}"] {
           ${transformTokensToString(themesTokens[themeKey])}
         }
-      `;
+      `
   }
 
   return css`
     ${allThemesTokens}
-  `;
+  `
 }
 
 function getBaseTokens(tokens: any) {
-  let tokensAcc = {};
-  processBaseTokens("--kkbk", tokens, tokensAcc);
+  let tokensAcc = {}
+  processBaseTokens('--kkbk', tokens, tokensAcc)
 
   return css`
     :root {
       ${transformTokensToString(tokensAcc)}
     }
-  `;
+  `
 }
 
 export function getTokens(tokens: any, type?: any, themes?: any) {
   return type === TOKENS_TYPES.THEME && themes
     ? getThemeTokens(tokens, themes)
-    : getBaseTokens(tokens);
+    : getBaseTokens(tokens)
 }

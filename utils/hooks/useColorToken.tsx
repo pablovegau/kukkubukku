@@ -5,7 +5,7 @@
 import { allValues } from '../../styles/constants/values'
 
 interface Values {
-  [key: string]: string;
+  [key: string]: string
 }
 
 // receives a string like 'color.emphasis.primary.light'
