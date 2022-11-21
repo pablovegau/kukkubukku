@@ -30,7 +30,7 @@ function processThemeTokens(
   prefix: any,
   tokens: any,
   tokensAcc: any,
-  themesTokens: any
+  themesTokens: any,
 ) {
   for (const key in tokens) {
     if (isObject(tokens[key])) {
@@ -38,7 +38,7 @@ function processThemeTokens(
         prefix + SEPARATOR + key.replace('_', '-').toLowerCase(),
         tokens[key],
         tokensAcc,
-        themesTokens
+        themesTokens,
       )
     } else {
       themesTokens[`${key.toLowerCase()}`][prefix] = tokens[key]
