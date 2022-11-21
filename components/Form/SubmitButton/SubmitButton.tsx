@@ -1,5 +1,5 @@
-import { TYPES } from "components/Button/Button";
-import { Container } from "./styles";
+import { TYPES } from 'components/Button/Button'
+import { Container } from './styles'
 
 interface Props {
   disabled?: boolean;
@@ -7,16 +7,16 @@ interface Props {
   value: string;
 }
 
-function SubmitButton({
+function SubmitButton ({
   type = TYPES.PRIMARY_ACCENT,
   value,
   disabled = false
 }: Props) {
   return (
     <Container type="submit" value={value} buttonType={type} aria-disabled={disabled} />
-  );
+  )
 }
 
-SubmitButton.TYPE = TYPES;
+SubmitButton.TYPE = TYPES
 
-export default SubmitButton;
+export default SubmitButton

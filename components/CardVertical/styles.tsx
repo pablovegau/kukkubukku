@@ -1,14 +1,14 @@
-import styled from "styled-components";
-import { typography } from "../../styles/mixins";
+import styled from 'styled-components'
+import { typography } from '../../styles/mixins'
 
 interface Props {
   size: string;
 }
 
 export const CARD_SIZES = {
-  SMALL: "small",
-  MEDIUM: "medium"
-};
+  SMALL: 'small',
+  MEDIUM: 'medium'
+}
 
 export const Container = styled.a<Props>`
   --kkbk--card--container--small: 148px;
@@ -19,8 +19,8 @@ export const Container = styled.a<Props>`
   display: block;
   width: ${(p) =>
     p.size === CARD_SIZES.SMALL
-      ? "var(--kkbk--card--container--small)"
-      : "var(--kkbk--card--container--medium)"};
+      ? 'var(--kkbk--card--container--small)'
+      : 'var(--kkbk--card--container--medium)'};
   text-decoration: none;
   cursor: pointer;
 
@@ -30,14 +30,14 @@ export const Container = styled.a<Props>`
       filter: contrast(1.2);
     }
   }
-`;
+`
 
 export const CardBottom = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   margin-top: var(--kkbk--spacing--4);
-`;
+`
 
 export const RecipeName = styled.div`
   margin-right: var(--kkbk--spacing--8);
@@ -51,13 +51,13 @@ export const RecipeName = styled.div`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-`;
+`
 
 export const ImgWrapper = styled.div<Props>`
   height: ${(p) =>
     p.size === CARD_SIZES.SMALL
-      ? "var(--kkbk--card--image--small)"
-      : "var(--kkbk--card--image--medium)"};
+      ? 'var(--kkbk--card--image--small)'
+      : 'var(--kkbk--card--image--medium)'};
   border-radius: 4px;
   overflow: hidden;
 
@@ -69,4 +69,4 @@ export const ImgWrapper = styled.div<Props>`
     object-fit: cover;
     transition: scale 0.3s ease-in-out, filter 0.3s ease-in-out;
   }
-`;
+`

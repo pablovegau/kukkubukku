@@ -1,14 +1,18 @@
-import { Label } from "components/Label"
-import { InputError } from "components/InputError"
-import { Input } from "./styles"
-import { InputWrapper } from "components/Form/formStyles"
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import { Label } from 'components/Label'
+import { InputError } from 'components/InputError'
+import { Input } from './styles'
+import { InputWrapper } from 'components/Form/formStyles'
+import { UseFormRegister } from 'react-hook-form'
+import { FormError } from 'pages/create/recipe'
 
 interface Props {
-  errors: any
+  errors: any,
   fieldName: string,
-  formErrors: any,
+  formErrors: FormError,
   label: string,
-  register: any,
+  register: UseFormRegister<FormData>,
   inputType?: string,
   placeholder?: string,
   registerElement?: any,
@@ -17,7 +21,7 @@ interface Props {
 
 // TODO: The inputs type 'number', check the ⬆️ and ⬇️ buttons
 
-function TextField({
+function TextField ({
   errors,
   fieldName,
   formErrors,
@@ -28,8 +32,7 @@ function TextField({
   registerElement,
   typeOfMandatory
 }: Props) {
-
-  const registerInput = registerElement ? registerElement : fieldName
+  const registerInput = registerElement || fieldName
 
   return (
     <InputWrapper>
@@ -44,7 +47,7 @@ function TextField({
       {errors[fieldName] &&
         <InputError
           type={errors[fieldName].type}
-          message={errors[fieldName].message!}
+          message={errors[fieldName].message}
           types={Object.keys(formErrors[fieldName])}
         />
       }

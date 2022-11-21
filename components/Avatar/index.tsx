@@ -1,3 +1,3 @@
-import { Avatar, AvatarImage } from "./Avatar";
+import { Avatar, AvatarImage } from './Avatar'
 
-export { Avatar, AvatarImage };
+export { Avatar, AvatarImage }

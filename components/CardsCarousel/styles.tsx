@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { typography } from "../../styles/mixins";
+import styled from 'styled-components'
+import { typography } from '../../styles/mixins'
 
 export const SectionHeader = styled.h3`
   margin-bottom: var(--kkbk--spacing--16);
@@ -7,7 +7,7 @@ export const SectionHeader = styled.h3`
   color: var(--kkbk--color--text--primary);
   font-family: var(--kkbk--font--title);
   ${typography.heading.five}
-`;
+`
 
 export const Carousel = styled.div`
   scroll-snap-type: x mandatory;
@@ -20,7 +20,7 @@ export const Carousel = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-`;
+`
 
 export const CardWrapper = styled.div`
   margin-left: var(--kkbk--spacing--24);
@@ -29,4 +29,4 @@ export const CardWrapper = styled.div`
   &:last-child {
     margin-right: var(--kkbk--spacing--24);
   }
-`;
+`

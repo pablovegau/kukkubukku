@@ -1,12 +1,12 @@
-import { Container } from "./styles";
+import { Container } from './styles'
 
 export const TYPES = {
-  PRIMARY_ACCENT: "primary_accent",
-  PRIMARY: "primary",
-  SECONDARY: "secondary",
-  TERCIARY: "terciary",
-  DESTRUCTIVE: "destructive"
-};
+  PRIMARY_ACCENT: 'primary_accent',
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+  TERCIARY: 'terciary',
+  DESTRUCTIVE: 'destructive'
+}
 
 interface Props {
   disabled?: boolean;
@@ -15,7 +15,7 @@ interface Props {
   onClick: () => void;
 }
 
-function Button({
+function Button ({
   type = TYPES.SECONDARY,
   children,
   onClick,
@@ -25,9 +25,9 @@ function Button({
     <Container onClick={onClick} buttonType={type} aria-disabled={disabled}>
       {children}
     </Container>
-  );
+  )
 }
 
-Button.TYPE = TYPES;
+Button.TYPE = TYPES
 
-export default Button;
+export default Button

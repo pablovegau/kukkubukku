@@ -1,3 +1,3 @@
-import CardsCarousel from "./CardsCarousel";
+import CardsCarousel from './CardsCarousel'
 
-export { CardsCarousel };
+export { CardsCarousel }

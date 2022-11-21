@@ -1,7 +1,7 @@
-import { Container, Value } from "./styles";
-import { Icon } from "../Icon";
+import { Container, Value } from './styles'
+import { Icon } from '../Icon'
 
-function Rating({ value = "0.0" }) {
+function Rating ({ value = '0.0' }) {
   return (
     <Container>
       <Icon
@@ -11,7 +11,7 @@ function Rating({ value = "0.0" }) {
       />
       <Value>{value}</Value>
     </Container>
-  );
+  )
 }
 
-export { Rating };
+export { Rating }

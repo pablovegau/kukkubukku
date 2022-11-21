@@ -1,13 +1,13 @@
-import { useColorToken } from "../../utils/hooks/useColorToken";
+import { useColorToken } from '../../utils/hooks/useColorToken'
 
-const PRIMARY_COLOR = "base-color.primary.main";
-const SECONDARY_COLOR = "base-color.secondary.main";
+const PRIMARY_COLOR = 'base-color.primary.main'
+const SECONDARY_COLOR = 'base-color.secondary.main'
 
-const CONVERSION_RATE = 1.875;
+const CONVERSION_RATE = 1.875
 
 export const Logo = ({ width = 75 }) => {
-  const primaryColor = useColorToken(PRIMARY_COLOR);
-  const secondaryColor = useColorToken(SECONDARY_COLOR);
+  const primaryColor = useColorToken(PRIMARY_COLOR)
+  const secondaryColor = useColorToken(SECONDARY_COLOR)
 
   return (
     <svg
@@ -60,5 +60,5 @@ export const Logo = ({ width = 75 }) => {
         fill={secondaryColor}
       />
     </svg>
-  );
-};
+  )
+}

@@ -1,12 +1,14 @@
-import { useWatch } from "react-hook-form"
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Control, UseFormRegister, useWatch } from 'react-hook-form'
 
-import { Label } from "components/Label"
-import { TextField } from "../TextField"
-import { Button } from "components/Button"
-import { IconButton } from "components/IconButton"
-import { Icon } from "components/Icon"
-import { IngredientWrapper, Ingredient } from "./styles"
-import { InputWrapperGroup, IngredientsWrapper } from "components/Form/formStyles"
+import { Label } from 'components/Label'
+import { TextField } from '../TextField'
+import { Button } from 'components/Button'
+import { IconButton } from 'components/IconButton'
+import { Icon } from 'components/Icon'
+import { IngredientWrapper, Ingredient } from './styles'
+import { InputWrapperGroup, IngredientsWrapper } from 'components/Form/formStyles'
+import { FormError } from 'pages/create/recipe'
 
 interface IngredientField {
   id: string,
@@ -18,22 +20,22 @@ interface IngredientField {
 
 interface Props {
   errors: any
-  formErrors: any,
-  register: any,
-  control: any,
+  formErrors: FormError,
+  register: UseFormRegister<FormData>,
+  control: Control<FormData>,
   ingredientAppend: any,
   ingredientRemove: any,
   ingredientFields: IngredientField[],
 }
 
-function IngredientList({ control, ingredientRemove }: { control: any, ingredientRemove: any }) {
+function IngredientList ({ control, ingredientRemove }: { control: any, ingredientRemove: any }) {
   const ingredients = useWatch({
     control,
-    name: "ingredients",
+    name: 'ingredients'
   })
 
   if (ingredients.length === 1) {
-    return null;
+    return null
   }
 
   return (
@@ -62,14 +64,14 @@ function IngredientList({ control, ingredientRemove }: { control: any, ingredien
   )
 }
 
-function IngredientsForm({
+function IngredientsForm ({
   errors,
   formErrors,
   register,
   control,
   ingredientAppend,
   ingredientRemove,
-  ingredientFields,
+  ingredientFields
 }: Props) {
   return (
     <>

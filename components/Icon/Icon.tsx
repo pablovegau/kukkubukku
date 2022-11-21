@@ -1,7 +1,9 @@
-import * as React from "react";
-import * as AccessibleIcon from "@radix-ui/react-accessible-icon";
-import { Container, Svg } from "./styles";
-import { icons } from "./icons/index";
+import * as React from 'react'
+import * as AccessibleIcon from '@radix-ui/react-accessible-icon'
+import { Container, Svg } from './styles'
+import { icons } from './icons/index'
+
+import { iconTypes } from './iconTypes'
 
 interface Props {
   fillColor?: string
@@ -10,12 +12,10 @@ interface Props {
   type: string
 }
 
-import { iconTypes } from "./iconTypes";
-
-function Icon({
-  fillColor = "--kkbk--color--emphasis--primary",
+function Icon ({
+  fillColor = '--kkbk--color--emphasis--primary',
   size = 32,
-  label = "icon",
+  label = 'icon',
   type
 }: Props) {
   return (
@@ -34,9 +34,9 @@ function Icon({
         </Svg>
       </AccessibleIcon.Root>
     </Container>
-  );
+  )
 }
 
-Icon.TYPE = iconTypes;
+Icon.TYPE = iconTypes
 
-export default Icon;
+export default Icon

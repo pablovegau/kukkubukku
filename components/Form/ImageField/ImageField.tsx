@@ -1,32 +1,39 @@
-import { Label } from "components/Label"
-import { InputError } from "components/InputError"
-import { InputWrapper } from "components/Form/formStyles"
-import { ImageWrapper, InputFile } from "./styles"
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @next/next/no-img-element */
+import { Label } from 'components/Label'
+import { InputError } from 'components/InputError'
+import { InputWrapper } from 'components/Form/formStyles'
+import { ImageWrapper, InputFile } from './styles'
+import { FormError } from 'pages/create/recipe'
+import { UseFormRegister } from 'react-hook-form'
 
 interface Props {
   errors: any
   fieldName: string,
-  formErrors: any,
+  formErrors: FormError,
   label: string,
   onChangeImage: (e: React.ChangeEvent<HTMLInputElement>) => void,
   preview: string,
-  register: any,
+  register: UseFormRegister<FormData>,
+  registerElement?: any,
   typeOfMandatory?: string,
 }
 
-function ImageField({ errors, fieldName, formErrors, label, onChangeImage, preview, register, typeOfMandatory }: Props) {
+function ImageField ({ errors, fieldName, formErrors, label, onChangeImage, preview, register, registerElement, typeOfMandatory }: Props) {
+  const registerInput = registerElement || 'images'
+
   return (
     <InputWrapper>
       <Label htmlFor={fieldName} additionalText={typeOfMandatory}>{label}</Label>
       <InputFile
-        {...register('images')}
+        {...register(registerInput)}
         onChange={onChangeImage}
         type="file"
       />
       {errors[fieldName] &&
         <InputError
           type={errors[fieldName].type}
-          message={errors[fieldName].message!}
+          message={errors[fieldName].message}
           types={Object.keys(formErrors[fieldName])}
         />
       }

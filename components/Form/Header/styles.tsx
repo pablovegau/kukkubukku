@@ -16,7 +16,7 @@ export const Container = styled.header`
   & > a {
     text-align: left;
   }
-`;
+`
 
 export const Tools = styled.div`
   display: flex;
@@ -25,7 +25,7 @@ export const Tools = styled.div`
   > a:not(:last-child) {
     margin-right: var(--kkbk--spacing--24);
   }
-`;
+`
 
 export const TemporalSwitchWrapper = styled.div`
   display: flex;

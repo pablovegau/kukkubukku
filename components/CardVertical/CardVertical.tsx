@@ -1,11 +1,14 @@
-import { Rating } from "../Rating";
+/* eslint-disable @next/next/no-img-element */
+// TODO: Chech the new Image component from next.js 13
+
+import { Rating } from '../Rating'
 import {
   Container,
   CardBottom,
   ImgWrapper,
   RecipeName,
   CARD_SIZES
-} from "./styles";
+} from './styles'
 
 export interface Card {
   image: string;
@@ -15,9 +18,7 @@ export interface Card {
   size?: string;
 }
 
-// TODO: Move img to picture https://nextjs.org/docs/messages/no-img-element
-
-function CardVertical({
+function CardVertical ({
   image,
   name,
   navigateTo,
@@ -34,12 +35,12 @@ function CardVertical({
         <Rating value={rating.toString()} />
       </CardBottom>
     </Container>
-  );
+  )
 }
 
-CardVertical.CARD_SIZES = CARD_SIZES;
+CardVertical.CARD_SIZES = CARD_SIZES
 
-export default CardVertical;
+export default CardVertical
 
 // Example to use in App.js
 

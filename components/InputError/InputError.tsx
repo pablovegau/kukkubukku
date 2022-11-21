@@ -1,5 +1,4 @@
-import { Icon } from "components/Icon"
-import { Container, Label } from "./styles"
+import { Container, Label } from './styles'
 
 interface Props {
   type: string,
@@ -7,7 +6,7 @@ interface Props {
   types: string[],
 }
 
-export default function InputError({ type, message, types }: Props) {
+export default function InputError ({ type, message, types }: Props) {
   return (
     <>
       {types.includes(type) && <Container role="alert"><Label>Error:</Label> {message}</Container>}

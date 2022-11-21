@@ -1,3 +1,3 @@
-import CardVertical from './CardVertical';
+import CardVertical from './CardVertical'
 
-export { CardVertical };
+export { CardVertical }

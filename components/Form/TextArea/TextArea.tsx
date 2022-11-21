@@ -1,20 +1,24 @@
-import { Label } from "components/Label"
-import { InputError } from "components/InputError"
-import { TextArea } from "./styles"
-import { InputWrapper } from "components/Form/formStyles"
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import { Label } from 'components/Label'
+import { InputError } from 'components/InputError'
+import { TextArea } from './styles'
+import { InputWrapper } from 'components/Form/formStyles'
+import { FormError } from 'pages/create/recipe'
+import { UseFormRegister } from 'react-hook-form'
 
 interface Props {
   errors: any
   fieldName: string,
-  formErrors: any,
+  formErrors: FormError,
   label: string,
-  register: any,
+  register: UseFormRegister<FormData>,
   placeholder?: string,
   registerElement?: any,
   typeOfMandatory?: string,
 }
 
-function TextField({
+function TextField ({
   errors,
   fieldName,
   formErrors,
@@ -22,10 +26,9 @@ function TextField({
   placeholder,
   register,
   registerElement,
-  typeOfMandatory,
+  typeOfMandatory
 }: Props) {
-
-  const registerInput = registerElement ? registerElement : fieldName
+  const registerInput = registerElement || fieldName
 
   return (
     <InputWrapper>
@@ -39,7 +42,7 @@ function TextField({
       {errors[fieldName] &&
         <InputError
           type={errors[fieldName].type}
-          message={errors[fieldName].message!}
+          message={errors[fieldName].message}
           types={Object.keys(formErrors[fieldName])}
         />
       }

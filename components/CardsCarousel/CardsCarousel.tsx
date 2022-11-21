@@ -1,7 +1,7 @@
-import { CardVertical } from "components/CardVertical";
+import { CardVertical } from 'components/CardVertical'
 
-import { Card } from '../CardVertical/CardVertical';
-import { Carousel, CardWrapper, SectionHeader } from "./styles";
+import { Card } from '../CardVertical/CardVertical'
+import { Carousel, CardWrapper, SectionHeader } from './styles'
 
 interface Props {
   cardsData: Card[];
@@ -9,7 +9,7 @@ interface Props {
   title: string;
 }
 
-function CardsCarousel({ cardsData, size = 'small', title }: Props) {
+function CardsCarousel ({ cardsData, size = 'small', title }: Props) {
   return (
     <>
       <SectionHeader>{title}</SectionHeader>
@@ -27,12 +27,12 @@ function CardsCarousel({ cardsData, size = 'small', title }: Props) {
         ))}
       </Carousel>
     </>
-  );
+  )
 }
 
-CardsCarousel.CARD_SIZES = CardVertical.CARD_SIZES;
+CardsCarousel.CARD_SIZES = CardVertical.CARD_SIZES
 
-export default CardsCarousel;
+export default CardsCarousel
 
 // Example to use in App.js
 

@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { typography } from "styles/mixins/typography"
+import styled from 'styled-components'
+import { typography } from 'styles/mixins/typography'
 
 export const Container = styled.h1`
   color: var(--kkbk--color--title--main);

@@ -1,6 +1,6 @@
-import { Button } from "ariakit/button";
-import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-import { rem } from "polished";
+import { Button } from 'ariakit/button'
+import styled, { css, FlattenSimpleInterpolation } from 'styled-components'
+import { rem } from 'polished'
 
 interface Types {
   [key: string]: FlattenSimpleInterpolation;
@@ -45,8 +45,8 @@ const primary: FlattenSimpleInterpolation = css`
 `
 
 const secondary: FlattenSimpleInterpolation = css`
-    padding-left: ${rem("23px")};
-    padding-right: ${rem("23px")};
+    padding-left: ${rem('23px')};
+    padding-right: ${rem('23px')};
     background-color: var(--kkbk--component--color--background--button--secondary--enabled);
     color: var(--kkbk--component--color--text--button--secondary--enabled);
     border: 1px solid var(--kkbk--component--color--border--button--secondary--enabled);
@@ -111,14 +111,14 @@ const TYPE: Types = {
   primary,
   secondary,
   terciary,
-  destructive,
-};
+  destructive
+}
 
 export const buttonStyles = css<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: ${rem("38px")};
+  height: ${rem('38px')};
   width: fit-content;
   padding-left: var(--kkbk--spacing--24);
   padding-right: var(--kkbk--spacing--24);
@@ -141,4 +141,4 @@ export const buttonStyles = css<Props>`
 
 export const Container = styled(Button)<Props>`
   ${buttonStyles}
-`;
+`

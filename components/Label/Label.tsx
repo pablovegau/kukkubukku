@@ -8,10 +8,10 @@ interface Props {
 
 const TYPE_OF_MANDATORY = {
   MANDATORY: 'Obligatorio',
-  RECOMMENDABLE: 'Recomendable',
+  RECOMMENDABLE: 'Recomendable'
 }
 
-function Label({ htmlFor, children, additionalText }: Props) {
+function Label ({ htmlFor, children, additionalText }: Props) {
   return (
     <Container htmlFor={htmlFor}>
       {children}

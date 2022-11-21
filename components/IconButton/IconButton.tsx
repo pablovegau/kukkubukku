@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { Container } from './styles'
 
 interface Props {
   disabled?: boolean;
@@ -8,16 +8,16 @@ interface Props {
 
 // TODO: add sizes
 
-function IconButton({
+function IconButton ({
   children,
   onClick,
-  disabled = false,
+  disabled = false
 }: Props) {
   return (
     <Container onClick={onClick} aria-disabled={disabled}>
       {children}
     </Container>
-  );
+  )
 }
 
-export default IconButton;
+export default IconButton

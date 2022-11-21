@@ -1,18 +1,19 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
-import { Avatar, AvatarImage } from 'components/Avatar';
-import { ThemeSwitch } from 'components/ThemeSwitch';
-import Link from 'next/link';
+import { Avatar, AvatarImage } from 'components/Avatar'
+import { ThemeSwitch } from 'components/ThemeSwitch'
+import Link from 'next/link'
 import { Logo } from '../../Logo'
 
-import { Container, Tools, TemporalSwitchWrapper } from "./styles";
-import { MyLink } from 'components/MyLink';
+import { Container, Tools, TemporalSwitchWrapper } from './styles'
+import { MyLink } from 'components/MyLink'
 
 interface Props {
   children: JSX.Element | JSX.Element[];
 }
 
-function Header({ children }: Props) {
+function Header ({ children }: Props) {
   return (
     <Container>
       <Link href="/" passHref legacyBehavior>
@@ -33,7 +34,7 @@ function Header({ children }: Props) {
         </Avatar>
       </Tools>
     </Container>
-  );
+  )
 }
 
-export default Header;
+export default Header

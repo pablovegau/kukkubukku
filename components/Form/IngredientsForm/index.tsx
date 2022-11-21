@@ -1,3 +1,3 @@
-import IngredientsForm from "./IngredientsForm"
+import IngredientsForm from './IngredientsForm'
 
 export { IngredientsForm }

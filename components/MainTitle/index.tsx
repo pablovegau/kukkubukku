@@ -1,3 +1,3 @@
-import MainTitle from "./MainTitle"
+import MainTitle from './MainTitle'
 
 export { MainTitle }

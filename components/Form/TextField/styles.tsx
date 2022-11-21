@@ -1,6 +1,5 @@
-import styled, { css } from "styled-components"
-import { typography } from "styles/mixins"
-import { InputBaseStyles } from "components/Form/formStyles"
+import styled from 'styled-components'
+import { InputBaseStyles } from 'components/Form/formStyles'
 
 export const Input = styled.input`
   height: 40px;

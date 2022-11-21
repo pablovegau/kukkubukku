@@ -1,10 +1,11 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
 import { Icon } from 'components/Icon'
 import { Header } from '../Form/Header'
 import { Footer } from '../Footer'
 import { Main, Layout } from './styles'
-import Head from 'next/head';
+import Head from 'next/head'
 import { GlobalStyles } from 'styles/globalStyles'
 import { useTheme } from 'utils/hooks/useTheme'
 import Link from 'next/link'
@@ -15,7 +16,7 @@ interface Props {
   title?: string,
 }
 
-export function AppLayout({ children, title }: Props) {
+export function AppLayout ({ children, title }: Props) {
   useTheme()
 
   return (
@@ -29,7 +30,7 @@ export function AppLayout({ children, title }: Props) {
       </Head>
 
       <Header>
-        <Link href="/create/recipe"  passHref legacyBehavior>
+        <Link href="/create/recipe" passHref legacyBehavior>
           <MyLink>
             <Icon
               type={Icon.TYPE.PLUS}
@@ -39,7 +40,7 @@ export function AppLayout({ children, title }: Props) {
           </MyLink>
         </Link>
 
-        <Link href="/"  passHref legacyBehavior>
+        <Link href="/" passHref legacyBehavior>
           <MyLink>
             <Icon
               type={Icon.TYPE.MAGNIFIER}

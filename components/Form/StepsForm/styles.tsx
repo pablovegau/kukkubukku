@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { typography } from 'styles/mixins'
-import { IngredientsWrapper } from "components/Form/formStyles"
+import { IngredientsWrapper } from 'components/Form/formStyles'
 
 export const StepsWrapper = styled(IngredientsWrapper)`
   & > div:not(:last-child) {

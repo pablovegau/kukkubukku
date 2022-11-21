@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import * as AvatarPrimitive from "@radix-ui/react-avatar";
+import styled from 'styled-components'
+import * as AvatarPrimitive from '@radix-ui/react-avatar'
 
 const SIZE = {
   small: `
@@ -14,10 +14,10 @@ const SIZE = {
     height: var(--kkbk--avatar--size--large);
     width: var(--kkbk--avatar--size--large);
   `
-};
+}
 
 interface AvatarProps {
-  size: "small" | "medium" | "large";
+  size: 'small' | 'medium' | 'large';
 }
 
 // export type when this will be a functional component
@@ -37,14 +37,14 @@ export const Avatar = styled(AvatarPrimitive.Root)<AvatarProps>`
   background-color: yellow;
 
   ${(props) => SIZE[props.size] || SIZE.medium};
-`;
+`
 
 export const AvatarImage = styled(AvatarPrimitive.Image)`
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: inherit;
-`;
+`
 
 // Example to use in App.js
 

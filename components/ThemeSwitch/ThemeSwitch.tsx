@@ -1,16 +1,16 @@
-import { SwitchContainer, Switch, SunWrapper, MoonWrapper } from "./styles";
-import { Icon } from "../Icon";
-import { useTheme } from "utils/hooks/useTheme";
-import { THEMES } from "styles/theme/tokens";
+import { SwitchContainer, Switch, SunWrapper, MoonWrapper } from './styles'
+import { Icon } from '../Icon'
+import { useTheme } from 'utils/hooks/useTheme'
+import { THEMES } from 'styles/theme/tokens'
 
-const ICON_SIZE = 16;
+const ICON_SIZE = 16
 
-export default function ThemeSwitch() {
-  const { theme, setTheme } = useTheme();
+export default function ThemeSwitch () {
+  const { theme, setTheme } = useTheme()
 
   const handleSwitchTheme = () => {
-    setTheme(theme === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT);
-  };
+    setTheme(theme === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT)
+  }
 
   return (
     <SwitchContainer onClick={handleSwitchTheme}>
@@ -32,5 +32,5 @@ export default function ThemeSwitch() {
       </MoonWrapper>
       <Switch theme={theme} />
     </SwitchContainer>
-  );
+  )
 }

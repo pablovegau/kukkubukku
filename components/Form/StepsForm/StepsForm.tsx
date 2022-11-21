@@ -1,12 +1,14 @@
-import { useWatch } from "react-hook-form"
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Control, UseFormRegister, useWatch } from 'react-hook-form'
 
-import { Label } from "components/Label"
-import { Button } from "components/Button"
-import { IconButton } from "components/IconButton"
-import { Icon } from "components/Icon"
-import { Textarea } from "../TextArea"
-import { StepsWrapper, StepWrapper, StepTitle, Description, Step } from "./styles"
-import { InputWrapperGroup } from "components/Form/formStyles"
+import { Label } from 'components/Label'
+import { Button } from 'components/Button'
+import { IconButton } from 'components/IconButton'
+import { Icon } from 'components/Icon'
+import { Textarea } from '../TextArea'
+import { StepsWrapper, StepWrapper, StepTitle, Description, Step } from './styles'
+import { InputWrapperGroup } from 'components/Form/formStyles'
+import { FormError } from 'pages/create/recipe'
 
 interface stepField {
   id: string,
@@ -15,22 +17,22 @@ interface stepField {
 
 interface Props {
   errors: any
-  formErrors: any,
-  register: any,
-  control: any,
+  formErrors: FormError,
+  register: UseFormRegister<FormData>,
+  control: Control<FormData>,
   stepAppend: any,
   stepRemove: any,
   stepFields: stepField[],
 }
 
-function StepsList({ control, stepRemove }: { control: any, stepRemove: any }) {
+function StepsList ({ control, stepRemove }: { control: any, stepRemove: any }) {
   const steps = useWatch({
     control,
-    name: "steps",
+    name: 'steps'
   })
 
   if (steps.length === 1) {
-    return null;
+    return null
   }
 
   return (
@@ -58,14 +60,14 @@ function StepsList({ control, stepRemove }: { control: any, stepRemove: any }) {
   )
 }
 
-function StepsForm({
+function StepsForm ({
   errors,
   formErrors,
   register,
   control,
   stepAppend,
   stepRemove,
-  stepFields,
+  stepFields
 }: Props) {
   return (
     <>

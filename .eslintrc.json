@@ -1,3 +1,19 @@
 {
-  "extends": "next/core-web-vitals"
+  "globals": {
+    "React": true,
+    "JSX": true
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "standard"
+  ],
+  "rules": {
+    // I suggest you add those two rules:
+    // "@typescript-eslint/no-unused-vars": "error",
+    // "@typescript-eslint/no-explicit-any": "error"
+  }
 }
