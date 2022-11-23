@@ -2,7 +2,7 @@
 // @ts-nocheck
 
 import { Icon } from 'components/Icon'
-import { Header } from '../Form/Header'
+import { Header } from '../Header'
 import { Footer } from '../Footer'
 import { Main, Layout } from './styles'
 import Head from 'next/head'
@@ -14,9 +14,16 @@ import { MyLink } from 'components/MyLink'
 interface Props {
   children: JSX.Element
   title?: string
+  showHeader?: boolean
+  showFooter?: boolean
 }
 
-export function AppLayout({ children, title }: Props) {
+export function AppLayout({
+  children,
+  title,
+  showHeader = true,
+  showFooter = true,
+}: Props) {
   useTheme()
 
   return (
@@ -29,29 +36,35 @@ export function AppLayout({ children, title }: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header>
-        <Link href="/create/recipe" passHref legacyBehavior>
-          <MyLink>
-            <Icon
-              type={Icon.TYPE.PLUS}
-              size={24}
-              fillColor="--kkbk--color--text--primary"
-            />
-          </MyLink>
-        </Link>
+      {showHeader && (
+        <Header>
+          <Link href="/create/recipe" passHref legacyBehavior>
+            <MyLink>
+              <Icon
+                type={Icon.TYPE.PLUS}
+                size={24}
+                fillColor="--kkbk--color--text--primary"
+              />
+            </MyLink>
+          </Link>
 
-        <Link href="/" passHref legacyBehavior>
-          <MyLink>
-            <Icon
-              type={Icon.TYPE.MAGNIFIER}
-              size={24}
-              fillColor="--kkbk--color--text--primary"
-            />
-          </MyLink>
-        </Link>
-      </Header>
-      <Main>{children}</Main>
-      <Footer />
+          <Link href="/" passHref legacyBehavior>
+            <MyLink>
+              <Icon
+                type={Icon.TYPE.MAGNIFIER}
+                size={24}
+                fillColor="--kkbk--color--text--primary"
+              />
+            </MyLink>
+          </Link>
+        </Header>
+      )}
+
+      <Main showHeader={showHeader} showFooter={showFooter}>
+        {children}
+      </Main>
+
+      {showFooter && <Footer />}
     </Layout>
   )
 }

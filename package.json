@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.+(js|ts|jsx|tsx)\"",
+    "validate": "npm run lint && npm run format",
     "prepare": "husky install"
   },
   "dependencies": {
