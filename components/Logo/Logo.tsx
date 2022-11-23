@@ -12,7 +12,7 @@ export const Logo = ({ width = 75 }) => {
   return (
     <svg
       width={width}
-      height={width * CONVERSION_RATE}
+      height={width / CONVERSION_RATE}
       viewBox="0 0 75 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

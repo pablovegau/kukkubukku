@@ -7,8 +7,19 @@ export const Layout = styled.section`
   overflow-x: hidden;
 `
 
-export const Main = styled.main`
+interface MainProps {
+  showHeader: boolean
+  showFooter: boolean
+}
+
+export const Main = styled.main<MainProps>`
   /* flex: 1; */
-  padding-bottom: calc(var(--kkbk--height--footer) + var(--kkbk--spacing--32));
-  padding-top: calc(var(--kkbk--height--header) + var(--kkbk--spacing--24));
+  padding-bottom: ${({ showFooter }) =>
+    showFooter
+      ? 'calc(var(--kkbk--height--footer) + var(--kkbk--spacing--32))'
+      : '0'};
+  padding-top: ${({ showHeader }) =>
+    showHeader
+      ? 'calc(var(--kkbk--height--header) + var(--kkbk--spacing--24))'
+      : '0'};
 `
