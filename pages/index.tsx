@@ -1,7 +1,14 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import type { NextPage } from 'next'
 import styled from 'styled-components'
 import { CardsCarousel } from 'components/CardsCarousel'
 import { AppLayout } from 'components/AppLayout'
+import Link from 'next/link'
+import { MyLink } from 'components/MyLink'
+import { Icon } from 'components/Icon'
+import { useAuth } from 'services/auth'
 
 const cardsMockData = [
   {
@@ -56,9 +63,39 @@ const Container = styled.div`
   }
 `
 
+const Tools = () => {
+  const auth = useAuth()
+
+  return (
+    <>
+      {auth.user && (
+        <Link href="/create/recipe" passHref legacyBehavior>
+          <MyLink>
+            <Icon
+              type={Icon.TYPE.PLUS}
+              size={24}
+              fillColor="--kkbk--color--text--primary"
+            />
+          </MyLink>
+        </Link>
+      )}
+
+      <Link href="/" passHref legacyBehavior>
+        <MyLink>
+          <Icon
+            type={Icon.TYPE.MAGNIFIER}
+            size={24}
+            fillColor="--kkbk--color--text--primary"
+          />
+        </MyLink>
+      </Link>
+    </>
+  )
+}
+
 const Home: NextPage = () => {
   return (
-    <AppLayout title=" - Recetas">
+    <AppLayout title=" - Recetas" Tools={Tools}>
       <Container>
         <CardsCarousel
           cardsData={cardsMockData}

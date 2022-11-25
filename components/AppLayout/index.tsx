@@ -1,21 +1,19 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
-import { Icon } from 'components/Icon'
 import { Header } from '../Header'
 import { Footer } from '../Footer'
 import { Main, Layout } from './styles'
 import Head from 'next/head'
 import { GlobalStyles } from 'styles/globalStyles'
 import { useTheme } from 'utils/hooks/useTheme'
-import Link from 'next/link'
-import { MyLink } from 'components/MyLink'
 
 interface Props {
   children: JSX.Element
   title?: string
   showHeader?: boolean
   showFooter?: boolean
+  Tools?: JSX.Element
 }
 
 export function AppLayout({
@@ -23,6 +21,7 @@ export function AppLayout({
   title,
   showHeader = true,
   showFooter = true,
+  Tools,
 }: Props) {
   useTheme()
 
@@ -36,29 +35,7 @@ export function AppLayout({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {showHeader && (
-        <Header>
-          <Link href="/create/recipe" passHref legacyBehavior>
-            <MyLink>
-              <Icon
-                type={Icon.TYPE.PLUS}
-                size={24}
-                fillColor="--kkbk--color--text--primary"
-              />
-            </MyLink>
-          </Link>
-
-          <Link href="/" passHref legacyBehavior>
-            <MyLink>
-              <Icon
-                type={Icon.TYPE.MAGNIFIER}
-                size={24}
-                fillColor="--kkbk--color--text--primary"
-              />
-            </MyLink>
-          </Link>
-        </Header>
-      )}
+      {showHeader && <Header>{Tools && <Tools />}</Header>}
 
       <Main showHeader={showHeader} showFooter={showFooter}>
         {children}

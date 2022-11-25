@@ -25,6 +25,7 @@ import { IngredientsForm } from 'components/Form/IngredientsForm'
 import { StepsForm } from 'components/Form/StepsForm'
 import { SelectField } from 'components/Form/SelectField'
 import { SubmitButton } from 'components/Form/SubmitButton'
+import { useAuth } from 'services/auth'
 
 interface Ingredient {
   name: string
@@ -117,6 +118,7 @@ const difficultyOptions = [
 
 export default function CreateRecipe() {
   const router = useRouter()
+  const auth = useAuth()
 
   const {
     register,
@@ -163,7 +165,7 @@ export default function CreateRecipe() {
   const [preview, setPreview] = useState()
 
   const onSubmit = (data: Recipe) => {
-    const formattedRecipe = formatRecipe(data)
+    const formattedRecipe = formatRecipe(data, auth.user.id)
     addRecipe(formattedRecipe)
     router.push('/')
   }

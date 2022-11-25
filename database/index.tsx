@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
@@ -83,8 +84,16 @@ export async function insertRecipeDatabase(recipe: any) {
   /**
    * Insert recipe
    */
-  const { description, difficulty, diners, duration, isPublic, name, images } =
-    recipe
+  const {
+    description,
+    difficulty,
+    diners,
+    duration,
+    isPublic,
+    name,
+    images,
+    user_id,
+  } = recipe
 
   const finalRecipe = {
     description,
@@ -97,6 +106,7 @@ export async function insertRecipeDatabase(recipe: any) {
     tagsIds,
     rating: 0,
     language: 'es',
+    user_id,
   }
 
   const { data: recipeFromDatabase, error: recipeInsertError } = await insert(
