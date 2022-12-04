@@ -1,6 +1,6 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { supabase } from 'database/supabaseClient'
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { getAllTags } from 'provider/db/tags/read'
+import { getAllRecipes } from 'services/db/recipes/read'
 
 // TODO: add error handling
 
@@ -19,18 +19,18 @@ interface Card {
   user_id: string
 }
 
+interface Tag {
+  create_at: string
+  name: string
+  description: string | null
+  id: string
+}
+
 interface RecipesGroupedByTag {
   [key: string]: Card[]
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
-  const { data: recipes } = await supabase.from('Recipe').select('*')
-
-  const { data: tags } = await supabase.from('Tag').select('*')
-
+const groupRecipesByTags = (recipes: Card[] | null, tags: Tag[] | null) => {
   const recipesGroupedByTags: RecipesGroupedByTag = {}
 
   if (recipes && tags) {
@@ -40,6 +40,18 @@ export default async function handler(
       )
     })
   }
+
+  return recipesGroupedByTags
+}
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
+  const { data: recipes } = await getAllRecipes()
+  const { data: tags } = await getAllTags()
+
+  const recipesGroupedByTags = groupRecipesByTags(recipes, tags)
 
   res.status(200).json(recipesGroupedByTags)
 }

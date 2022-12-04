@@ -1,4 +1,4 @@
-import { supabase } from 'database/supabaseClient'
+import { supabase } from 'provider/supabaseClient'
 
 interface User {
   username: string

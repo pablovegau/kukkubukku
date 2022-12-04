@@ -1,11 +1,13 @@
 /* eslint-disable camelcase */
 import { alert } from './alert'
 import { calendar } from './calendar'
+import { clock } from './clock'
 import { cross } from './cross'
 import { home } from './home'
 import { left_arrow } from './leftArrow'
 import { magnifier } from './magnifier'
 import { moon } from './moon'
+import { person } from './person'
 import { plus } from './plus'
 import { recipes } from './recipes'
 import { right_arrow } from './rightArrow'
@@ -20,11 +22,13 @@ interface Icons {
 export const icons: Icons = {
   alert,
   calendar,
+  clock,
   cross,
   home,
   left_arrow,
   magnifier,
   moon,
+  person,
   plus,
   recipes,
   right_arrow,

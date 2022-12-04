@@ -1,4 +1,4 @@
-import { insertRecipeDatabase } from 'database'
+import { insertRecipeDatabase } from 'provider'
 
 interface Ingredient {
   name: string

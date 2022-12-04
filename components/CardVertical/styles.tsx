@@ -10,7 +10,7 @@ export const CARD_SIZES = {
   MEDIUM: 'medium',
 }
 
-export const Container = styled.a<Props>`
+export const Container = styled.div<Props>`
   --kkbk--card--container--small: 148px;
   --kkbk--card--container--medium: 185px;
   --kkbk--card--image--small: 178px;
@@ -18,10 +18,7 @@ export const Container = styled.a<Props>`
 
   display: block;
   width: ${(p) =>
-    p.size === CARD_SIZES.SMALL
-      ? 'var(--kkbk--card--container--small)'
-      : 'var(--kkbk--card--container--medium)'};
-  text-decoration: none;
+    p.size === CARD_SIZES.SMALL ? 'var(--kkbk--card--container--small)' : 'var(--kkbk--card--container--medium)'};
   cursor: pointer;
 
   &:hover {
@@ -55,9 +52,7 @@ export const RecipeName = styled.div`
 
 export const ImgWrapper = styled.div<Props>`
   height: ${(p) =>
-    p.size === CARD_SIZES.SMALL
-      ? 'var(--kkbk--card--image--small)'
-      : 'var(--kkbk--card--image--medium)'};
+    p.size === CARD_SIZES.SMALL ? 'var(--kkbk--card--image--small)' : 'var(--kkbk--card--image--medium)'};
   border-radius: 4px;
   overflow: hidden;
 

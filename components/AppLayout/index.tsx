@@ -16,13 +16,7 @@ interface Props {
   Tools?: JSX.Element
 }
 
-export function AppLayout({
-  children,
-  title,
-  showHeader = true,
-  showFooter = true,
-  Tools,
-}: Props) {
+export function AppLayout({ children, title, showHeader = true, showFooter = true, Tools }: Props) {
   useTheme()
 
   return (

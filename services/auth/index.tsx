@@ -1,4 +1,4 @@
-import { signUpAuth, logInAuth } from 'database/auth'
+import { signUpAuth, logInAuth } from 'provider/auth'
 import React, { useContext, useState } from 'react'
 
 interface User {
