@@ -37,11 +37,7 @@ function ImageField({
       <Label htmlFor={fieldName} additionalText={typeOfMandatory}>
         {label}
       </Label>
-      <InputFile
-        {...register(registerInput)}
-        onChange={onChangeImage}
-        type="file"
-      />
+      <InputFile {...register(registerInput)} onChange={onChangeImage} type="file" />
       {errors[fieldName] && (
         <InputError
           type={errors[fieldName].type}

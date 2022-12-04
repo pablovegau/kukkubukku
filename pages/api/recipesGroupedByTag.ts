@@ -35,19 +35,14 @@ const groupRecipesByTags = (recipes: Card[] | null, tags: Tag[] | null) => {
 
   if (recipes && tags) {
     tags.forEach((tag) => {
-      recipesGroupedByTags[tag.name] = recipes.filter((recipe) =>
-        recipe.tagsIds.includes(tag.id),
-      )
+      recipesGroupedByTags[tag.name] = recipes.filter((recipe) => recipe.tagsIds.includes(tag.id))
     })
   }
 
   return recipesGroupedByTags
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { data: recipes } = await getAllRecipes()
   const { data: tags } = await getAllTags()
 

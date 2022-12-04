@@ -15,11 +15,7 @@ interface MainProps {
 export const Main = styled.main<MainProps>`
   /* flex: 1; */
   padding-bottom: ${({ showFooter }) =>
-    showFooter
-      ? 'calc(var(--kkbk--height--footer) + var(--kkbk--spacing--32))'
-      : '0'};
+    showFooter ? 'calc(var(--kkbk--height--footer) + var(--kkbk--spacing--32))' : '0'};
   padding-top: ${({ showHeader }) =>
-    showHeader
-      ? 'calc(var(--kkbk--height--header) + var(--kkbk--spacing--24))'
-      : '0'};
+    showHeader ? 'calc(var(--kkbk--height--header) + var(--kkbk--spacing--24))' : '0'};
 `

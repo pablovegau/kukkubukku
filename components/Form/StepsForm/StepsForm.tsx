@@ -6,13 +6,7 @@ import { Button } from 'components/Button'
 import { IconButton } from 'components/IconButton'
 import { Icon } from 'components/Icon'
 import { Textarea } from '../TextArea'
-import {
-  StepsWrapper,
-  StepWrapper,
-  StepTitle,
-  Description,
-  Step,
-} from './styles'
+import { StepsWrapper, StepWrapper, StepTitle, Description, Step } from './styles'
 import { InputWrapperGroup } from 'components/Form/formStyles'
 import { FormError } from 'pages/create/recipe'
 
@@ -55,11 +49,7 @@ function StepsList({ control, stepRemove }: { control: any; stepRemove: any }) {
               <Step>{item.description}</Step>
 
               <IconButton onClick={() => stepRemove(index)}>
-                <Icon
-                  type={Icon.TYPE.CROSS}
-                  size={12}
-                  fillColor="--kkbk--color--text--dim"
-                />
+                <Icon type={Icon.TYPE.CROSS} size={12} fillColor="--kkbk--color--text--dim" />
               </IconButton>
             </Description>
           </StepWrapper>
@@ -69,15 +59,7 @@ function StepsList({ control, stepRemove }: { control: any; stepRemove: any }) {
   )
 }
 
-function StepsForm({
-  errors,
-  formErrors,
-  register,
-  control,
-  stepAppend,
-  stepRemove,
-  stepFields,
-}: Props) {
+function StepsForm({ errors, formErrors, register, control, stepAppend, stepRemove, stepFields }: Props) {
   return (
     <>
       <Label htmlFor="steps" additionalText="Obligatorio">

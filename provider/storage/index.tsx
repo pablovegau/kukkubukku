@@ -7,9 +7,7 @@ export async function uploadRecipeImages(images: any, recipeId: string) {
   const fileName = `${recipeId}_0.${fileExt}`
   const filePath = `${recipeId}/${fileName}`
 
-  const { error } = await supabase.storage
-    .from('recipes')
-    .upload(filePath, file)
+  const { error } = await supabase.storage.from('recipes').upload(filePath, file)
 
   return { error }
 }

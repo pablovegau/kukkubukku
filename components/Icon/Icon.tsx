@@ -12,22 +12,11 @@ interface Props {
   type: string
 }
 
-function Icon({
-  fillColor = '--kkbk--color--emphasis--primary',
-  size = 32,
-  label = 'icon',
-  type,
-}: Props) {
+function Icon({ fillColor = '--kkbk--color--emphasis--primary', size = 32, label = 'icon', type }: Props) {
   return (
     <Container size={size}>
       <AccessibleIcon.Root label={label}>
-        <Svg
-          width={size}
-          height={size}
-          viewBox="0 0 32 32"
-          xmlns="http://www.w3.org/2000/svg"
-          fillColor={fillColor}
-        >
+        <Svg width={size} height={size} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fillColor={fillColor}>
           {icons[type].map((path, index) => (
             <path key={index} fillRule="evenodd" clipRule="evenodd" d={path} />
           ))}
