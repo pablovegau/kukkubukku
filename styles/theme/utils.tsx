@@ -26,20 +26,10 @@ function transformTokensToString(tokensObject: any) {
     .join('; ')
 }
 
-function processThemeTokens(
-  prefix: any,
-  tokens: any,
-  tokensAcc: any,
-  themesTokens: any,
-) {
+function processThemeTokens(prefix: any, tokens: any, tokensAcc: any, themesTokens: any) {
   for (const key in tokens) {
     if (isObject(tokens[key])) {
-      processThemeTokens(
-        prefix + SEPARATOR + key.replace('_', '-').toLowerCase(),
-        tokens[key],
-        tokensAcc,
-        themesTokens,
-      )
+      processThemeTokens(prefix + SEPARATOR + key.replace('_', '-').toLowerCase(), tokens[key], tokensAcc, themesTokens)
     } else {
       themesTokens[`${key.toLowerCase()}`][prefix] = tokens[key]
     }
@@ -98,7 +88,5 @@ function getBaseTokens(tokens: any) {
 }
 
 export function getTokens(tokens: any, type?: any, themes?: any) {
-  return type === TOKENS_TYPES.THEME && themes
-    ? getThemeTokens(tokens, themes)
-    : getBaseTokens(tokens)
+  return type === TOKENS_TYPES.THEME && themes ? getThemeTokens(tokens, themes) : getBaseTokens(tokens)
 }

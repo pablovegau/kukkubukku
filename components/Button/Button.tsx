@@ -15,12 +15,7 @@ interface Props {
   onClick: () => void
 }
 
-function Button({
-  type = TYPES.SECONDARY,
-  children,
-  onClick,
-  disabled = false,
-}: Props) {
+function Button({ type = TYPES.SECONDARY, children, onClick, disabled = false }: Props) {
   return (
     <Container onClick={onClick} buttonType={type} aria-disabled={disabled}>
       {children}

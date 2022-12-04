@@ -7,10 +7,7 @@ import { Button } from 'components/Button'
 import { IconButton } from 'components/IconButton'
 import { Icon } from 'components/Icon'
 import { IngredientWrapper, Ingredient } from './styles'
-import {
-  InputWrapperGroup,
-  IngredientsWrapper,
-} from 'components/Form/formStyles'
+import { InputWrapperGroup, IngredientsWrapper } from 'components/Form/formStyles'
 import { FormError } from 'pages/create/recipe'
 
 interface IngredientField {
@@ -31,13 +28,7 @@ interface Props {
   ingredientFields: IngredientField[]
 }
 
-function IngredientList({
-  control,
-  ingredientRemove,
-}: {
-  control: any
-  ingredientRemove: any
-}) {
+function IngredientList({ control, ingredientRemove }: { control: any; ingredientRemove: any }) {
   const ingredients = useWatch({
     control,
     name: 'ingredients',
@@ -64,11 +55,7 @@ function IngredientList({
             </Ingredient>
 
             <IconButton onClick={() => ingredientRemove(index)}>
-              <Icon
-                type={Icon.TYPE.CROSS}
-                size={12}
-                fillColor="--kkbk--color--text--dim"
-              />
+              <Icon type={Icon.TYPE.CROSS} size={12} fillColor="--kkbk--color--text--dim" />
             </IconButton>
           </IngredientWrapper>
         )
@@ -139,10 +126,7 @@ function IngredientsForm({
               registerElement={`ingredients.${index}.moreInfo`}
             />
 
-            <Button
-              type={Button.TYPE.PRIMARY}
-              onClick={() => ingredientAppend()}
-            >
+            <Button type={Button.TYPE.PRIMARY} onClick={() => ingredientAppend()}>
               Añadir
             </Button>
           </InputWrapperGroup>
