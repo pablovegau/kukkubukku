@@ -1,11 +1,13 @@
 export const iconTypes = {
   ALERT: 'alert',
   CALENDAR: 'calendar',
+  CLOCK: 'clock',
   CROSS: 'cross',
   HOME: 'home',
   LEFT_ARROW: 'left_arrow',
   MAGNIFIER: 'magnifier',
   MOON: 'moon',
+  PERSON: 'person',
   PLUS: 'plus',
   RECIPES: 'recipes',
   RIGHT_ARROW: 'right_arrow',

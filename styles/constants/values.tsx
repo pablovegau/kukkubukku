@@ -1,11 +1,4 @@
-import {
-  colors,
-  grayColors,
-  transparentColors,
-  statusColors,
-  transparentGrayColors,
-  spacing,
-} from './'
+import { colors, grayColors, transparentColors, statusColors, transparentGrayColors, spacing } from '.'
 
 export const spacingValues = {
   SPACING: {

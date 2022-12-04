@@ -11,9 +11,7 @@ interface Values {
 // receives a string like 'color.emphasis.primary.light'
 // return the value for this token
 export const useColorToken = (token: string) => {
-  const tokenArray = token
-    .split('.')
-    .map((key) => key.toUpperCase().replace('-', '_'))
+  const tokenArray = token.split('.').map((key) => key.toUpperCase().replace('-', '_'))
 
   let colorToken: Values = allValues
 

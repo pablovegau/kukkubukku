@@ -28,22 +28,14 @@ const Tools = () => {
       {auth.user && (
         <Link href="/create/recipe" passHref legacyBehavior>
           <MyLink>
-            <Icon
-              type={Icon.TYPE.PLUS}
-              size={24}
-              fillColor="--kkbk--color--text--primary"
-            />
+            <Icon type={Icon.TYPE.PLUS} size={24} fillColor="--kkbk--color--text--primary" />
           </MyLink>
         </Link>
       )}
 
       <Link href="/" passHref legacyBehavior>
         <MyLink>
-          <Icon
-            type={Icon.TYPE.MAGNIFIER}
-            size={24}
-            fillColor="--kkbk--color--text--primary"
-          />
+          <Icon type={Icon.TYPE.MAGNIFIER} size={24} fillColor="--kkbk--color--text--primary" />
         </MyLink>
       </Link>
     </>
@@ -52,7 +44,6 @@ const Tools = () => {
 
 const Home: NextPage = () => {
   const { data: recipes } = useSWR('/api/recipesGroupedByTag', fetcher)
-  console.log('🚀 ~ file: index.tsx ~ line 55 ~ recipes', recipes)
 
   if (!recipes) {
     return null
@@ -62,12 +53,7 @@ const Home: NextPage = () => {
     <AppLayout title=" - Recetas" Tools={Tools}>
       <Container>
         {Object.entries(recipes).map(([tag, recipes]) => (
-          <CardsCarousel
-            key={tag}
-            cardsData={recipes}
-            size={CardsCarousel.CARD_SIZES.SMALL}
-            title={tag}
-          />
+          <CardsCarousel key={tag} cardsData={recipes} size={CardsCarousel.CARD_SIZES.SMALL} title={tag} />
         ))}
       </Container>
     </AppLayout>

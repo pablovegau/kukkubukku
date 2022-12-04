@@ -1,5 +1,5 @@
 import { CardVertical } from 'components/CardVertical'
-import { storageBaseUrl } from 'database/auth/constants'
+import { storageBaseUrl } from 'services/storage/constants'
 
 import { Carousel, CardWrapper, SectionHeader } from './styles'
 

@@ -9,13 +9,8 @@ import { AppLayout } from 'components/AppLayout'
 import { MainTitle } from 'components/MainTitle'
 import { Label } from 'components/Label'
 
-import {
-  Container,
-  Form,
-  InputRadioWrapper,
-  SubmitButtonWrapper,
-} from 'styles/pages/create/recipe'
-import { addRecipe } from 'services/recipes'
+import { Container, Form, InputRadioWrapper, SubmitButtonWrapper } from 'styles/pages/create/recipe'
+import { addRecipe } from 'services/db/recipes/write'
 
 import { formatRecipe } from 'services/utils'
 import { TextField } from 'components/Form/TextField'
@@ -111,9 +106,9 @@ const formErrors: FormError = {
 
 const difficultyOptions = [
   { value: '', label: 'Selecciona una opción' },
-  { value: 'easy', label: 'Facil' },
-  { value: 'medium', label: 'Media' },
-  { value: 'high', label: 'Alta' },
+  { value: 'easy', label: 'fácil' },
+  { value: 'normal', label: 'normal' },
+  { value: 'hard', label: 'difícil' },
 ]
 
 export default function CreateRecipe() {
@@ -320,25 +315,12 @@ export default function CreateRecipe() {
           <Label htmlFor="">Quieres que tu receta sea pública?</Label>
           <InputRadioWrapper>
             <div>
-              <input
-                {...register('isPublic')}
-                type="radio"
-                id="publicTrue"
-                name="isPublic"
-                value="true"
-                checked
-              />
+              <input {...register('isPublic')} type="radio" id="publicTrue" name="isPublic" value="true" checked />
               <label htmlFor="publicTrue"> Si</label>
             </div>
 
             <div>
-              <input
-                {...register('isPublic')}
-                type="radio"
-                id="publicFalse"
-                name="isPublic"
-                value="false"
-              />
+              <input {...register('isPublic')} type="radio" id="publicFalse" name="isPublic" value="false" />
               <label htmlFor="publicFalse"> No</label>
             </div>
           </InputRadioWrapper>

@@ -5,14 +5,7 @@ import { Logo } from 'components/Logo'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { Form } from 'styles/pages/create/recipe'
-import {
-  Container,
-  LogoWrapper,
-  Question,
-  QuestionLink,
-  QuestionWrapper,
-  SubmitButtonWrapper,
-} from './styles'
+import { Container, LogoWrapper, Question, QuestionLink, QuestionWrapper, SubmitButtonWrapper } from './styles'
 import { FormError } from 'pages/create/recipe'
 
 interface Props {
@@ -25,13 +18,7 @@ interface Props {
 
 const formErrors: FormError = {}
 
-export default function AccessForm({
-  questionLabel,
-  questionLinkLabel,
-  questionLink,
-  submitLabel,
-  onSubmit,
-}: Props) {
+export default function AccessForm({ questionLabel, questionLinkLabel, questionLink, submitLabel, onSubmit }: Props) {
   const {
     register,
     formState: { errors },

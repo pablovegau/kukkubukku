@@ -9,7 +9,7 @@ import { Container, Tools, TemporalSwitchWrapper } from './styles'
 import { MyLink } from 'components/MyLink'
 import { Avatar } from 'components/Avatar'
 import { useAuth } from 'services/auth'
-import { storageBaseUrl } from 'database/auth/constants'
+import { storageBaseUrl } from 'provider/storage/constants'
 
 interface Props {
   children: JSX.Element | JSX.Element[]
@@ -24,9 +24,7 @@ function Header({ children }: Props) {
   const auth = useAuth()
 
   const avatarImage = auth.user ? DUMMY_IMAGE.LOGGED : DUMMY_IMAGE.NO_LOGGED
-  const avatarAlt = auth
-    ? 'avatar sesión iniciada'
-    : 'avatar sesión no iniciada'
+  const avatarAlt = auth ? 'avatar sesión iniciada' : 'avatar sesión no iniciada'
 
   return (
     <Container>
@@ -42,11 +40,7 @@ function Header({ children }: Props) {
         {children}
         <Link href="/login" passHref legacyBehavior>
           <MyLink>
-            <Avatar
-              size="small"
-              src={avatarImage}
-              alternativeText={avatarAlt}
-            />
+            <Avatar size="small" src={avatarImage} alternativeText={avatarAlt} />
           </MyLink>
         </Link>
       </Tools>
