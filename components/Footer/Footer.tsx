@@ -31,7 +31,7 @@ function Footer() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Link href="/calendar" passHref legacyBehavior>
+          <Link href="/planification" passHref legacyBehavior>
             <MyLink>
               <NavigationMenuMyLink>
                 <Icon type={Icon.TYPE.CALENDAR} size={24} fillColor="--kkbk--color--emphasis--secondary" />
