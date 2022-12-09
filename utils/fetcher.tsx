@@ -7,3 +7,13 @@ export default async function fetcher(...args: any) {
 
   return res.json()
 }
+
+export async function fetcherGetCalendarId(url, userId) {
+  const res = await fetch(url, {
+    headers: {
+      userId,
+    },
+  })
+
+  return res.json()
+}

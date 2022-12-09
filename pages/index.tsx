@@ -5,12 +5,10 @@ import type { NextPage } from 'next'
 import styled from 'styled-components'
 import { CardsCarousel } from 'components/CardsCarousel'
 import { AppLayout } from 'components/AppLayout'
-import Link from 'next/link'
-import { MyLink } from 'components/MyLink'
-import { Icon } from 'components/Icon'
 import { useAuth } from 'services/auth'
 import useSWR from 'swr'
 import fetcher from 'utils/fetcher'
+import { Tool } from 'components/Header/Tool'
 
 const Container = styled.div`
   width: 100%;
@@ -25,19 +23,8 @@ const Tools = () => {
 
   return (
     <>
-      {auth.user && (
-        <Link href="/create/recipe" passHref legacyBehavior>
-          <MyLink>
-            <Icon type={Icon.TYPE.PLUS} size={24} fillColor="--kkbk--color--text--primary" />
-          </MyLink>
-        </Link>
-      )}
-
-      <Link href="/" passHref legacyBehavior>
-        <MyLink>
-          <Icon type={Icon.TYPE.MAGNIFIER} size={24} fillColor="--kkbk--color--text--primary" />
-        </MyLink>
-      </Link>
+      {auth.user && <Tool navigateTo="/create/recipe" iconType={Tool.ICON_TYPE.PLUS} />}
+      <Tool navigateTo="/" iconType={Tool.ICON_TYPE.MAGNIFIER} />
     </>
   )
 }

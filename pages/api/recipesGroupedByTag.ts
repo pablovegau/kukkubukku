@@ -43,8 +43,8 @@ const groupRecipesByTags = (recipes: Card[] | null, tags: Tag[] | null) => {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { data: recipes } = await getAllRecipes()
-  const { data: tags } = await getAllTags()
+  const { data: recipes } = await getAllRecipes() // TODO: Esto se tiene que llamar desde el servicio
+  const { data: tags } = await getAllTags() // TODO: Esto se tiene que llamar desde el servicio
 
   const recipesGroupedByTags = groupRecipesByTags(recipes, tags)
 

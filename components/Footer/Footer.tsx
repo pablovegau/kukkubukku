@@ -5,8 +5,16 @@ import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuM
 import { Icon } from 'components/Icon'
 import Link from 'next/link'
 import { MyLink } from 'components/MyLink'
+import { useAuth } from 'services/auth'
 
 function Footer() {
+  const auth = useAuth()
+  const isUserLoggedIn = auth.user !== null
+
+  if (!isUserLoggedIn) {
+    return null
+  }
+
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -31,7 +39,7 @@ function Footer() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Link href="/planification" passHref legacyBehavior>
+          <Link href="/calendar" passHref legacyBehavior>
             <MyLink>
               <NavigationMenuMyLink>
                 <Icon type={Icon.TYPE.CALENDAR} size={24} fillColor="--kkbk--color--emphasis--secondary" />

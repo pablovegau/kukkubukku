@@ -6,33 +6,28 @@
 import Link from 'next/link'
 import { MyLink } from 'components/MyLink'
 
-import { Rating } from '../Rating'
-
-import { Container, CardBottom, ImgWrapper, RecipeName, CARD_SIZES } from './styles'
+import { Container, CardBottom, ImgWrapper, RecipeName } from './styles'
 
 export interface Card {
   image: string
   name: string
-  rating: number
   navigateTo?: string
   onClick?: () => void
   recipeId?: string
-  size?: string
 }
 
-function CardVertical({ image, name, rating, navigateTo, onClick, recipeId, size = CARD_SIZES.SMALL }: Card) {
+function CardHorizontal({ image, name, navigateTo, onClick, recipeId }: Card) {
   const handleOnClick = () => {
     onClick(recipeId)
   }
 
   const content = (
-    <Container size={size} onClick={onClick && handleOnClick}>
-      <ImgWrapper size={size}>
+    <Container onClick={onClick && handleOnClick}>
+      <ImgWrapper>
         <img src={image} alt={`${name} card`} />
       </ImgWrapper>
       <CardBottom>
         <RecipeName>{name}</RecipeName>
-        <Rating value={rating.toString()} />
       </CardBottom>
     </Container>
   )
@@ -48,6 +43,4 @@ function CardVertical({ image, name, rating, navigateTo, onClick, recipeId, size
   return content
 }
 
-CardVertical.CARD_SIZES = CARD_SIZES
-
-export default CardVertical
+export default CardHorizontal

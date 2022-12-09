@@ -311,7 +311,9 @@ export default function CreateRecipe() {
             typeOfMandatory={TextField.TYPE_OF_MANDATORY.RECOMMENDABLE}
           />
 
-          {/* Publica */}
+          {/**
+           * Publica
+           */}
           <Label htmlFor="">Quieres que tu receta sea pública?</Label>
           <InputRadioWrapper>
             <div>

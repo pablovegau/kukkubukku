@@ -7,6 +7,10 @@ export async function getAllRecipesDatabase() {
   return await supabase.from('Recipe').select('*')
 }
 
+export async function getBaseRecipeDatabase(recipeId: string | string[] | undefined) {
+  return await supabase.from('Recipe').select('*').eq('id', recipeId).single()
+}
+
 export async function getRecipeDatabase(recipeId: string | string[] | undefined) {
   /**
    * Get the base recipe
