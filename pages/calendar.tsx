@@ -22,7 +22,7 @@ const Calendar: NextPage = () => {
   useEffect(() => {
     // TODO: the id comes directly from getCalendarId
     getCalendarId(auth?.user?.id)
-      .then(({ data }) => getCalendarEvents(data.id, `${value.year}-${value.month}-${value.day}`))
+      .then(({ data }) => getCalendarEvents(data.id, value.toString()))
       .then(setEvents)
   }, [auth?.user?.id, value])
 
@@ -32,7 +32,7 @@ const Calendar: NextPage = () => {
         <Tool
           navigateTo={{
             pathname: '/add/calendar/meal',
-            query: { date: `${value.year}-${value.month}-${value.day}` },
+            query: { date: value.toString() },
           }}
           iconType={Tool.ICON_TYPE.PLUS}
         />
