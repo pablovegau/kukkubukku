@@ -22,6 +22,8 @@ function useAuthProvider() {
 
   const handleUser = (data: any) => {
     setUser(data)
+
+    return data
   }
 
   async function signup(data: User) {

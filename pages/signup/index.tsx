@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { AccessForm } from 'components/AccessForm'
 import { AppLayout } from 'components/AppLayout'
 import { useAuth } from 'services/auth'
+import { insertCalendar } from 'services/db/calendar/write'
 
 interface User {
   username: string
@@ -15,7 +16,9 @@ export default function Signup() {
   const auth: any = useAuth()
 
   const onSubmit = async (data: User) => {
-    await auth.signup(data)
+    const { id } = await auth.signup(data)
+    await insertCalendar(id)
+
     router.push('/')
   }
 
