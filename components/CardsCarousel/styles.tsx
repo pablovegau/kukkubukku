@@ -13,6 +13,7 @@ export const Carousel = styled.div`
   scroll-snap-type: x mandatory;
   overflow-x: scroll;
   display: flex;
+  align-items: start;
 
   /* Firefox hide scrollbar */
   scrollbar-width: none;

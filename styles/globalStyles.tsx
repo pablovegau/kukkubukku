@@ -71,8 +71,8 @@ export const GlobalStyles = createGlobalStyle`
   html,
   body,
   body > div:first-child,
-  div #__next,
-  div #__next > div {
+  #__next,
+  #__next > div {
     height: 100%;
   }
 `

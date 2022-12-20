@@ -1,5 +1,5 @@
-import { getShoppingListIngredientsDatabase } from 'provider/db/shoppingList/read'
+import { getShoppingListIngredientsPreviewDatabase } from 'provider/db/shoppingList/read'
 
-export async function getShoppingListIngredients(start: string, end: string) {
-  return await getShoppingListIngredientsDatabase(start, end)
+export async function getShoppingListIngredientsPreview(start: string, end: string) {
+  return await getShoppingListIngredientsPreviewDatabase(start, end)
 }

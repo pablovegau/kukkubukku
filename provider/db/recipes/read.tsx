@@ -3,8 +3,38 @@
 
 import { supabase } from 'provider/supabaseClient'
 
+export async function getIngredientByIdDatabase(ingredientId: string | string[] | undefined) {
+  return await supabase.from('Ingredient').select('*').eq('id', ingredientId).single()
+}
+
+export async function getMeasurementByIdDatabase(measurementId: string | string[] | undefined) {
+  return await supabase.from('Measurement').select('*').eq('id', measurementId).single()
+}
+
+export async function getRecipeIngredientsByRecipeIdDatabase(recipeId: string | string[] | undefined) {
+  return await supabase.from('RecipeIngredient').select('*').eq('recipeId', recipeId)
+}
+
 export async function getAllRecipesDatabase() {
   return await supabase.from('Recipe').select('*')
+}
+
+export async function getRecipeIngredientsDatabase(recipeId: string | string[] | undefined) {
+  const recipeIngredients = await getRecipeIngredientsByRecipeIdDatabase(recipeId)
+
+  const ingredientsPromises = recipeIngredients.data?.map(async (recipeIngredient) => {
+    const ingredient = await getIngredientByIdDatabase(recipeIngredient.ingredientId)
+    const measurement = await getMeasurementByIdDatabase(recipeIngredient.measurementId)
+
+    return {
+      id: ingredient.data?.id,
+      name: ingredient.data?.name,
+      measurement: measurement.data?.measurement,
+      amount: recipeIngredient.amount,
+    }
+  })
+
+  return await Promise.all(ingredientsPromises)
 }
 
 export async function getBaseRecipeDatabase(recipeId: string | string[] | undefined) {
@@ -21,21 +51,7 @@ export async function getRecipeDatabase(recipeId: string | string[] | undefined)
   /**
    * Get ingredients
    */
-  const recipeIngredients = await supabase.from('RecipeIngredient').select('*').eq('recipeId', recipeId)
-
-  const ingredientsPromises = recipeIngredients.data?.map(async (recipeIngredient) => {
-    const ingredient = await supabase.from('Ingredient').select('*').eq('id', recipeIngredient.ingredientId)
-    const measurement = await supabase.from('Measurement').select('*').eq('id', recipeIngredient.measurementId)
-
-    return {
-      id: recipeIngredient.id,
-      name: ingredient.data?.[0].name,
-      measurement: measurement.data?.[0].measurement,
-      amount: recipeIngredient.amount,
-    }
-  })
-
-  const ingredients = await Promise.all(ingredientsPromises)
+  const ingredients = await getRecipeIngredientsDatabase(recipeId)
 
   /**
    * Get steps

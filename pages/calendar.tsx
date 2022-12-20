@@ -6,23 +6,25 @@ import { NextPage } from 'next'
 import { AppLayout } from 'components/AppLayout'
 
 import { Calendar as CalendarComponent } from 'components/Calendar'
-import { parseDate } from '@internationalized/date'
+import { today, getLocalTimeZone } from '@internationalized/date'
 import { Tool } from 'components/Header/Tool'
 import { Container, MealTitle, CalendarComponentWrapper, CardsWrapper } from 'styles/pages/calendar/styles'
 import { useAuth } from 'services/auth'
 import { getCalendarEvents, getCalendarId } from 'services/db/calendar/read'
 import { CardHorizontal } from 'components/CardHorizontal'
 import { storageBaseUrl } from 'provider/storage/constants'
+import { calendarDateToTimestamp } from 'utils/dates'
 
 const Calendar: NextPage = () => {
-  const [value, setValue] = useState(parseDate('2022-12-05'))
+  const [value, setValue] = useState(today(getLocalTimeZone()))
   const [events, setEvents] = useState([])
   const auth = useAuth()
 
   useEffect(() => {
+    const timestamp = calendarDateToTimestamp(value)
     // TODO: the id comes directly from getCalendarId
     getCalendarId(auth?.user?.id)
-      .then(({ data }) => getCalendarEvents(data.id, value.toString()))
+      .then(({ data }) => getCalendarEvents(data?.id, timestamp))
       .then(setEvents)
   }, [auth?.user?.id, value])
 
@@ -32,7 +34,7 @@ const Calendar: NextPage = () => {
         <Tool
           navigateTo={{
             pathname: '/add/calendar/meal',
-            query: { date: value.toString() },
+            query: { selectedDate: value.toString() },
           }}
           iconType={Tool.ICON_TYPE.PLUS}
         />

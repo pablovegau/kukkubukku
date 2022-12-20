@@ -14,8 +14,8 @@ import { addEventToCalendar } from 'services/db/calendar/write'
 import { useAuth } from 'services/auth'
 import { getCalendarId } from 'services/db/calendar/read'
 import { useEffect, useState } from 'react'
-
-// const formErrors = {}
+import { parseDate } from '@internationalized/date'
+import { calendarDateToTimestamp } from 'utils/dates'
 
 const CalendarSearch: NextPage = () => {
   const [calendarId, setCalendarId] = useState<string>(null)
@@ -28,15 +28,17 @@ const CalendarSearch: NextPage = () => {
   }, [auth?.user?.id])
 
   const router = useRouter()
-  const { date, meal, diners } = router.query
+  const { selectedDate, meal, diners } = router.query
 
   const handleOnClick = (id) => {
+    const timestamp = calendarDateToTimestamp(parseDate(selectedDate))
+
     addEventToCalendar({
       calendarId,
       recipeId: id,
       diners,
       meal,
-      scheduleAt: date,
+      scheduleAt: timestamp,
     })
 
     router.push({

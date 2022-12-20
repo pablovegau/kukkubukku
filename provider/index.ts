@@ -3,7 +3,6 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
-import { formatRecipe } from 'services/utils'
 import {
   insertIngredient,
   insertMeasurement,
@@ -12,7 +11,7 @@ import {
   insertSteps,
 } from './db/recipes/write'
 import { insertTag } from './db/tags/write'
-import { formatRecipeIngredient } from './db/utils'
+import { formatRecipeIngredient, formatRecipe } from './db/utils'
 import { uploadRecipeImages } from './storage'
 
 export async function getTagsIds(tagNames: any) {

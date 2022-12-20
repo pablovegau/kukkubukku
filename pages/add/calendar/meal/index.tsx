@@ -25,7 +25,7 @@ const formErrors = {}
 
 const Calendar: NextPage = () => {
   const router = useRouter()
-  const date = router.query.date
+  const { selectedDate } = router.query
 
   const {
     register,
@@ -36,7 +36,7 @@ const Calendar: NextPage = () => {
   const onSubmit = (data) => {
     router.push({
       pathname: '/add/calendar/meal/search',
-      query: { date, meal: data.meal, diners: data.diners },
+      query: { selectedDate, meal: data.meal, diners: data.diners },
     })
   }
 
