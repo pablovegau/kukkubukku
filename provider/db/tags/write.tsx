@@ -3,9 +3,10 @@
 // @ts-nocheck
 
 import { supabase } from 'provider/supabaseClient'
+import { TABLE_NAMES } from '../constants'
 
 export async function insertTag(tags: any) {
-  const { data: currentTags, error: currentTagsReadError } = await supabase.from('Tag').select()
+  const { data: currentTags, error: currentTagsReadError } = await supabase.from(TABLE_NAMES.TAG).select()
 
   if (currentTagsReadError) {
     return { data: [], error: currentTagsReadError }

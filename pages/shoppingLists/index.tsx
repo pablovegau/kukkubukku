@@ -7,12 +7,12 @@ import styled from 'styled-components'
 
 import { AppLayout } from 'components/AppLayout'
 import { Tool } from 'components/Header/Tool'
-import { supabase } from 'provider/supabaseClient'
 import { Container, NoShoppingLists } from 'styles/pages/shoppingLists/styles'
 import { useAuth } from 'services/auth'
 import { Icon } from 'components/Icon'
 import { SectionTitle } from 'styles/pages/recipes'
 import { getFormattedShoppingListsDatabase } from 'provider/db/shoppingList/read'
+import { updateShoppingListItemStateById } from 'services/db/shoppingList/write'
 
 export default function ShoppingLists() {
   const { user } = useAuth()
@@ -46,7 +46,7 @@ export default function ShoppingLists() {
   }
 
   async function handleCheckChange(itemId, value) {
-    supabase.from('ShoppingListItem').update({ isChecked: !value }).eq('id', itemId).select()
+    await updateShoppingListItemStateById(!value, itemId)
   }
 
   let content

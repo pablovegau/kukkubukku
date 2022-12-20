@@ -2,21 +2,22 @@
 // @ts-nocheck
 
 import { supabase } from 'provider/supabaseClient'
+import { TABLE_NAMES } from '../constants'
 
 export async function getIngredientByIdDatabase(ingredientId: string | string[] | undefined) {
-  return await supabase.from('Ingredient').select('*').eq('id', ingredientId).single()
+  return await supabase.from(TABLE_NAMES.INGREDIENT).select('*').eq('id', ingredientId).single()
 }
 
 export async function getMeasurementByIdDatabase(measurementId: string | string[] | undefined) {
-  return await supabase.from('Measurement').select('*').eq('id', measurementId).single()
+  return await supabase.from(TABLE_NAMES.MEASUREMENT).select('*').eq('id', measurementId).single()
 }
 
 export async function getRecipeIngredientsByRecipeIdDatabase(recipeId: string | string[] | undefined) {
-  return await supabase.from('RecipeIngredient').select('*').eq('recipeId', recipeId)
+  return await supabase.from(TABLE_NAMES.RECIPE_INGREDIENT).select('*').eq('recipeId', recipeId)
 }
 
 export async function getAllRecipesDatabase() {
-  return await supabase.from('Recipe').select('*')
+  return await supabase.from(TABLE_NAMES.RECIPE).select('*')
 }
 
 export async function getRecipeIngredientsDatabase(recipeId: string | string[] | undefined) {
@@ -38,14 +39,14 @@ export async function getRecipeIngredientsDatabase(recipeId: string | string[] |
 }
 
 export async function getBaseRecipeDatabase(recipeId: string | string[] | undefined) {
-  return await supabase.from('Recipe').select('*').eq('id', recipeId).single()
+  return await supabase.from(TABLE_NAMES.RECIPE).select('*').eq('id', recipeId).single()
 }
 
 export async function getRecipeDatabase(recipeId: string | string[] | undefined) {
   /**
    * Get the base recipe
    */
-  const recipeResponse = await supabase.from('Recipe').select('*').eq('id', recipeId)
+  const recipeResponse = await supabase.from(TABLE_NAMES.RECIPE).select('*').eq('id', recipeId)
   const recipe = recipeResponse.data?.[0] || {}
 
   /**
@@ -56,7 +57,7 @@ export async function getRecipeDatabase(recipeId: string | string[] | undefined)
   /**
    * Get steps
    */
-  const recipeSteps = await supabase.from('RecipeStep').select('*').eq('recipeId', recipeId)
+  const recipeSteps = await supabase.from(TABLE_NAMES.RECIPE_STEP).select('*').eq('recipeId', recipeId)
 
   const steps = recipeSteps.data?.map((recipeStep) => ({
     id: recipeStep.id,
@@ -68,7 +69,7 @@ export async function getRecipeDatabase(recipeId: string | string[] | undefined)
    * Get tags
    */
   const recipeTags = recipe.tagsIds.map(async (recipeTag) => {
-    const tag = await supabase.from('Tag').select('*').eq('id', recipeTag)
+    const tag = await supabase.from(TABLE_NAMES.TAG).select('*').eq('id', recipeTag)
 
     return tag.data?.[0].name
   })

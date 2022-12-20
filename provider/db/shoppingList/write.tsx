@@ -66,3 +66,7 @@ export async function createShoppingListDatabase(userId: string, name: string, v
   // insertShoppingListItem
   await insertShoppingListItemDatabase(ingredients.flat())
 }
+
+export async function updateShoppingListItemStateByIdDatabase(isChecked: boolean, itemId: string) {
+  await supabase.from(TABLE_NAMES.SHOPPING_LIST_ITEM).update({ isChecked }).eq('id', itemId).select()
+}

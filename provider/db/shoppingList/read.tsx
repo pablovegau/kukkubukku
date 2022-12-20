@@ -3,9 +3,10 @@
 
 import { supabase } from 'provider/supabaseClient'
 import { getIngredientByIdDatabase, getMeasurementByIdDatabase, getRecipeIngredientsDatabase } from '../recipes/read'
+import { TABLE_NAMES } from '../constants'
 
 export async function getShoppingListsDatabase(userId: string) {
-  return await supabase.from('ShoppingList').select().contains('userIds', [userId])
+  return await supabase.from(TABLE_NAMES.SHOPPING_LIST).select().contains('userIds', [userId])
 }
 
 export async function getShoppingListIngredientsPreviewDatabase(start: string, end: string) {

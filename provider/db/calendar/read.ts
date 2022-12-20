@@ -3,18 +3,19 @@
 
 import { supabase } from 'provider/supabaseClient'
 import { getBaseRecipeDatabase } from '../recipes/read'
+import { TABLE_NAMES } from '../constants'
 
 export async function getCalendarIdDatabase(userId: string) {
-  return await supabase.from('Calendar').select('id').contains('userIds', [userId]).single()
+  return await supabase.from(TABLE_NAMES.CALENDAR).select('id').contains('userIds', [userId]).single()
 }
 
 export async function getCalendarOneDayEventsDatabase(calendarId: string, date: Date) {
-  return await supabase.from('CalendarEvent').select().eq('calendarId', calendarId).eq('scheduleAt', date)
+  return await supabase.from(TABLE_NAMES.CALENDAR_EVENT).select().eq('calendarId', calendarId).eq('scheduleAt', date)
 }
 
 export async function getCalendarEventsBetweenDatesDatabase(calendarId: string, start: Date, end: Date) {
   return await supabase
-    .from('CalendarEvent')
+    .from(TABLE_NAMES.CALENDAR_EVENT)
     .select()
     .eq('calendarId', calendarId)
     .gte('scheduleAt', start)
