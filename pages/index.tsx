@@ -37,7 +37,7 @@ const Home: NextPage = () => {
   }
 
   return (
-    <AppLayout title=" - Recetas" Tools={Tools}>
+    <AppLayout title=" - Recetas" Tools={Tools} loginRequired={false}>
       <Container>
         {Object.entries(recipes).map(([tag, recipes]) => (
           <CardsCarousel key={tag} cardsData={recipes} size={CardsCarousel.CARD_SIZES.SMALL} title={tag} />

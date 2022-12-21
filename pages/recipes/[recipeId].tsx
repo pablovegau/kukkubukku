@@ -118,7 +118,7 @@ export default function Recipe({ initialRecipe }: RecipeProps) {
   const { name, id, duration, diners, rating, difficulty, description, ingredients, steps, tags } = initialRecipe
 
   return (
-    <AppLayout title={` - ${name}`}>
+    <AppLayout title={` - ${name}`} loginRequired={false}>
       <Container>
         <ImageWrapper>
           <img src={`${storageBaseUrl}recipes/${id}/${id}_0.jpg`} />

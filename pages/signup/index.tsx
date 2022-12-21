@@ -23,7 +23,7 @@ export default function Signup() {
   }
 
   return (
-    <AppLayout title="Sign up" showHeader={false} showFooter={false}>
+    <AppLayout title="Sign up" showHeader={false} showFooter={false} loginRequired={false}>
       <AccessForm
         questionLabel="¿Vuelves a Kukkubukku?"
         questionLink="/login"

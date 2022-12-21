@@ -20,7 +20,7 @@ export default function Login() {
   }
 
   return (
-    <AppLayout title="Log in" showHeader={false} showFooter={false}>
+    <AppLayout title="Log in" showHeader={false} showFooter={false} loginRequired={false}>
       <>
         <AccessForm
           questionLabel="¿Primera vez en Kukkubukku?"

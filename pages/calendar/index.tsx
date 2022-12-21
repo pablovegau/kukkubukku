@@ -21,11 +21,13 @@ const Calendar: NextPage = () => {
   const auth = useAuth()
 
   useEffect(() => {
-    const timestamp = calendarDateToTimestamp(value)
-    // TODO: the id comes directly from getCalendarId
-    getCalendarId(auth?.user?.id)
-      .then(({ data }) => getCalendarEvents(data?.id, timestamp))
-      .then(setEvents)
+    if (auth?.user) {
+      const timestamp = calendarDateToTimestamp(value)
+      // TODO: the id comes directly from getCalendarId
+      getCalendarId(auth?.user?.id)
+        .then(({ data }) => getCalendarEvents(data?.id, timestamp))
+        .then(setEvents)
+    }
   }, [auth?.user?.id, value])
 
   const Tools = () => {

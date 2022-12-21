@@ -7,6 +7,9 @@ import { Main, Layout } from './styles'
 import Head from 'next/head'
 import { GlobalStyles } from 'styles/globalStyles'
 import { useTheme } from 'utils/hooks/useTheme'
+import { useRouter } from 'next/router'
+import { useAuth } from 'services/auth'
+import { useEffect } from 'react'
 
 interface Props {
   children: JSX.Element
@@ -14,10 +17,26 @@ interface Props {
   showHeader?: boolean
   showFooter?: boolean
   Tools?: JSX.Element
+  loginRequired?: boolean
 }
 
-export function AppLayout({ children, title, showHeader = true, showFooter = true, Tools }: Props) {
+export function AppLayout({
+  children,
+  title,
+  showHeader = true,
+  showFooter = true,
+  Tools,
+  loginRequired = true,
+}: Props) {
   useTheme()
+  const router = useRouter()
+  const auth = useAuth()
+
+  useEffect(() => {
+    if (loginRequired && !auth?.user) {
+      router.push('/')
+    }
+  }, [auth?.user, router])
 
   return (
     <Layout>

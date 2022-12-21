@@ -23,9 +23,11 @@ const CalendarSearch: NextPage = () => {
   const { data: recipes } = useSWR('/api/allRecipes', fetcher)
 
   useEffect(() => {
-    // TODO: the id comes directly from getCalendarId
-    getCalendarId(auth?.user?.id).then(({ data }) => setCalendarId(data.id))
-  }, [auth?.user?.id])
+    if (auth?.user) {
+      // TODO: the id comes directly from getCalendarId
+      getCalendarId(auth.user.id).then(({ data }) => setCalendarId(data.id))
+    }
+  }, [auth.user, auth.user.id])
 
   const router = useRouter()
   const { selectedDate, meal, diners } = router.query
