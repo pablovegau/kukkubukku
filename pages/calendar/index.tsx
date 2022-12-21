@@ -28,7 +28,7 @@ const Calendar: NextPage = () => {
         .then(({ data }) => getCalendarEvents(data?.id, timestamp))
         .then(setEvents)
     }
-  }, [auth?.user?.id, value])
+  }, [auth?.user, auth?.user?.id, value])
 
   const Tools = () => {
     return (

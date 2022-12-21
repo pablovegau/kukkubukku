@@ -36,7 +36,7 @@ export function AppLayout({
     if (loginRequired && !auth?.user) {
       router.push('/')
     }
-  }, [auth?.user, router])
+  }, [auth?.user, loginRequired, router])
 
   return (
     <Layout>
