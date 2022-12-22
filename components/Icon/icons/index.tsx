@@ -13,6 +13,7 @@ import { plus } from './plus'
 import { recipes } from './recipes'
 import { right_arrow } from './rightArrow'
 import { save } from './save'
+import { share } from './share'
 import { shoppingList } from './shoppingList'
 import { star } from './star'
 import { sun } from './sun'
@@ -36,6 +37,7 @@ export const icons: Icons = {
   recipes,
   right_arrow,
   save,
+  share,
   shoppingList,
   star,
   sun,

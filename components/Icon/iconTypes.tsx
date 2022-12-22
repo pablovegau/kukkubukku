@@ -13,6 +13,7 @@ export const iconTypes = {
   RECIPES: 'recipes',
   RIGHT_ARROW: 'right_arrow',
   SAVE: 'save',
+  SHARE: 'share',
   SHOPPING_LIST: 'shoppingList',
   STAR: 'star',
   SUN: 'sun',

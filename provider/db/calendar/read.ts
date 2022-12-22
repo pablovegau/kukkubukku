@@ -20,6 +20,7 @@ export async function getCalendarEventsBetweenDatesDatabase(calendarId: string, 
     .eq('calendarId', calendarId)
     .gte('scheduleAt', start)
     .lte('scheduleAt', end)
+    .order('scheduleAt', { ascending: true })
 }
 
 export async function getCalendarEventsDatabase(calendarId: string, scheduleAt: Date) {

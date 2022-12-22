@@ -18,6 +18,7 @@ import { calendarDateToTimestamp } from 'utils/dates'
 const Calendar: NextPage = () => {
   const [value, setValue] = useState(today(getLocalTimeZone()))
   const [events, setEvents] = useState([])
+  const [calendarId, setCalendarId] = useState('')
   const auth = useAuth()
 
   useEffect(() => {
@@ -25,7 +26,10 @@ const Calendar: NextPage = () => {
       const timestamp = calendarDateToTimestamp(value)
       // TODO: the id comes directly from getCalendarId
       getCalendarId(auth?.user?.id)
-        .then(({ data }) => getCalendarEvents(data?.id, timestamp))
+        .then(({ data }) => {
+          setCalendarId(data?.id)
+          return getCalendarEvents(data?.id, timestamp)
+        })
         .then(setEvents)
     }
   }, [auth?.user, auth?.user?.id, value])
@@ -33,6 +37,13 @@ const Calendar: NextPage = () => {
   const Tools = () => {
     return (
       <>
+        <Tool
+          navigateTo={{
+            pathname: '/calendar/share',
+            query: { calendarId },
+          }}
+          iconType={Tool.ICON_TYPE.SAVE}
+        />
         <Tool
           navigateTo={{
             pathname: '/add/calendar/meal',

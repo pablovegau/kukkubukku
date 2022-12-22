@@ -14,7 +14,7 @@ import { addRecipe } from 'services/db/recipes/write'
 
 import { formatRecipe } from 'services/utils'
 import { TextField } from 'components/Form/TextField'
-import { Textarea } from 'components/Form/TextArea'
+import { Textarea } from 'components/Form/TextArea' // TODO: change for TextArea
 import { ImageField } from 'components/Form/ImageField'
 import { IngredientsForm } from 'components/Form/IngredientsForm'
 import { StepsForm } from 'components/Form/StepsForm'

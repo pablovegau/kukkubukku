@@ -8,7 +8,7 @@ import { MainTitle } from 'components/MainTitle'
 import { SelectField } from 'components/Form/SelectField'
 import { TextField } from 'components/Form/TextField'
 import { Form } from 'styles/pages/create/recipe'
-import { Container } from 'styles/pages/add/calendar/meal/styles'
+import { Container, TemporaryMessage } from 'styles/pages/add/calendar/meal/styles'
 import { SubmitButton } from 'components/Form/SubmitButton'
 import { useRouter } from 'next/router'
 
@@ -34,16 +34,26 @@ const Calendar: NextPage = () => {
   } = useForm<FormData>()
 
   const onSubmit = (data) => {
-    router.push({
-      pathname: '/add/calendar/meal/search',
-      query: { selectedDate, meal: data.meal, diners: data.diners },
-    })
+    if (data.meal !== '') {
+      router.push({
+        pathname: '/add/calendar/meal/search',
+        query: { selectedDate, meal: data.meal, diners: data.diners },
+      })
+    } else {
+      router.push({
+        pathname: '/calendar/search/planification',
+        query: { selectedDate, diners: data.diners },
+      })
+    }
   }
 
   return (
     <AppLayout title=" - Añadir comida">
       <Container>
         <MainTitle>Añadir comidas</MainTitle>
+        <TemporaryMessage>
+          *Si no seleccionas una comida del día, te mostraremos las planificaciones publicas.
+        </TemporaryMessage>
 
         <Form onSubmit={handleSubmit(onSubmit)}>
           <SelectField
@@ -53,7 +63,6 @@ const Calendar: NextPage = () => {
             options={mealOptions}
             register={register}
             formErrors={formErrors}
-            typeOfMandatory={TextField.TYPE_OF_MANDATORY.MANDATORY}
           />
 
           <TextField
@@ -67,7 +76,7 @@ const Calendar: NextPage = () => {
             inputType="number"
           />
 
-          <SubmitButton value="Buscar receta" />
+          <SubmitButton value="Buscar" />
         </Form>
       </Container>
     </AppLayout>

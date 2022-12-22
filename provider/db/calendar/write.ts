@@ -22,3 +22,11 @@ export async function addEventToCalendarDatabase(calendarEvent: CalendarEvent) {
 
   return data
 }
+
+export async function addPlanificationDatabase(name: string, description: string) {
+  return await supabase.from(TABLE_NAMES.PLANNING).insert([{ name, description }]).select().single()
+}
+
+export async function addPlanificationEventsDatabase(events: any) {
+  return await supabase.from(TABLE_NAMES.PLANNING_EVENT).insert(events).select()
+}
