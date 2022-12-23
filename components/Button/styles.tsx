@@ -7,7 +7,7 @@ interface Types {
 }
 
 export interface Props {
-  buttonType: string
+  buttontype: string
 }
 
 const primaryAccent: FlattenSimpleInterpolation = css`
@@ -127,7 +127,7 @@ export const buttonStyles = css<Props>`
   font-size: 1rem;
   transition: background-color 300ms, color 300ms, border-color 300ms;
 
-  ${({ buttonType }) => TYPE[buttonType]}
+  ${({ buttontype }) => TYPE[buttontype]}
 
   &[aria-disabled="true"],
   &[aria-disabled="true"]:hover {

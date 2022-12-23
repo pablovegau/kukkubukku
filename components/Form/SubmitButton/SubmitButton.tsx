@@ -8,7 +8,7 @@ interface Props {
 }
 
 function SubmitButton({ type = TYPES.PRIMARY_ACCENT, value, disabled = false }: Props) {
-  return <Container type="submit" value={value} buttonType={type} aria-disabled={disabled} />
+  return <Container type="submit" value={value} buttontype={type} aria-disabled={disabled} />
 }
 
 SubmitButton.TYPE = TYPES

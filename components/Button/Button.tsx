@@ -9,15 +9,15 @@ export const TYPES = {
 }
 
 interface Props {
-  disabled?: boolean
-  type?: string
   children: React.ReactNode
   onClick: () => void
+  disabled?: boolean
+  type?: string
 }
 
 function Button({ type = TYPES.SECONDARY, children, onClick, disabled = false }: Props) {
   return (
-    <Container onClick={onClick} buttonType={type} aria-disabled={disabled}>
+    <Container onClick={onClick} buttontype={type} aria-disabled={disabled} disabled={disabled}>
       {children}
     </Container>
   )
