@@ -5,15 +5,15 @@ import { supabase } from 'provider/supabaseClient'
 import { getBaseRecipeDatabase } from '../recipes/read'
 import { TABLE_NAMES } from '../constants'
 
-export async function getCalendarIdDatabase(userId: string) {
+export async function getCalendarId(userId: string) {
   return await supabase.from(TABLE_NAMES.CALENDAR).select('id').contains('userIds', [userId]).single()
 }
 
-export async function getCalendarOneDayEventsDatabase(calendarId: string, date: Date) {
+async function getCalendarOneDayEventsDatabase(calendarId: string, date: Date) {
   return await supabase.from(TABLE_NAMES.CALENDAR_EVENT).select().eq('calendarId', calendarId).eq('scheduleAt', date)
 }
 
-export async function getCalendarEventsBetweenDatesDatabase(calendarId: string, start: Date, end: Date) {
+export async function getCalendarEventsBetweenDates(calendarId: string, start: Date, end: Date) {
   return await supabase
     .from(TABLE_NAMES.CALENDAR_EVENT)
     .select()
@@ -23,7 +23,7 @@ export async function getCalendarEventsBetweenDatesDatabase(calendarId: string, 
     .order('scheduleAt', { ascending: true })
 }
 
-export async function getCalendarEventsDatabase(calendarId: string, scheduleAt: Date) {
+export async function getCalendarEvents(calendarId: string, scheduleAt: Date) {
   const { data } = await getCalendarOneDayEventsDatabase(calendarId, scheduleAt)
 
   const events = data?.map(async (event) => {
