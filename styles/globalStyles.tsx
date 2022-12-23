@@ -68,8 +68,10 @@ export const GlobalStyles = createGlobalStyle`
     ${typography.text.base};
   }
 
-  html,
-  body,
+  body, html {
+    overflow-x: hidden;
+  }
+
   body > div:first-child,
   #__next,
   #__next > div {

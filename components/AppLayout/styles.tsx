@@ -4,7 +4,7 @@ export const Layout = styled.section`
   height: 100%;
   width: 100%;
   background: var(--kkbk--color--background--app);
-  overflow-x: hidden;
+  /* overflow-y: scroll; */
 `
 
 interface MainProps {
