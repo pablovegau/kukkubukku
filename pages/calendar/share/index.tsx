@@ -13,7 +13,7 @@ import { Form } from 'styles/pages/create/recipe'
 import { useRouter } from 'next/router'
 import { getCalendarEventsBetweenDates } from 'services/db/calendar/read'
 import { addPlanification, addPlanificationEvents } from 'services/db/calendar/write'
-import { Container } from 'styles/pages/sharedStyles'
+import { PagesContainer } from 'styles/pages/sharedStyles'
 import { RangeCalendarWrapper, SubmitButtonWrapper } from 'styles/pages/calendar/share/styles'
 import { Textarea } from 'components/Form/TextArea'
 
@@ -66,7 +66,7 @@ export default function SharePlanification() {
 
   return (
     <AppLayout title="- Crear planificación">
-      <Container>
+      <PagesContainer>
         <MainTitle>Guardar planificación</MainTitle>
 
         <Form onSubmit={handleSubmit(onSubmit)}>
@@ -96,7 +96,7 @@ export default function SharePlanification() {
             <SubmitButton value="Crear planificación" />
           </SubmitButtonWrapper>
         </Form>
-      </Container>
+      </PagesContainer>
     </AppLayout>
   )
 }

@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 export const Layout = styled.section`
+  position: relative;
   height: 100%;
   width: 100%;
   background: var(--kkbk--color--background--app);
-  /* overflow-y: scroll; */
 `
 
 interface MainProps {
