@@ -4,7 +4,7 @@
 import { NextPage } from 'next'
 import { AppLayout } from 'components/AppLayout'
 import { MainTitle } from 'components/MainTitle'
-import { Container, RecipesWrapper, CardWrapper } from 'styles/pages/add/calendar/meal/search/styles'
+import { RecipesWrapper } from 'styles/pages/add/calendar/meal/search/styles'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import fetcher from 'utils/fetcher'
@@ -16,6 +16,7 @@ import { getCalendarId } from 'services/db/calendar/read'
 import { useEffect, useState } from 'react'
 import { parseDate } from '@internationalized/date'
 import { calendarDateToTimestamp } from 'utils/dates'
+import { PagesContainer } from 'styles/pages/sharedStyles'
 
 const CalendarSearch: NextPage = () => {
   const [calendarId, setCalendarId] = useState<string>(null)
@@ -48,22 +49,21 @@ const CalendarSearch: NextPage = () => {
 
   return (
     <AppLayout title=" - Buscar receta">
-      <Container>
+      <PagesContainer>
         <MainTitle>Seleccionar receta</MainTitle>
         <RecipesWrapper>
           {recipes?.map((recipe) => (
-            <CardWrapper key={recipe.id}>
-              <CardVertical
-                image={`${storageBaseUrl}recipes/${recipe.id}/${recipe.id}_0.jpg`}
-                name={recipe.name}
-                onClick={handleOnClick}
-                rating={recipe.rating}
-                recipeId={recipe.id}
-              />
-            </CardWrapper>
+            <CardVertical
+              key={recipe.id}
+              image={`${storageBaseUrl}recipes/${recipe.id}/${recipe.id}_0.jpg`}
+              name={recipe.name}
+              onClick={handleOnClick}
+              rating={recipe.rating}
+              recipeId={recipe.id}
+            />
           ))}
         </RecipesWrapper>
-      </Container>
+      </PagesContainer>
     </AppLayout>
   )
 }

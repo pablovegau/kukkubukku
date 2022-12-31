@@ -2,13 +2,15 @@ import styled from 'styled-components'
 import { typography } from 'styles/mixins'
 
 export const Container = styled.div`
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
+  max-width: 496px;
   margin-bottom: var(--kkbk--spacing--32);
-  margin-left: var(--kkbk--spacing--32);
-  margin-right: var(--kkbk--spacing--32);
+  margin-left: auto;
+  margin-right: auto;
   margin-top: var(--kkbk--spacing--64);
 `
 
@@ -27,11 +29,11 @@ export const SubmitButtonWrapper = styled.div`
 export const QuestionWrapper = styled.div`
   position: fixed;
   bottom: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-left: calc(var(--kkbk--spacing--32) * -1);
   margin-bottom: var(--kkbk--spacing--32);
   text-align: center;
 `

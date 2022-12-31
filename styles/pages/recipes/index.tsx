@@ -2,13 +2,15 @@ import styled from 'styled-components'
 import { typography } from 'styles/mixins'
 
 export const Container = styled.div`
-  margin-left: var(--kkbk--spacing--32);
-  margin-right: var(--kkbk--spacing--32);
   color: var(--kkbk--color--text--primary);
+  max-width: 496px;
+  margin-left: auto;
+  margin-right: auto;
 `
 
 export const ImageWrapper = styled.section`
   margin-bottom: var(--kkbk--spacing--24);
+  margin-top: var(--kkbk--spacing--24);
 
   img {
     aspect-ratio: 1 / 1;

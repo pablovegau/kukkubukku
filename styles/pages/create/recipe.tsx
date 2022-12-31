@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
-export const Container = styled.main`
-  margin-left: var(--kkbk--spacing--32);
-  margin-right: var(--kkbk--spacing--32);
-`
-
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 496px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: var(--kkbk--spacing--24);
 `
 

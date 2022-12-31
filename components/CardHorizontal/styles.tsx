@@ -8,6 +8,7 @@ interface Props {
 export const Container = styled.div<Props>`
   display: block;
   width: 100%;
+  max-width: 496px;
   margin-bottom: var(--kkbk--spacing--16);
   cursor: pointer;
 

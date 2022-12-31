@@ -1,9 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
+import Link from 'next/link'
 import { Icon } from 'components/Icon'
 import { MyLink } from 'components/MyLink'
-import Link from 'next/link'
 
 interface QueryParams {
   [key: string]: string

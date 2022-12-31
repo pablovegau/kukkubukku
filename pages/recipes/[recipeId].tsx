@@ -33,6 +33,7 @@ import {
   StepsSection,
   TagsSection,
 } from 'styles/pages/recipes'
+import { PagesContainer } from 'styles/pages/sharedStyles'
 
 export async function getStaticProps(context: GetStaticProps) {
   const { recipeId } = context.params
@@ -119,71 +120,73 @@ export default function Recipe({ initialRecipe }: RecipeProps) {
 
   return (
     <AppLayout title={` - ${name}`} loginRequired={false}>
-      <Container>
-        <ImageWrapper>
-          <img src={`${storageBaseUrl}recipes/${id}/${id}_0.jpg`} />
-        </ImageWrapper>
+      <PagesContainer>
         <MainTitle>{name}</MainTitle>
+        <Container>
+          <ImageWrapper>
+            <img src={`${storageBaseUrl}recipes/${id}/${id}_0.jpg`} />
+          </ImageWrapper>
 
-        <InfoBar>
-          <LeftWrapper>
-            <CookingTime>
-              <Icon type={Icon.TYPE.CLOCK} size={24} fillColor="--kkbk--color--text--dim" />
-              <p>{getDuration(duration)}</p>
-            </CookingTime>
+          <InfoBar>
+            <LeftWrapper>
+              <CookingTime>
+                <Icon type={Icon.TYPE.CLOCK} size={24} fillColor="--kkbk--color--text--dim" />
+                <p>{getDuration(duration)}</p>
+              </CookingTime>
 
-            <Diners>
-              <Icon type={Icon.TYPE.PERSON} size={24} fillColor="--kkbk--color--text--dim" />
-              <p>{diners}</p>
-            </Diners>
-          </LeftWrapper>
+              <Diners>
+                <Icon type={Icon.TYPE.PERSON} size={24} fillColor="--kkbk--color--text--dim" />
+                <p>{diners}</p>
+              </Diners>
+            </LeftWrapper>
 
-          <Difficulty>
-            Dificultad
-            <span>{difficultyDiccionary[difficulty]}</span>
-          </Difficulty>
+            <Difficulty>
+              Dificultad
+              <span>{difficultyDiccionary[difficulty]}</span>
+            </Difficulty>
 
-          <Rating value={rating} size={Rating.SIZES.MEDIUM} />
-        </InfoBar>
+            <Rating value={rating} size={Rating.SIZES.MEDIUM} />
+          </InfoBar>
 
-        {description && (
-          <Description>
-            <SectionTitle>Description</SectionTitle>
-            {description}
-          </Description>
-        )}
+          {description && (
+            <Description>
+              <SectionTitle>Description</SectionTitle>
+              {description}
+            </Description>
+          )}
 
-        <IngredientsSection>
-          <SectionTitle>Ingredientes</SectionTitle>
-          <Ingredients>
-            {ingredients.map((item) => (
-              <Ingredient key={item.id}>
-                <IngredientName>{item.name}</IngredientName>
-                {item.amount && <IngredientAmount> - {item.amount} </IngredientAmount>}
-                {item.measurement && <IngredientMeasurement>{item.measurement}</IngredientMeasurement>}
-                {item.moreInfo && <IngredientMoreInfo> ({item.moreInfo})</IngredientMoreInfo>}
-              </Ingredient>
-            ))}
-          </Ingredients>
-        </IngredientsSection>
+          <IngredientsSection>
+            <SectionTitle>Ingredientes</SectionTitle>
+            <Ingredients>
+              {ingredients.map((item) => (
+                <Ingredient key={item.id}>
+                  <IngredientName>{item.name}</IngredientName>
+                  {item.amount && <IngredientAmount> - {item.amount} </IngredientAmount>}
+                  {item.measurement && <IngredientMeasurement>{item.measurement}</IngredientMeasurement>}
+                  {item.moreInfo && <IngredientMoreInfo> ({item.moreInfo})</IngredientMoreInfo>}
+                </Ingredient>
+              ))}
+            </Ingredients>
+          </IngredientsSection>
 
-        <StepsSection>
-          <SectionTitle>Instrucciones</SectionTitle>
-          <Steps>
-            {steps.map((item) => (
-              <Step key={item.id}>
-                <StepTitle>Paso {item.position}</StepTitle>
-                <StepInstruction>{item.instruction}</StepInstruction>
-              </Step>
-            ))}
-          </Steps>
-        </StepsSection>
+          <StepsSection>
+            <SectionTitle>Instrucciones</SectionTitle>
+            <Steps>
+              {steps.map((item) => (
+                <Step key={item.id}>
+                  <StepTitle>Paso {item.position}</StepTitle>
+                  <StepInstruction>{item.instruction}</StepInstruction>
+                </Step>
+              ))}
+            </Steps>
+          </StepsSection>
 
-        <TagsSection>
-          <SectionTitle>Tags</SectionTitle>
-          <p>{tags.join(', ')}</p>
-        </TagsSection>
-      </Container>
+          <TagsSection>
+            <SectionTitle>Tags</SectionTitle>
+            <p>{tags.join(', ')}</p>
+          </TagsSection>
+        </Container>
+      </PagesContainer>
     </AppLayout>
   )
 }

@@ -8,7 +8,7 @@ import { MainTitle } from 'components/MainTitle'
 import { SelectField } from 'components/Form/SelectField'
 import { TextField } from 'components/Form/TextField'
 import { Form } from 'styles/pages/create/recipe'
-import { Container, TemporaryMessage } from 'styles/pages/add/calendar/meal/styles'
+import { Container, TemporaryMessage, SubmitButtonWrapper } from 'styles/pages/add/calendar/meal/styles'
 import { SubmitButton } from 'components/Form/SubmitButton'
 import { useRouter } from 'next/router'
 
@@ -51,11 +51,11 @@ const Calendar: NextPage = () => {
     <AppLayout title=" - Añadir comida">
       <Container>
         <MainTitle>Añadir comidas</MainTitle>
-        <TemporaryMessage>
-          *Si no seleccionas una comida del día, te mostraremos las planificaciones publicas.
-        </TemporaryMessage>
 
         <Form onSubmit={handleSubmit(onSubmit)}>
+          <TemporaryMessage>
+            *Si no seleccionas una comida del día, te mostraremos las planificaciones publicas.
+          </TemporaryMessage>
           <SelectField
             errors={errors}
             fieldName="meal"
@@ -75,8 +75,9 @@ const Calendar: NextPage = () => {
             typeOfMandatory={TextField.TYPE_OF_MANDATORY.MANDATORY}
             inputType="number"
           />
-
-          <SubmitButton value="Buscar" />
+          <SubmitButtonWrapper>
+            <SubmitButton value="Buscar" />
+          </SubmitButtonWrapper>
         </Form>
       </Container>
     </AppLayout>

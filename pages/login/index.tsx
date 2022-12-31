@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { AccessForm } from 'components/AccessForm'
 import { AppLayout } from 'components/AppLayout'
 import { useAuth } from 'services/auth'
+import { PagesContainer } from 'styles/pages/sharedStyles'
 
 interface User {
   username: string
@@ -21,7 +22,7 @@ export default function Login() {
 
   return (
     <AppLayout title="Log in" showHeader={false} showFooter={false} loginRequired={false}>
-      <>
+      <PagesContainer>
         <AccessForm
           questionLabel="¿Primera vez en Kukkubukku?"
           questionLink="/signup"
@@ -29,7 +30,7 @@ export default function Login() {
           submitLabel="Iniciar sesión"
           onSubmit={onSubmit}
         />
-      </>
+      </PagesContainer>
     </AppLayout>
   )
 }

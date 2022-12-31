@@ -9,7 +9,8 @@ import { AppLayout } from 'components/AppLayout'
 import { MainTitle } from 'components/MainTitle'
 import { Label } from 'components/Label'
 
-import { Container, Form, InputRadioWrapper, SubmitButtonWrapper } from 'styles/pages/create/recipe'
+import { Form, InputRadioWrapper, SubmitButtonWrapper } from 'styles/pages/create/recipe'
+import { PagesContainer } from 'styles/pages/sharedStyles'
 import { addRecipe } from 'services/db/recipes/write'
 
 import { formatRecipe } from 'services/utils'
@@ -191,7 +192,7 @@ export default function CreateRecipe() {
 
   return (
     <AppLayout title=" - Crear receta">
-      <Container>
+      <PagesContainer>
         <MainTitle>Crear receta</MainTitle>
 
         <Form onSubmit={handleSubmit(onSubmit)}>
@@ -331,7 +332,7 @@ export default function CreateRecipe() {
             <SubmitButton value="Crear receta" />
           </SubmitButtonWrapper>
         </Form>
-      </Container>
+      </PagesContainer>
     </AppLayout>
   )
 }

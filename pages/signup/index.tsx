@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 
 import { AccessForm } from 'components/AccessForm'
 import { AppLayout } from 'components/AppLayout'
+import { PagesContainer } from 'styles/pages/sharedStyles'
 import { useAuth } from 'services/auth'
 import { insertCalendar } from 'services/db/calendar/write'
 
@@ -24,13 +25,15 @@ export default function Signup() {
 
   return (
     <AppLayout title="Sign up" showHeader={false} showFooter={false} loginRequired={false}>
-      <AccessForm
-        questionLabel="¿Vuelves a Kukkubukku?"
-        questionLink="/login"
-        questionLinkLabel="Iniciar sesión"
-        submitLabel="Crear cuenta"
-        onSubmit={onSubmit}
-      />
+      <PagesContainer>
+        <AccessForm
+          questionLabel="¿Vuelves a Kukkubukku?"
+          questionLink="/login"
+          questionLinkLabel="Iniciar sesión"
+          submitLabel="Crear cuenta"
+          onSubmit={onSubmit}
+        />
+      </PagesContainer>
     </AppLayout>
   )
 }

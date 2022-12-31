@@ -14,6 +14,7 @@ import { getCalendarEvents, getCalendarId } from 'services/db/calendar/read'
 import { CardHorizontal } from 'components/CardHorizontal'
 import { storageBaseUrl } from 'provider/storage/constants'
 import { calendarDateToTimestamp } from 'utils/dates'
+import { PagesContainer } from 'styles/pages/sharedStyles'
 
 const Calendar: NextPage = () => {
   const [value, setValue] = useState(today(getLocalTimeZone()))
@@ -57,72 +58,74 @@ const Calendar: NextPage = () => {
 
   return (
     <AppLayout title=" - Planificación" Tools={Tools}>
-      <Container>
-        <CalendarComponentWrapper>
-          <CalendarComponent aria-label="Calendar" value={value} onChange={setValue} />
-        </CalendarComponentWrapper>
+      <PagesContainer>
+        <Container>
+          <CalendarComponentWrapper>
+            <CalendarComponent aria-label="Calendar" value={value} onChange={setValue} />
+          </CalendarComponentWrapper>
 
-        {/* Fix this with a map */}
-        <MealTitle>Desayuno</MealTitle>
-        <CardsWrapper>
-          {events?.breakfast?.map((event) => (
-            <CardHorizontal
-              key={event.recipe.name}
-              image={`${storageBaseUrl}recipes/${event.recipe.id}/${event.recipe.id}_0.jpg`}
-              name={event.recipe.name}
-              navigateTo={`/recipes/${event.recipe.id}`}
-            />
-          ))}
-        </CardsWrapper>
+          {/* Fix this with a map */}
+          <MealTitle>Desayuno</MealTitle>
+          <CardsWrapper>
+            {events?.breakfast?.map((event) => (
+              <CardHorizontal
+                key={event.recipe.name}
+                image={`${storageBaseUrl}recipes/${event.recipe.id}/${event.recipe.id}_0.jpg`}
+                name={event.recipe.name}
+                navigateTo={`/recipes/${event.recipe.id}`}
+              />
+            ))}
+          </CardsWrapper>
 
-        <MealTitle>Almuerzo</MealTitle>
-        <CardsWrapper>
-          {events?.['mid-morning_snack']?.map((event) => (
-            <CardHorizontal
-              key={event.recipe.name}
-              image={`${storageBaseUrl}recipes/${event.recipe.id}/${event.recipe.id}_0.jpg`}
-              name={event.recipe.name}
-              navigateTo={`/recipes/${event.recipe.id}`}
-            />
-          ))}
-        </CardsWrapper>
+          <MealTitle>Almuerzo</MealTitle>
+          <CardsWrapper>
+            {events?.['mid-morning_snack']?.map((event) => (
+              <CardHorizontal
+                key={event.recipe.name}
+                image={`${storageBaseUrl}recipes/${event.recipe.id}/${event.recipe.id}_0.jpg`}
+                name={event.recipe.name}
+                navigateTo={`/recipes/${event.recipe.id}`}
+              />
+            ))}
+          </CardsWrapper>
 
-        <MealTitle>Comida</MealTitle>
-        <CardsWrapper>
-          {events?.lunch?.map((event) => (
-            <CardHorizontal
-              key={event.recipe.name}
-              image={`${storageBaseUrl}recipes/${event.recipe.id}/${event.recipe.id}_0.jpg`}
-              name={event.recipe.name}
-              navigateTo={`/recipes/${event.recipe.id}`}
-            />
-          ))}
-        </CardsWrapper>
+          <MealTitle>Comida</MealTitle>
+          <CardsWrapper>
+            {events?.lunch?.map((event) => (
+              <CardHorizontal
+                key={event.recipe.name}
+                image={`${storageBaseUrl}recipes/${event.recipe.id}/${event.recipe.id}_0.jpg`}
+                name={event.recipe.name}
+                navigateTo={`/recipes/${event.recipe.id}`}
+              />
+            ))}
+          </CardsWrapper>
 
-        <MealTitle>Merienda</MealTitle>
-        <CardsWrapper>
-          {events?.afternoon_snack?.map((event) => (
-            <CardHorizontal
-              key={event.recipe.name}
-              image={`${storageBaseUrl}recipes/${event.recipe.id}/${event.recipe.id}_0.jpg`}
-              name={event.recipe.name}
-              navigateTo={`/recipes/${event.recipe.id}`}
-            />
-          ))}
-        </CardsWrapper>
+          <MealTitle>Merienda</MealTitle>
+          <CardsWrapper>
+            {events?.afternoon_snack?.map((event) => (
+              <CardHorizontal
+                key={event.recipe.name}
+                image={`${storageBaseUrl}recipes/${event.recipe.id}/${event.recipe.id}_0.jpg`}
+                name={event.recipe.name}
+                navigateTo={`/recipes/${event.recipe.id}`}
+              />
+            ))}
+          </CardsWrapper>
 
-        <MealTitle>Cena</MealTitle>
-        <CardsWrapper>
-          {events?.dinner?.map((event) => (
-            <CardHorizontal
-              key={event.recipe.name}
-              image={`${storageBaseUrl}recipes/${event.recipe.id}/${event.recipe.id}_0.jpg`}
-              name={event.recipe.name}
-              navigateTo={`/recipes/${event.recipe.id}`}
-            />
-          ))}
-        </CardsWrapper>
-      </Container>
+          <MealTitle>Cena</MealTitle>
+          <CardsWrapper>
+            {events?.dinner?.map((event) => (
+              <CardHorizontal
+                key={event.recipe.name}
+                image={`${storageBaseUrl}recipes/${event.recipe.id}/${event.recipe.id}_0.jpg`}
+                name={event.recipe.name}
+                navigateTo={`/recipes/${event.recipe.id}`}
+              />
+            ))}
+          </CardsWrapper>
+        </Container>
+      </PagesContainer>
     </AppLayout>
   )
 }

@@ -6,6 +6,10 @@ export const NavigationMenu = styled(NavigationMenuPrimitive.Root)`
   bottom: 0;
   width: 100%;
   background-color: var(--kkbk--color--background--app);
+
+  @media screen and (min-width: 730px) {
+    visibility: hidden;
+  }
 `
 
 export const NavigationMenuList = styled(NavigationMenuPrimitive.List)`

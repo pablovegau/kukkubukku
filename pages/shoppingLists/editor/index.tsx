@@ -22,6 +22,7 @@ import { Tool } from 'components/Header/Tool'
 import { useAuth } from 'services/auth'
 import { useRouter } from 'next/router'
 import { createShoppingListDatabase } from 'provider/db/shoppingList/write'
+import { PagesContainer } from 'styles/pages/sharedStyles'
 
 export default function ShoppingListsEditor() {
   const router = useRouter()
@@ -56,26 +57,28 @@ export default function ShoppingListsEditor() {
 
   return (
     <AppLayout title=" - Listas de la compra" Tools={Tools}>
-      <Container>
-        <SectionTitle>Intervalo de fechas</SectionTitle>
-        <RangeCalendarWrapper>
-          <RangeCalendar aria-label="Calendar" value={value} onChange={setValue} />
-        </RangeCalendarWrapper>
+      <PagesContainer>
+        <Container>
+          <SectionTitle>Intervalo de fechas</SectionTitle>
+          <RangeCalendarWrapper>
+            <RangeCalendar aria-label="Calendar" value={value} onChange={setValue} />
+          </RangeCalendarWrapper>
 
-        <IngredientsSection>
-          <SectionTitle>Ingredientes</SectionTitle>
-          <Ingredients>
-            {ingredients?.map((item) => (
-              <Ingredient key={item.id}>
-                <IngredientName>{item.name}</IngredientName>
-                {item.amount && <IngredientAmount> - {item.amount} </IngredientAmount>}
-                {item.measurement && <IngredientMeasurement>{item.measurement}</IngredientMeasurement>}
-                {item.moreInfo && <IngredientMoreInfo> ({item.moreInfo})</IngredientMoreInfo>}
-              </Ingredient>
-            ))}
-          </Ingredients>
-        </IngredientsSection>
-      </Container>
+          <IngredientsSection>
+            <SectionTitle>Ingredientes</SectionTitle>
+            <Ingredients>
+              {ingredients?.map((item) => (
+                <Ingredient key={item.id}>
+                  <IngredientName>{item.name}</IngredientName>
+                  {item.amount && <IngredientAmount> - {item.amount} </IngredientAmount>}
+                  {item.measurement && <IngredientMeasurement>{item.measurement}</IngredientMeasurement>}
+                  {item.moreInfo && <IngredientMoreInfo> ({item.moreInfo})</IngredientMoreInfo>}
+                </Ingredient>
+              ))}
+            </Ingredients>
+          </IngredientsSection>
+        </Container>
+      </PagesContainer>
     </AppLayout>
   )
 }

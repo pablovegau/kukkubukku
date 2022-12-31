@@ -5,7 +5,16 @@ import { ThemeSwitch } from 'components/ThemeSwitch'
 import Link from 'next/link'
 import { Logo } from '../Logo'
 
-import { Container, Tools, TemporalSwitchWrapper } from './styles'
+import {
+  Container,
+  Tools,
+  TemporalSwitchWrapper,
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuMyLink,
+  LeftWrapper,
+} from './styles'
 import { MyLink } from 'components/MyLink'
 import { Avatar } from 'components/Avatar'
 import { useAuth } from 'services/auth'
@@ -22,17 +31,51 @@ export const DUMMY_IMAGE = {
 
 function Header({ children }: Props) {
   const auth = useAuth()
+  const isUserLoggedIn = auth.user !== null
 
   const avatarImage = auth.user ? DUMMY_IMAGE.LOGGED : DUMMY_IMAGE.NO_LOGGED
   const avatarAlt = auth ? 'avatar sesión iniciada' : 'avatar sesión no iniciada'
 
   return (
     <Container>
-      <Link href="/" passHref legacyBehavior>
-        <MyLink>
-          <Logo />
-        </MyLink>
-      </Link>
+      <LeftWrapper>
+        <Link href="/" passHref legacyBehavior>
+          <MyLink>
+            <Logo />
+          </MyLink>
+        </Link>
+
+        {isUserLoggedIn ? (
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <Link href="/" passHref legacyBehavior>
+                  <MyLink>
+                    <NavigationMenuMyLink>Recetas</NavigationMenuMyLink>
+                  </MyLink>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link href="/calendar" passHref legacyBehavior>
+                  <MyLink>
+                    <NavigationMenuMyLink>Calendarios</NavigationMenuMyLink>
+                  </MyLink>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link href="/shoppingLists" passHref legacyBehavior>
+                  <MyLink>
+                    <NavigationMenuMyLink>Listas de la compra</NavigationMenuMyLink>
+                  </MyLink>
+                </Link>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+        ) : null}
+      </LeftWrapper>
+
       <Tools>
         <TemporalSwitchWrapper>
           <ThemeSwitch />

@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  margin-left: var(--kkbk--spacing--32);
-  margin-right: var(--kkbk--spacing--32);
+  @media screen and (min-width: 730px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 export const RangeCalendarWrapper = styled.div`

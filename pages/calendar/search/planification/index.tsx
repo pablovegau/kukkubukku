@@ -4,7 +4,6 @@
 import { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 import { AppLayout } from 'components/AppLayout'
-import { Container } from 'styles/pages/create/recipe'
 import { MainTitle } from 'components/MainTitle'
 import { supabase } from 'provider/supabaseClient'
 import { TABLE_NAMES } from '../../../../provider/db/constants'
@@ -15,6 +14,7 @@ import { parseDate } from '@internationalized/date'
 import { calendarDateToTimestamp } from 'utils/dates'
 import styled from 'styled-components'
 import { typography } from 'styles/mixins'
+import { PagesContainer } from 'styles/pages/sharedStyles'
 
 const SearchPlanification: NextPage = () => {
   const auth = useAuth()
@@ -62,7 +62,7 @@ const SearchPlanification: NextPage = () => {
 
   return (
     <AppLayout title=" - Buscar planificación">
-      <Container>
+      <PagesContainer>
         <MainTitle>Seleccionar planificación</MainTitle>
         <List>
           {planifications?.data?.map((planification) => (
@@ -72,7 +72,7 @@ const SearchPlanification: NextPage = () => {
             </ListItem>
           ))}
         </List>
-      </Container>
+      </PagesContainer>
     </AppLayout>
   )
 }
