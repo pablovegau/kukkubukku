@@ -1,4 +1,6 @@
 /* eslint-disable camelcase */
+import { addCalendar } from './addCalendar'
+import { addRecipe } from './addRecipe'
 import { alert } from './alert'
 import { calendar } from './calendar'
 import { check } from './check'
@@ -23,6 +25,8 @@ interface Icons {
 }
 
 export const icons: Icons = {
+  addCalendar,
+  addRecipe,
   alert,
   calendar,
   check,

@@ -50,7 +50,14 @@ const Calendar: NextPage = () => {
             pathname: '/add/calendar/meal',
             query: { selectedDate: value.toString() },
           }}
-          iconType={Tool.ICON_TYPE.PLUS}
+          iconType={Tool.ICON_TYPE.ADD_RECIPE}
+        />
+        <Tool
+          navigateTo={{
+            pathname: '/calendar/search/planification',
+            query: { selectedDate: value.toString() },
+          }}
+          iconType={Tool.ICON_TYPE.ADD_CALENDAR}
         />
       </>
     )

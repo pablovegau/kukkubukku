@@ -21,7 +21,7 @@ const SearchPlanification: NextPage = () => {
   const [planifications, setPlanifications] = useState()
 
   const router = useRouter()
-  const { selectedDate, diners } = router.query
+  const { selectedDate, diners = 2 } = router.query
 
   useEffect(() => {
     supabase.from(TABLE_NAMES.PLANNING).select().then(setPlanifications)

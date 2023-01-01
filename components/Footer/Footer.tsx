@@ -18,7 +18,7 @@ function Footer() {
   return (
     <NavigationMenu>
       <NavigationMenuList>
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <Link href="/" passHref legacyBehavior>
             <MyLink>
               <NavigationMenuMyLink>
@@ -26,7 +26,7 @@ function Footer() {
               </NavigationMenuMyLink>
             </MyLink>
           </Link>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
 
         <NavigationMenuItem>
           <Link href="/" passHref legacyBehavior>

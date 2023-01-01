@@ -24,7 +24,7 @@ const Tools = () => {
   return (
     <>
       {auth.user && <Tool navigateTo="/create/recipe" iconType={Tool.ICON_TYPE.PLUS} />}
-      <Tool navigateTo="/" iconType={Tool.ICON_TYPE.MAGNIFIER} />
+      {/* <Tool navigateTo="/" iconType={Tool.ICON_TYPE.MAGNIFIER} /> */}
     </>
   )
 }

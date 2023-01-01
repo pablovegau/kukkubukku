@@ -1,4 +1,6 @@
 export const iconTypes = {
+  ADD_CALENDAR: 'addCalendar',
+  ADD_RECIPE: 'addRecipe',
   ALERT: 'alert',
   CALENDAR: 'calendar',
   CHECK: 'check',
