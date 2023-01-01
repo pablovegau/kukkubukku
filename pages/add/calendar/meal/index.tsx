@@ -8,7 +8,7 @@ import { MainTitle } from 'components/MainTitle'
 import { SelectField } from 'components/Form/SelectField'
 import { TextField } from 'components/Form/TextField'
 import { Form } from 'styles/pages/create/recipe'
-import { Container, TemporaryMessage, SubmitButtonWrapper } from 'styles/pages/add/calendar/meal/styles'
+import { Container, SubmitButtonWrapper } from 'styles/pages/add/calendar/meal/styles'
 import { SubmitButton } from 'components/Form/SubmitButton'
 import { useRouter } from 'next/router'
 
@@ -34,17 +34,10 @@ const Calendar: NextPage = () => {
   } = useForm<FormData>()
 
   const onSubmit = (data) => {
-    if (data.meal !== '') {
-      router.push({
-        pathname: '/add/calendar/meal/search',
-        query: { selectedDate, meal: data.meal, diners: data.diners },
-      })
-    } else {
-      router.push({
-        pathname: '/calendar/search/planification',
-        query: { selectedDate, diners: data.diners },
-      })
-    }
+    router.push({
+      pathname: '/add/calendar/meal/search',
+      query: { selectedDate, meal: data.meal, diners: data.diners },
+    })
   }
 
   return (
@@ -53,9 +46,6 @@ const Calendar: NextPage = () => {
         <MainTitle>Añadir comidas</MainTitle>
 
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <TemporaryMessage>
-            *Si no seleccionas una comida del día, te mostraremos las planificaciones publicas.
-          </TemporaryMessage>
           <SelectField
             errors={errors}
             fieldName="meal"
