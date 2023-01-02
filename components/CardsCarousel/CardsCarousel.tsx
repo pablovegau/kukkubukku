@@ -1,7 +1,13 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { CardVertical } from 'components/CardVertical'
 import { storageBaseUrl } from 'services/storage/constants'
 
-import { Carousel, CardWrapper, SectionHeader } from './styles'
+import { Carousel, CardWrapper, Container, SectionHeader, ButtonLeft, ButtonRight } from './styles'
+import { useEffect, useRef, useState } from 'react'
+import { Icon } from 'components/Icon'
 
 interface Card {
   created_at: string
@@ -24,11 +30,46 @@ interface Props {
   title: string
 }
 
+const marginOffset = 24
+
 function CardsCarousel({ cardsData, size = 'small', title }: Props) {
+  const [show, setShow] = useState(true)
+  const ref = useRef()
+
+  // TODO: Add a event listener to resize the window
+  useEffect(() => {
+    setShow(window.innerWidth < cardsData.length * 172 + marginOffset)
+  }, [cardsData])
+
+  function getCurrentSliderWidth() {
+    return ref?.current?.offsetWidth - marginOffset
+  }
+
+  function onHandleMoveCardsToTheLeft(e) {
+    e.stopPropagation()
+    ref.current.scrollLeft = ref.current.scrollLeft - getCurrentSliderWidth()
+  }
+
+  function onHandleMoveCardsToTheRight(e) {
+    e.stopPropagation()
+    ref.current.scrollLeft = ref.current.scrollLeft + getCurrentSliderWidth()
+  }
+
   return (
-    <>
+    <Container>
       <SectionHeader>{title}</SectionHeader>
-      <Carousel>
+
+      {show && (
+        <ButtonLeft onClick={onHandleMoveCardsToTheLeft}>
+          <Icon
+            type={Icon.TYPE.LEFT_ARROW}
+            size={16}
+            label="Move to previous month"
+            fillColor="--kkbk--color--emphasis--primary"
+          />
+        </ButtonLeft>
+      )}
+      <Carousel ref={ref}>
         {cardsData.map((card) => (
           <CardWrapper key={card.name}>
             <CardVertical
@@ -41,7 +82,17 @@ function CardsCarousel({ cardsData, size = 'small', title }: Props) {
           </CardWrapper>
         ))}
       </Carousel>
-    </>
+      {show && (
+        <ButtonRight onClick={onHandleMoveCardsToTheRight}>
+          <Icon
+            type={Icon.TYPE.RIGHT_ARROW}
+            size={16}
+            label="Move to previous month"
+            fillColor="--kkbk--color--emphasis--primary"
+          />
+        </ButtonRight>
+      )}
+    </Container>
   )
 }
 

@@ -52,26 +52,3 @@ export function Calendar(props: any) {
     </div>
   )
 }
-
-// Example to use in App.js
-
-/*
-  import { useState } from "react";
-
-  ...
-
-  import { Calendar } from "./components/Calendar";
-  import { parseDate } from "@internationalized/date";
-
-  ...
-
-  let [value, setValue] = useState(parseDate("2022-08-07"));
-
-  ...
-
-  <Calendar
-    aria-label="Calendar"
-    value={value}
-    onChange={setValue}
-  />
-*/
