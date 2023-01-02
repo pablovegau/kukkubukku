@@ -57,7 +57,11 @@ export async function getRecipeDatabase(recipeId: string | string[] | undefined)
   /**
    * Get steps
    */
-  const recipeSteps = await supabase.from(TABLE_NAMES.RECIPE_STEP).select('*').eq('recipeId', recipeId)
+  const recipeSteps = await supabase
+    .from(TABLE_NAMES.RECIPE_STEP)
+    .select('*')
+    .eq('recipeId', recipeId)
+    .order('position', { ascending: true })
 
   const steps = recipeSteps.data?.map((recipeStep) => ({
     id: recipeStep.id,
