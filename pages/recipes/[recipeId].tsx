@@ -5,9 +5,9 @@ import { AppLayout } from 'components/AppLayout'
 import { Icon } from 'components/Icon'
 import { MainTitle } from 'components/MainTitle'
 import { Rating } from 'components/Rating'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { storageBaseUrl } from 'provider/storage/constants'
-import { getAllRecipes, getRecipe } from 'services/db/recipes/read'
+import { getRecipe } from 'services/db/recipes/read'
 
 import {
   Container,
@@ -35,7 +35,7 @@ import {
 } from 'styles/pages/recipes'
 import { PagesContainer } from 'styles/pages/sharedStyles'
 
-export async function getStaticProps(context: GetStaticProps) {
+export async function getServerSideProps(context: GetServerSideProps) {
   const { recipeId } = context.params
   const recipe = await getRecipe(recipeId)
 
@@ -43,18 +43,6 @@ export async function getStaticProps(context: GetStaticProps) {
     props: {
       initialRecipe: recipe,
     },
-  }
-}
-
-export async function getStaticPaths() {
-  const recipes = await getAllRecipes()
-  const paths = recipes.data?.map((recipe) => ({
-    params: { recipeId: recipe.id },
-  }))
-
-  return {
-    paths,
-    fallback: false,
   }
 }
 
