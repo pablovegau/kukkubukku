@@ -7,11 +7,13 @@ import { useButton } from '@react-aria/button'
 import { Container } from './styles'
 
 function Button(props: any) {
+  const { onClick } = props
+
   const ref = useRef()
   const { buttonProps } = useButton(props, ref)
 
   return (
-    <Container {...buttonProps} ref={ref}>
+    <Container {...buttonProps} ref={ref} onClick={onClick}>
       {props.children}
     </Container>
   )

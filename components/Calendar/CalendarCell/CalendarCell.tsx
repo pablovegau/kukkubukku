@@ -10,9 +10,10 @@ import { BodyCell } from '../styles'
 interface Props {
   state: any
   date: any
+  hasEvent?: boolean
 }
 
-export function CalendarCell({ state, date }: Props) {
+export function CalendarCell({ state, date, hasEvent }: Props) {
   const ref = useRef()
   const { cellProps, buttonProps, isSelected, isOutsideVisibleRange, isDisabled, isUnavailable, formattedDate } =
     useCalendarCell({ date }, state, ref)
@@ -26,6 +27,7 @@ export function CalendarCell({ state, date }: Props) {
         isSelected={isSelected}
         isDisabled={isDisabled}
         isUnavailable={isUnavailable}
+        hasEvent={hasEvent}
       >
         {formattedDate}
       </BodyCell>

@@ -68,7 +68,7 @@ const Calendar: NextPage = () => {
       <PagesContainer>
         <Container>
           <CalendarComponentWrapper>
-            <CalendarComponent aria-label="Calendar" value={value} onChange={setValue} />
+            <CalendarComponent aria-label="Calendar" value={value} onChange={setValue} calendarId={calendarId} />
           </CalendarComponentWrapper>
 
           {/* Fix this with a map */}

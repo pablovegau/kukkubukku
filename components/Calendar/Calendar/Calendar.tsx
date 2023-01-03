@@ -2,7 +2,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { useCalendarState } from '@react-stately/calendar'
 import { useCalendar } from '@react-aria/calendar'
@@ -14,10 +14,25 @@ import { CalendarGrid } from '../CalendarGrid'
 import { Button } from '../Button'
 import { Icon } from '../../Icon'
 import { Header, Month } from '../styles'
+import { getCalendarEventsBetweenDates } from 'services/db/calendar/read'
 
 const ICON_SIZE = 24
 
+// TODO: move this to a utils file?
+function getDaysWithEvents(events: any) {
+  const daysWithEventsRaw = events?.data?.map((event: any) => event.scheduleAt.slice(0, 10))
+  const daysWithEventsSet = new Set(daysWithEventsRaw)
+  const daysWithEvents = Array.from(daysWithEventsSet)
+
+  return daysWithEvents
+}
+
 export function Calendar(props: any) {
+  const { calendarId } = props
+
+  const [events, setEvents] = useState()
+  const [startDate, setStartDate] = useState<Date>()
+  const [endDate, setEndDate] = useState<Date>()
   const { locale } = useLocale()
   const state = useCalendarState({
     ...props,
@@ -27,10 +42,34 @@ export function Calendar(props: any) {
   const ref = useRef()
   const { calendarProps, prevButtonProps, nextButtonProps, title } = useCalendar(props, state, ref)
 
+  function updateRangeDates() {
+    setStartDate(state.visibleRange.start)
+    setEndDate(state.visibleRange.end)
+  }
+
+  async function getMonthEvents() {
+    if (!calendarId) return
+
+    return await getCalendarEventsBetweenDates(calendarId, startDate, endDate)
+  }
+
+  // TODO: Check why this is rerender constantly, seems a problem with the state
+  useEffect(() => {
+    getMonthEvents().then((events) => {
+      setEvents(getDaysWithEvents(events))
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [startDate, endDate, calendarId])
+
+  useEffect(() => {
+    updateRangeDates()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <div {...calendarProps} ref={ref}>
       <Header>
-        <Button {...prevButtonProps}>
+        <Button {...prevButtonProps} onClick={updateRangeDates}>
           <Icon
             type={Icon.TYPE.LEFT_ARROW}
             size={ICON_SIZE}
@@ -39,7 +78,7 @@ export function Calendar(props: any) {
           />
         </Button>
         <Month>{title}</Month>
-        <Button {...nextButtonProps}>
+        <Button {...nextButtonProps} onClick={updateRangeDates}>
           <Icon
             type={Icon.TYPE.RIGHT_ARROW}
             size={ICON_SIZE}
@@ -48,7 +87,7 @@ export function Calendar(props: any) {
           />
         </Button>
       </Header>
-      <CalendarGrid state={state} />
+      <CalendarGrid state={state} calendarId={calendarId} events={events} />
     </div>
   )
 }

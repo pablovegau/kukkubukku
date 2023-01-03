@@ -6,10 +6,12 @@ import { useCalendarGrid } from '@react-aria/calendar'
 import { getWeeksInMonth } from '@internationalized/date'
 import { useLocale } from '@react-aria/i18n'
 import { CalendarCell } from '../CalendarCell'
+import { calendarDateToTimestamp } from 'utils/dates'
 
 import { HeadCell } from '../styles'
 
 export function CalendarGrid({ state, ...props }: any) {
+  const { events } = props
   const { locale } = useLocale()
   const { gridProps, headerProps, weekDays } = useCalendarGrid(props, state)
 
@@ -30,9 +32,12 @@ export function CalendarGrid({ state, ...props }: any) {
       <tbody>
         {[...new Array(weeksInMonth).keys()].map((weekIndex) => (
           <tr key={weekIndex}>
-            {state
-              .getDatesInWeek(weekIndex)
-              .map((date, i) => (date ? <CalendarCell key={i} state={state} date={date} /> : <td key={i} />))}
+            {state.getDatesInWeek(weekIndex).map((date, i) => {
+              const timeStampDate = calendarDateToTimestamp(date).slice(0, 10)
+              const hasEvent = events?.includes(timeStampDate)
+
+              return date ? <CalendarCell key={i} state={state} date={date} hasEvent={hasEvent} /> : <td key={i} />
+            })}
           </tr>
         ))}
       </tbody>

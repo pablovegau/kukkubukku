@@ -30,12 +30,13 @@ export const HeadCell = styled.div`
 
 interface BodyCellProps {
   isSelected?: boolean
+  hasEvent?: boolean
 }
 
 export const BodyCell = styled.div<BodyCellProps>`
   height: 33px;
   border-radius: 50%;
-  padding-top: 1px;
+  background-color: ${(p) => p.hasEvent && 'var(--kkbk--base-color--quartenary--light)'};
   background-color: ${(p) => p.isSelected && 'var(--kkbk--color--emphasis--secondary)'};
   color: ${(p) => (p.isSelected ? 'var(--kkbk--base-color--gray--90)' : 'var(--kkbk--color--text--primary)')};
   line-height: 33px;
