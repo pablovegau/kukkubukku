@@ -3,7 +3,7 @@
 
 import { supabase } from 'provider/supabaseClient'
 import { TABLE_NAMES } from '../constants'
-import { getCalendarEventsBetweenDatesDatabase, getCalendarIdDatabase } from '../calendar/read'
+import { getCalendarEventsBetweenDates, getCalendarId } from '../calendar/read'
 import {
   getIngredientByIdDatabase,
   getMeasurementByIdDatabase,
@@ -32,8 +32,8 @@ export async function createShoppingListDatabase(userId: string, name: string, v
   const { data: shoppingList } = await insertShoppingListDatabase(userId, name)
 
   // Get calendar events
-  const { data: calendarId } = await getCalendarIdDatabase(userId)
-  const { data: calendarEvents } = await getCalendarEventsBetweenDatesDatabase(calendarId.id, value.start, value.end)
+  const { data: calendarId } = await getCalendarId(userId)
+  const { data: calendarEvents } = await getCalendarEventsBetweenDates(calendarId.id, value.start, value.end)
 
   // Get ingredients
   async function getRecipeIngredients(recipeId: any, diners: number) {
