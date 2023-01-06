@@ -30,7 +30,7 @@ export const InputWrapperGroup = styled.div`
   margin-left: calc(var(--kkbk--spacing--32) * -1);
   margin-right: calc(var(--kkbk--spacing--32) * -1);
   padding: var(--kkbk--spacing--32);
-  background-color: var(--kkbk--base-color--gray--2);
+  background-color: var(--kkbk--color--background--group);
 
   button {
     margin-right: 0;

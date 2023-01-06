@@ -40,9 +40,9 @@ export const GlobalStyles = createGlobalStyle`
   /*
     7. Remove built-in form typography styles
   */
-  /* input, button, textarea, select {
+  input, button, textarea, select {
     font: inherit;
-  } */
+  }
   /*
     8. Avoid text overflows
   */
@@ -64,6 +64,7 @@ export const GlobalStyles = createGlobalStyle`
   ${theme}
 
   body {
+    background-color: var(--kkbk--color--background--app);
     font-family: var(--kkbk--font--base);
     ${typography.text.base};
   }

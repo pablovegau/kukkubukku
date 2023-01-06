@@ -101,17 +101,23 @@ export const colorsValues = {
   COLOR: {
     BACKGROUND: {
       APP: {
-        LIGHT: grayColors.white,
-        DARK: grayColors.black80,
+        LIGHT: baseColorsValues.BASE_COLOR.GRAY.WHITE,
+        DARK: baseColorsValues.BASE_COLOR.GRAY['80'],
         ALPHA: {},
+      },
+      // This Token is used to set a background on a group of elements
+      // which needs a differentiation from the rest of the page.
+      GROUP: {
+        LIGHT: baseColorsValues.BASE_COLOR.GRAY['2'],
+        DARK: baseColorsValues.BASE_COLOR.GRAY['70'],
       },
     },
     TEXT: {
       PRIMARY: {
         LIGHT: baseColorsValues.BASE_COLOR.GRAY['90'],
-        DARK: baseColorsValues.BASE_COLOR.GRAY.WHITE,
+        DARK: baseColorsValues.BASE_COLOR.GRAY['5'],
         INVERTED: {
-          LIGHT: baseColorsValues.BASE_COLOR.GRAY.WHITE,
+          LIGHT: baseColorsValues.BASE_COLOR.GRAY['5'],
           DARK: baseColorsValues.BASE_COLOR.GRAY['90'],
         },
       },

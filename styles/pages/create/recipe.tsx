@@ -13,6 +13,7 @@ export const Form = styled.form`
 export const InputRadioWrapper = styled.div`
   display: flex;
   margin-bottom: var(--kkbk--spacing--32);
+  color: var(--kkbk--color--text--primary);
 
   div:not(:last-child) {
     margin-right: var(--kkbk--spacing--16);

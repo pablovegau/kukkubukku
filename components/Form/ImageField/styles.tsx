@@ -5,10 +5,12 @@ export const InputFile = styled.input`
   height: 40px;
   border: 2px solid transparent;
   border-radius: var(--kkbk--spacing--4);
+  color: var(--kkbk--color--text--primary);
   font-family: var(--kkbk--font--base);
 
   ${typography.text.small}
 
+  // This is like a button style, transform the Button style in a mixin and used it here
   &::file-selector-button {
     height: 100%;
     margin-right: var(--kkbk--spacing--16);
