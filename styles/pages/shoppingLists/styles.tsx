@@ -32,6 +32,7 @@ export const List = styled.ul`
 export const ListItem = styled.li`
   display: flex;
   align-items: start;
+  color: var(--kkbk--color--text--primary);
 `
 
 // TODO: create a component for this

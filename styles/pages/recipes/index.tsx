@@ -73,8 +73,9 @@ export const IngredientsSection = styled.section`
 `
 
 export const Ingredients = styled.ul`
-  list-style-type: none;
   padding: 0;
+  list-style-type: none;
+  color: var(--kkbk--color--text--primary);
 `
 
 export const Ingredient = styled.li`
@@ -88,10 +89,12 @@ export const IngredientName = styled.span`
 `
 
 export const IngredientAmount = styled.span`
+  color: var(--kkbk--color--text--dim);
   font-weight: 300;
 `
 
 export const IngredientMeasurement = styled.span`
+  color: var(--kkbk--color--text--dim);
   font-weight: 300;
 `
 

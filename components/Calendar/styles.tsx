@@ -36,9 +36,9 @@ interface BodyCellProps {
 export const BodyCell = styled.div<BodyCellProps>`
   height: 33px;
   border-radius: 50%;
-  background-color: ${(p) => p.hasEvent && 'var(--kkbk--base-color--quartenary--light)'};
-  background-color: ${(p) => p.isSelected && 'var(--kkbk--color--emphasis--secondary)'};
-  color: ${(p) => (p.isSelected ? 'var(--kkbk--base-color--gray--90)' : 'var(--kkbk--color--text--primary)')};
+  background-color: ${(p) => p.hasEvent && 'var(--kkbk--component--color--background--calendar--with-data)'};
+  background-color: ${(p) => p.isSelected && 'var(--kkbk--component--color--background--calendar--selected)'};
+  color: ${(p) => (p.hasEvent ? 'var(--kkbk--base-color--gray--90)' : 'var(--kkbk--color--text--primary)')};
   line-height: 33px;
   text-align: center;
   cursor: default;

@@ -21,6 +21,7 @@ export const MenuOfTheDay = styled.div``
 
 export const MealTitle = styled.h2`
   margin-bottom: var(--kkbk--spacing--16);
+  color: var(--kkbk--color--text--primary);
   ${typography.text.bold.medium}
 `
 

@@ -230,12 +230,16 @@ export const componentColorsValues = {
         },
         CALENDAR: {
           SELECTED: {
-            LIGHT: baseColorsValues.BASE_COLOR.SECONDARY.DARK,
-            DARK: baseColorsValues.BASE_COLOR.SECONDARY.LIGHT,
+            LIGHT: baseColorsValues.BASE_COLOR.PRIMARY.MAIN,
+            DARK: baseColorsValues.BASE_COLOR.PRIMARY.DARK,
           },
           HOVER: {
-            LIGHT: baseColorsValues.BASE_COLOR.TERCIARY.LIGHT,
-            DARK: baseColorsValues.BASE_COLOR.TERCIARY.LIGHT,
+            LIGHT: baseColorsValues.BASE_COLOR.PRIMARY.LIGHT,
+            DARK: baseColorsValues.BASE_COLOR.PRIMARY.LIGHT,
+          },
+          WITH_DATA: {
+            LIGHT: baseColorsValues.BASE_COLOR.QUARTENARY.LIGHT,
+            DARK: baseColorsValues.BASE_COLOR.QUARTENARY.LIGHT,
           },
         },
         THEME_SWITCH: {

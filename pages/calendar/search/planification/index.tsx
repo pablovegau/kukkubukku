@@ -91,6 +91,7 @@ const ListItem = styled.div`
   padding: var(--kkbk--spacing--16);
   border-radius: var(--kkbk--spacing--4);
   background-color: var(--kkbk--base-color--secondary--alpha--20);
+  color: var(--kkbk--color--text--primary);
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 
