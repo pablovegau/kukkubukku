@@ -8,9 +8,7 @@ interface Values {
   [key: string]: string
 }
 
-// receives a string like 'color.emphasis.primary.light'
-// return the value for this token
-export const useColorToken = (token: string) => {
+export const getColorTokenValue = (token: string) => {
   const tokenArray = token.split('.').map((key) => key.toUpperCase().replace('-', '_'))
 
   let colorToken: Values = allValues
@@ -22,4 +20,10 @@ export const useColorToken = (token: string) => {
   // The final value of colorToken has a ';' at the end
   // the replace function deletes the ';'
   return colorToken.replace(';', '')
+}
+
+// receives a string like 'color.emphasis.primary.light'
+// return the value for this token
+export const useColorToken = (token: string) => {
+  return getColorTokenValue(token)
 }

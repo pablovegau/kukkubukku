@@ -48,7 +48,7 @@ export function AppLayout({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {showHeader && <Header>{Tools && <Tools />}</Header>}
+      {showHeader && <Header auth={auth}>{Tools && <Tools />}</Header>}
 
       <Main showHeader={showHeader} showFooter={showFooter}>
         {children}

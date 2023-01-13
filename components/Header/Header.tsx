@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
@@ -17,10 +18,10 @@ import {
 } from './styles'
 import { MyLink } from 'components/MyLink'
 import { Avatar } from 'components/Avatar'
-import { useAuth } from 'services/auth'
 import { storageBaseUrl } from 'provider/storage/constants'
 
 interface Props {
+  auth?: any
   children: JSX.Element | JSX.Element[]
 }
 
@@ -29,12 +30,11 @@ export const DUMMY_IMAGE = {
   NO_LOGGED: `${storageBaseUrl}avatar-dummy/dummyAvatarNoLogger.png`,
 }
 
-function Header({ children }: Props) {
-  const auth = useAuth()
-  const isUserLoggedIn = auth.user !== null
+function Header({ children, auth }: Props) {
+  const isUserLoggedIn = auth?.user !== null
 
-  const avatarImage = auth.user ? DUMMY_IMAGE.LOGGED : DUMMY_IMAGE.NO_LOGGED
-  const avatarAlt = auth ? 'avatar sesión iniciada' : 'avatar sesión no iniciada'
+  const avatarImage = auth?.user ? DUMMY_IMAGE.LOGGED : DUMMY_IMAGE.NO_LOGGED
+  const avatarAlt = auth?.user ? 'avatar sesión iniciada' : 'avatar sesión no iniciada'
 
   return (
     <Container>
@@ -80,7 +80,7 @@ function Header({ children }: Props) {
         <TemporalSwitchWrapper>
           <ThemeSwitch />
         </TemporalSwitchWrapper>
-        {children}
+        {isUserLoggedIn ? children : null}
         <Link href="/login" passHref legacyBehavior>
           <MyLink>
             <Avatar size="small" src={avatarImage} alternativeText={avatarAlt} />
