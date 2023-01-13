@@ -36,6 +36,10 @@ function CardsCarousel({ cardsData, size = 'small', title }: Props) {
   const [show, setShow] = useState(true)
   const ref = useRef()
 
+  if (!title) {
+    title = 'Recetas sin tags'
+  }
+
   // TODO: Add a event listener to resize the window
   useEffect(() => {
     setShow(window.innerWidth < cardsData.length * 172 + marginOffset)
