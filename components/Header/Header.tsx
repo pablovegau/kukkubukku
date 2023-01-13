@@ -3,7 +3,6 @@
 // @ts-nocheck
 
 import { ThemeSwitch } from 'components/ThemeSwitch'
-import Link from 'next/link'
 import { Logo } from '../Logo'
 
 import {
@@ -39,37 +38,29 @@ function Header({ children, auth }: Props) {
   return (
     <Container>
       <LeftWrapper>
-        <Link href="/" passHref legacyBehavior>
-          <MyLink>
-            <Logo />
-          </MyLink>
-        </Link>
+        <MyLink href="/">
+          <Logo />
+        </MyLink>
 
         {isUserLoggedIn ? (
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Link href="/" passHref legacyBehavior>
-                  <MyLink>
-                    <NavigationMenuMyLink>Recetas</NavigationMenuMyLink>
-                  </MyLink>
-                </Link>
+                <MyLink href="/">
+                  <NavigationMenuMyLink>Recetas</NavigationMenuMyLink>
+                </MyLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link href="/calendar" passHref legacyBehavior>
-                  <MyLink>
-                    <NavigationMenuMyLink>Calendarios</NavigationMenuMyLink>
-                  </MyLink>
-                </Link>
+                <MyLink href="/calendar">
+                  <NavigationMenuMyLink>Calendarios</NavigationMenuMyLink>
+                </MyLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link href="/shoppingLists" passHref legacyBehavior>
-                  <MyLink>
-                    <NavigationMenuMyLink>Listas de la compra</NavigationMenuMyLink>
-                  </MyLink>
-                </Link>
+                <MyLink href="/shoppingLists">
+                  <NavigationMenuMyLink>Listas de la compra</NavigationMenuMyLink>
+                </MyLink>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -81,11 +72,9 @@ function Header({ children, auth }: Props) {
           <ThemeSwitch />
         </TemporalSwitchWrapper>
         {isUserLoggedIn ? children : null}
-        <Link href="/login" passHref legacyBehavior>
-          <MyLink>
-            <Avatar size="small" src={avatarImage} alternativeText={avatarAlt} />
-          </MyLink>
-        </Link>
+        <MyLink href="/login" label="go to log in">
+          <Avatar size="small" src={avatarImage} alternativeText={avatarAlt} />
+        </MyLink>
       </Tools>
     </Container>
   )

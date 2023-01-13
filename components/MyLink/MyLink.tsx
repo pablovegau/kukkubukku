@@ -3,6 +3,7 @@
 // @ts-nocheck
 
 import { forwardRef } from 'react'
+import Link from 'next/link'
 import styled from 'styled-components'
 
 interface ContainerProps {
@@ -18,11 +19,28 @@ const Container = styled.a<ContainerProps>`
   text-decoration: none;
 `
 
-const MyLink = forwardRef<HTMLAnchorElement>(({ onClick, href, children, position }, ref) => {
+const VisuallyHidden = styled.span`
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+`
+
+const MyLink = forwardRef<HTMLAnchorElement>(({ onClick, href, children, position, label }, ref) => {
   return (
-    <Container href={href} onClick={onClick} ref={ref} position={position}>
-      {children}
-    </Container>
+    <Link href={href} passHref legacyBehavior>
+      <Container href={href} onClick={onClick} ref={ref} position={position}>
+        <>
+          {children}
+          {label ? <VisuallyHidden>{label}</VisuallyHidden> : null}
+        </>
+      </Container>
+    </Link>
   )
 })
 

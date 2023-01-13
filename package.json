@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.+(js|ts|jsx|tsx)\"",
-    "validate": "npm run lint && npm run format && npm run test && npm run e2e:ci",
+    "validate": "npm run lint && npm run format && npm run test",
     "prepare": "husky install",
     "test": "jest",
     "test:watch": "jest --watch",

@@ -13,11 +13,12 @@ interface Props {
   navigateTo?: string | { pathname: string; query?: QueryParams }
   onClick?: () => void
   iconType: Icon.TYPE
+  label?: string
 }
 
 const ICON_TYPE = Icon.TYPE
 
-function Tool({ navigateTo, iconType, onClick }: Props) {
+function Tool({ navigateTo, iconType, onClick, label }: Props) {
   const handleOnClick = () => {
     onClick()
   }
@@ -26,7 +27,7 @@ function Tool({ navigateTo, iconType, onClick }: Props) {
     return (
       <Link href={navigateTo} passHref legacyBehavior>
         <MyLink>
-          <Icon type={iconType} size={24} fillColor="--kkbk--color--text--primary" />
+          <Icon type={iconType} label={label} size={24} fillColor="--kkbk--color--text--primary" />
         </MyLink>
       </Link>
     )
@@ -34,7 +35,7 @@ function Tool({ navigateTo, iconType, onClick }: Props) {
 
   return (
     <div onClick={onClick && handleOnClick} role="button">
-      <Icon type={iconType} size={24} fillColor="--kkbk--color--text--primary" />
+      <Icon type={iconType} label={label} size={24} fillColor="--kkbk--color--text--primary" />
     </div>
   )
 }
