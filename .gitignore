@@ -37,3 +37,6 @@ next-env.d.ts
 
 # Recipies generator
 pages/uploader.tsx
+/test-results/
+/playwright-report/
+/playwright/.cache/
