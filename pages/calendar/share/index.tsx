@@ -89,7 +89,7 @@ export default function SharePlanification() {
           />
 
           <RangeCalendarWrapper>
-            <RangeCalendar aria-label="Calendar" value={value} onChange={setValue} />
+            <RangeCalendar aria-label="Calendar" value={value} onChange={setValue} calendarId={calendarId} />
           </RangeCalendarWrapper>
 
           <SubmitButtonWrapper>

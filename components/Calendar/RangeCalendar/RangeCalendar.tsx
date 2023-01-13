@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRangeCalendar } from 'react-aria'
 import { useLocale } from '@react-aria/i18n'
 import { useRangeCalendarState } from 'react-stately'
@@ -10,24 +11,64 @@ import { Button } from '../Button'
 import { CalendarGrid } from '../CalendarGrid'
 import { Header, Month } from '../styles'
 import { Icon } from 'components/Icon'
+import { getCalendarEventsBetweenDates } from 'services/db/calendar/read'
 
 const ICON_SIZE = 24
 
-function RangeCalendar(props) {
+// TODO: move this to a utils file?
+function getDaysWithEvents(events: any) {
+  const daysWithEventsRaw = events?.data?.map((event: any) => event.scheduleAt.slice(0, 10))
+  const daysWithEventsSet = new Set(daysWithEventsRaw)
+  const daysWithEvents = Array.from(daysWithEventsSet)
+
+  return daysWithEvents
+}
+
+function RangeCalendar(props: any) {
+  const { calendarId } = props
+
+  const [events, setEvents] = useState()
+  const [startDate, setStartDate] = useState<Date>()
+  const [endDate, setEndDate] = useState<Date>()
   const { locale } = useLocale()
   const state = useRangeCalendarState({
     ...props,
     locale,
     createCalendar,
   })
-
   const ref = useRef()
   const { calendarProps, prevButtonProps, nextButtonProps, title } = useRangeCalendar(props, state, ref)
+
+  function updateRangeDates() {
+    setStartDate(state.visibleRange.start)
+    setEndDate(state.visibleRange.end)
+  }
+
+  async function getMonthEvents() {
+    if (!calendarId) return
+
+    return await getCalendarEventsBetweenDates(calendarId, startDate, endDate)
+  }
+
+  // TODO: Check why this is rerender constantly, seems a problem with the state
+  useEffect(() => {
+    if (!startDate || !endDate) return
+
+    getMonthEvents().then((events) => {
+      setEvents(getDaysWithEvents(events))
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [startDate, endDate, calendarId])
+
+  useEffect(() => {
+    updateRangeDates()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div {...calendarProps} ref={ref} className="calendar">
       <Header>
-        <Button {...prevButtonProps}>
+        <Button {...prevButtonProps} onClick={updateRangeDates}>
           <Icon
             type={Icon.TYPE.LEFT_ARROW}
             size={ICON_SIZE}
@@ -36,7 +77,7 @@ function RangeCalendar(props) {
           />
         </Button>
         <Month>{title}</Month>
-        <Button {...nextButtonProps}>
+        <Button {...nextButtonProps} onClick={updateRangeDates}>
           <Icon
             type={Icon.TYPE.RIGHT_ARROW}
             size={ICON_SIZE}
@@ -45,8 +86,7 @@ function RangeCalendar(props) {
           />
         </Button>
       </Header>
-      <CalendarGrid state={state} />
-      {/* <div>{state}</div> */}
+      <CalendarGrid state={state} events={events} />
     </div>
   )
 }

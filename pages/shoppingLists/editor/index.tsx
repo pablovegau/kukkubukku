@@ -23,6 +23,7 @@ import { useAuth } from 'services/auth'
 import { useRouter } from 'next/router'
 import { createShoppingListDatabase } from 'provider/db/shoppingList/write'
 import { PagesContainer } from 'styles/pages/sharedStyles'
+import { getCalendarId } from 'services/db/calendar/read'
 
 export default function ShoppingListsEditor() {
   const router = useRouter()
@@ -32,12 +33,22 @@ export default function ShoppingListsEditor() {
     end: today(getLocalTimeZone()),
   })
   const [ingredients, setIngredients] = useState([])
+  const [calendarId, setCalendarId] = useState('')
 
   useEffect(() => {
     getShoppingListIngredientsPreview(calendarDateToTimestamp(value.start), calendarDateToTimestamp(value.end)).then(
       setIngredients,
     )
   }, [value])
+
+  useEffect(() => {
+    if (user) {
+      // TODO: the id comes directly from getCalendarId
+      getCalendarId(user?.id).then(({ data }) => {
+        setCalendarId(data?.id)
+      })
+    }
+  }, [user, value])
 
   async function onSave() {
     const userId = user?.id
@@ -61,7 +72,7 @@ export default function ShoppingListsEditor() {
         <Container>
           <SectionTitle>Intervalo de fechas</SectionTitle>
           <RangeCalendarWrapper>
-            <RangeCalendar aria-label="Calendar" value={value} onChange={setValue} />
+            <RangeCalendar aria-label="Calendar" value={value} onChange={setValue} calendarId={calendarId} />
           </RangeCalendarWrapper>
 
           <IngredientsSection>

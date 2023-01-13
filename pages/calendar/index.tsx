@@ -35,10 +35,6 @@ const Calendar: NextPage = () => {
     }
   }, [auth?.user, auth?.user?.id, value])
 
-  useEffect(() => {
-    console.log('🚀 ~ file: index.tsx:41 ~ events', events)
-  }, [events])
-
   const Tools = () => {
     return (
       <>

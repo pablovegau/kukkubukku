@@ -87,7 +87,7 @@ export function Calendar(props: any) {
           />
         </Button>
       </Header>
-      <CalendarGrid state={state} calendarId={calendarId} events={events} />
+      <CalendarGrid state={state} events={events} />
     </div>
   )
 }
