@@ -216,7 +216,7 @@ export default function CreateRecipe() {
             errors={errors}
             fieldName="diners"
             formErrors={formErrors}
-            label="Numero de personas"
+            label="Número de personas"
             placeholder="1 - 12"
             register={register}
             typeOfMandatory={TextField.TYPE_OF_MANDATORY.MANDATORY}
@@ -315,11 +315,11 @@ export default function CreateRecipe() {
           {/**
            * Publica
            */}
-          <Label htmlFor="">Quieres que tu receta sea pública?</Label>
+          <Label htmlFor="">¿Quieres que tu receta sea pública?</Label>
           <InputRadioWrapper>
             <div>
               <input {...register('isPublic')} type="radio" id="publicTrue" name="isPublic" value="true" checked />
-              <label htmlFor="publicTrue"> Si</label>
+              <label htmlFor="publicTrue"> Sí</label>
             </div>
 
             <div>

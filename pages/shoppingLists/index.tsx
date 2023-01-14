@@ -64,7 +64,7 @@ export default function ShoppingLists() {
   }
 
   if (!shoppingListLoading && !shoppingLists?.length) {
-    content = <NoShoppingLists>Aun no tienes ninguna lista de la compra creada</NoShoppingLists>
+    content = <NoShoppingLists>Aún no tienes ninguna lista de la compra creada</NoShoppingLists>
   }
 
   if (!shoppingListLoading && shoppingLists?.length) {

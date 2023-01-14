@@ -59,7 +59,7 @@ const Calendar: NextPage = () => {
             errors={errors}
             fieldName="diners"
             formErrors={formErrors}
-            label="Numero de personas"
+            label="Número de personas"
             placeholder="1 - 12"
             register={register}
             typeOfMandatory={TextField.TYPE_OF_MANDATORY.MANDATORY}

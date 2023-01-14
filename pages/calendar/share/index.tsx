@@ -75,7 +75,7 @@ export default function SharePlanification() {
             fieldName="planificationName"
             formErrors={formErrors}
             label="Nombre de la planificación"
-            placeholder="e.g. Menu vegano para una semana"
+            placeholder="e.g. Menú vegano para una semana"
             register={register}
             typeOfMandatory={TextField.TYPE_OF_MANDATORY.MANDATORY}
           />
